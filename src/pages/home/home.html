@@ -1,18 +1,41 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>รพ.ศรีนครินทร์</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="openNavDetailsPage()">
+                <ion-icon name="settings"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-2>
+                <b>วอร์ดที่</b>
+            </ion-col>
+            <ion-col col-5>
+                <b>จำนวนเตียงว่าง</b>
+            </ion-col>
+            <ion-col col-5>
+                <b>อัปเดตล่าสุด</b>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let bed of bedsData">
+            <ion-col col-2>
+                <div>{{bed.id}}</div>
+            </ion-col>
+            <ion-col col-5>
+                <div>{{bed.blank}}</div>
+            </ion-col>
+            <ion-col col-5>
+                <div class="time">{{bed.time | date:'dd/MM/yy - hh:mm a '}}</div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

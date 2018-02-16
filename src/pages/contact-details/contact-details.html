@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Contact details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="logo-row">
+    <ion-col item-start>
+      <img class="avatar" style="width:40%;" src="{{picture}}" />
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item>
+      ชื่อ : {{name}}
+    </ion-item>
+    <ion-item>
+      โทรศัพท์ : {{phone}}
+      <ion-icon name="call" (click)="call()" item-end></ion-icon>
+    </ion-item>
+    <ion-item>
+      E-mail : {{email}}
+    </ion-item>
+    <ion-item>
+      เพศ : {{gender}}&emsp;&emsp;งาน : {{type}}
+    </ion-item>
+    <ion-item>
+      ความเชี่ยวชาญ : {{aptitude}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

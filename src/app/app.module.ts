@@ -1,34 +1,66 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { CallNumber } from '@ionic-native/call-number';
 
 import { MyApp } from './app.component';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ContactPage } from '../pages/contact/contact';
+import { BookingPage } from '../pages/booking/booking';
+import { ProfilePage } from '../pages/profile/profile';
+import { BedDetailsPage } from '../pages/bed-details/bed-details';
+import { ContactDetailsPage } from '../pages/contact-details/contact-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+var firebase_config = {
+  apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
+  authDomain: "hospital-bed-kku.firebaseapp.com",
+  databaseURL: "https://hospital-bed-kku.firebaseio.com",
+  projectId: "hospital-bed-kku",
+  storageBucket: "hospital-bed-kku.appspot.com",
+  messagingSenderId: "487459412590"
+};
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     HomePage,
-    ListPage
+    ContactPage,
+    BookingPage,
+    ProfilePage,
+    BedDetailsPage,
+    ContactDetailsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { scrollAssist: false, autoFocusAssist: false }),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebase_config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HomePage,
-    ListPage
+    ContactPage,
+    BookingPage,
+    ProfilePage,
+    BedDetailsPage,
+    ContactDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    CallNumber,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

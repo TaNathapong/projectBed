@@ -1,0 +1,17 @@
+page-contact-details 
+{
+    .logo-row {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+    ion-row {
+        align-items: center;
+        text-align: center;
+      }
+
+      .avatar{
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+      }
+}

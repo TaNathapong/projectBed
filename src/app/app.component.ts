@@ -2,9 +2,16 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ContactPage } from '../pages/contact/contact';
+import { BookingPage } from '../pages/booking/booking';
+import { ProfilePage } from '../pages/profile/profile';
+import { Profile } from '../models/profile';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,17 +19,19 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  profileData: Observable<Profile>
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  pages: Array<{ title: string, component: any }>;
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Bed Management', component: HomePage },
+      { title: 'Contact', component: ContactPage },
+      { title: 'Booking', component: BookingPage }
     ];
 
   }
@@ -34,11 +43,27 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+    this.afAuth.authState.subscribe(data => {
+      if (data && data.email && data.uid) {
+        this.profileData = this.afDB.object<Profile>(`profiles/${data.uid}`).valueChanges();
+      }
+    });
   }
 
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
+    this.profileData = null;
+    this.nav.setRoot(LoginPage);
+  }
+
+  profilePage() {
+    this.nav.setRoot(ProfilePage);
   }
 }

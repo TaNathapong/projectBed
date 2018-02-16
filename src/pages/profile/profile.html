@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input [(ngModel)]="profile.username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>First Name</ion-label>
+    <ion-input [(ngModel)]="profile.firstname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Last Name</ion-label>
+    <ion-input [(ngModel)]="profile.lastname"></ion-input>
+  </ion-item>
+
+  <button ion-button medium (click)="createProfile()" full>Create Profile</button>
+
+</ion-content>
