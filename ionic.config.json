@@ -1,0 +1,8 @@
+{
+  "name": "projectBed",
+  "app_id": "2e9ae595",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
