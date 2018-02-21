@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>profile</ion-title>
+    <ion-title>ข้อมูลส่วนตัว</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -21,7 +21,11 @@
     <ion-label floating>Last Name</ion-label>
     <ion-input [(ngModel)]="profile.lastname"></ion-input>
   </ion-item>
+  <ion-item>
+    <ion-label floating>Ward</ion-label>
+    <ion-input [(ngModel)]="profile.ward"></ion-input>
+  </ion-item>
 
-  <button ion-button medium (click)="createProfile()" full>Create Profile</button>
+  <button ion-button class="submit" (click)="createProfile()" round full>Create Profile</button>
 
 </ion-content>

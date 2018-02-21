@@ -25741,7 +25741,7 @@ page-login .login-content {
 
 page-login .login-content .logo-row {
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 25px;
 }
 
 page-login .login-content ion-row {
@@ -25769,4 +25769,8 @@ page-login .login-content .item-inner {
 
 page-login .login-content .submit-btn {
   border-radius: 5px !important;
+}
+
+page-profile .submit {
+  margin-top: 25px;
 }

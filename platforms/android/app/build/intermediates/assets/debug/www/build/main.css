@@ -25686,19 +25686,15 @@ ion-navbar.toolbar {
 
 page-bed-details ion-grid {
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 page-bed-details .col {
-  margin-bottom: 4px;
   border-bottom: solid 1px lightgrey;
 }
 
 page-bed-details .add {
-  background-color: transparent;
   color: #488aff;
-  font-size: 15px;
-  text-align: center;
 }
 
 page-contact-details .logo-row {
@@ -25720,16 +25716,11 @@ page-contact-details .avatar {
 
 page-home ion-grid {
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 page-home .col {
-  margin-bottom: 4px;
   border-bottom: solid 1px lightgrey;
-}
-
-page-home .time {
-  font-size: 13px;
 }
 
 page-login .login-content {
@@ -25741,7 +25732,7 @@ page-login .login-content {
 
 page-login .login-content .logo-row {
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 25px;
 }
 
 page-login .login-content ion-row {
@@ -25769,4 +25760,8 @@ page-login .login-content .item-inner {
 
 page-login .login-content .submit-btn {
   border-radius: 5px !important;
+}
+
+page-profile .submit {
+  margin-top: 25px;
 }

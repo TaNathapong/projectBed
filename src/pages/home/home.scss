@@ -1,15 +1,10 @@
 page-home {
     ion-grid {
         text-align: center;
-        font-size: 14px
+        font-size: 15px;
     }
     
     .col {
-        margin-bottom: 4px;
         border-bottom: solid 1px lightgrey;
-    }
-
-    .time {
-        font-size: 13px;
     }
 }

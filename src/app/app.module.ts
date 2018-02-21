@@ -2,12 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { CallNumber } from '@ionic-native/call-number';
+import { Calendar } from '@ionic-native/calendar';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
-import { BookingPage } from '../pages/booking/booking';
+import { CalendarPage } from '../pages/calendar/calendar';
 import { ProfilePage } from '../pages/profile/profile';
 import { BedDetailsPage } from '../pages/bed-details/bed-details';
 import { ContactDetailsPage } from '../pages/contact-details/contact-details';
@@ -17,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { NgCalendarModule } from 'ionic2-calendar';
 
 var firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
@@ -33,7 +35,7 @@ var firebase_config = {
     LoginPage,
     HomePage,
     ContactPage,
-    BookingPage,
+    CalendarPage,
     ProfilePage,
     BedDetailsPage,
     ContactDetailsPage
@@ -41,6 +43,7 @@ var firebase_config = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, { scrollAssist: false, autoFocusAssist: false }),
+    NgCalendarModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebase_config)
@@ -51,7 +54,7 @@ var firebase_config = {
     LoginPage,
     HomePage,
     ContactPage,
-    BookingPage,
+    CalendarPage,
     ProfilePage,
     BedDetailsPage,
     ContactDetailsPage
@@ -60,6 +63,7 @@ var firebase_config = {
     StatusBar,
     SplashScreen,
     CallNumber,
+    Calendar,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

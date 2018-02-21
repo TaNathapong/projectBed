@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
         <ion-title>จัดการเตียงผู้ป่วย</ion-title>
     </ion-navbar>
 </ion-header>
@@ -17,16 +17,39 @@
                 <b>เพิ่มผู้ป่วยเข้าสู่เตียง</b>
             </ion-col>
         </ion-row>
-        <ion-row *ngFor="let bed of bedsData">
-            <ion-col col-2>
-                <div>{{bed.id}}</div>
-            </ion-col>
-            <ion-col col-5>
-                <div>{{bed.blank}}</div>
-            </ion-col>
-            <ion-col col-5>
-                <button class="add" (click)="updateBed(bed)">เพิ่มผู้ป่วย</button>
-            </ion-col>
-        </ion-row>
+        <div *ngIf="profileData.ward == 000">
+            <div *ngFor="let bed of bedsData">
+                <ion-row>
+                    <ion-col col-2>
+                        <div>{{bed.id}}</div>
+                    </ion-col>
+                    <ion-col col-5>
+                        <div>{{bed.blank}}</div>
+                    </ion-col>
+                    <ion-col col-5>
+                        <div (click)="updateBed(bed)">
+                            <b class="add">เพิ่มผู้ป่วย</b>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </div>
+        <div *ngIf="profileData.ward != 000">
+            <div *ngFor="let bed of bedsData">
+                <div *ngIf="bed.id == profileData.ward">
+                    <ion-row>
+                        <ion-col col-2>
+                            <div>{{bed.id}}</div>
+                        </ion-col>
+                        <ion-col col-5>
+                            <div>{{bed.blank}}</div>
+                        </ion-col>
+                        <div (click)="updateBed(bed)">
+                            <b class="add">เพิ่มผู้ป่วย</b>
+                        </div>
+                    </ion-row>
+                </div>
+            </div>
+        </div>
     </ion-grid>
 </ion-content>

@@ -9,16 +9,13 @@ import { BedDetailsPage } from '../bed-details/bed-details';
     templateUrl: 'home.html'
 })
 export class HomePage {
-    // time = "13:47:00";
     bedsData = []
 
     constructor(public navCtrl: NavController, private afDB: AngularFireDatabase) {
-
         this.afDB.list("/beds/").valueChanges().subscribe(_data => {
             this.bedsData = _data;
             console.log(this.bedsData);
         });
-
     }
 
     ionViewDidLoad() {

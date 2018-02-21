@@ -4,8 +4,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 
-import { HomePage } from '../home/home';
-
 @IonicPage()
 @Component({
   selector: 'page-bed-details',
@@ -14,35 +12,29 @@ import { HomePage } from '../home/home';
 
 export class BedDetailsPage {
 
-  bedsData = []
+  bedsData = [];
+  profileData = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
+  }
+
+  ionViewDidLoad() {
     this.afAuth.authState.subscribe(data => {
-      if (data.uid == "7ghwQ6hxxcdVNlYx8EYF5k3mvWz2") {
+      if (data && data.email && data.uid) {
+
         this.afDB.list("/beds/").valueChanges().subscribe(_data => {
           this.bedsData = _data;
           console.log(this.bedsData);
         });
-      } else {
-        this.bedsData = null;
+
+        this.afDB.object(`profiles/${data.uid}`).valueChanges().subscribe(_data => {
+          this.profileData = _data;
+          console.log(this.profileData);
+        });
+
       }
-    })
-  }
-
-  ionViewDidLoad() {
+    });
     console.log('ionViewDidLoad BedDetailsPage');
-  }
-
-  goHome() {
-    this.navCtrl.setRoot(HomePage);
-  }
-
-  updatePerson(firstName: string, lastName: string): void {
-    const personRef: firebase.database.Reference = firebase.database().ref(`/person1/`);
-    personRef.update({
-      firstName,
-      lastName
-    })
   }
 
   updateBed(bed) {

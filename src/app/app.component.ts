@@ -8,7 +8,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
-import { BookingPage } from '../pages/booking/booking';
+import { CalendarPage } from '../pages/calendar/calendar';
 import { ProfilePage } from '../pages/profile/profile';
 import { Profile } from '../models/profile';
 import { Observable } from 'rxjs/Observable';
@@ -31,7 +31,7 @@ export class MyApp {
     this.pages = [
       { title: 'Bed Management', component: HomePage },
       { title: 'Contact', component: ContactPage },
-      { title: 'Booking', component: BookingPage }
+      { title: 'Calendar', component: CalendarPage }
     ];
 
   }

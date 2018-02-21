@@ -35,6 +35,26 @@
             {
               "xml": "<feature name=\"CallNumber\"><param name=\"ios-package\" value=\"CFCallNumber\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Calendar\"><param name=\"ios-package\" value=\"Calendar\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*-Info.plist": {
+        "parents": {
+          "CFBundleLocalizations": [
+            {
+              "xml": "<array><string>en</string><string>de</string><string>nl</string><string>fr</string><string>it</string></array>",
+              "count": 1
+            }
+          ],
+          "NSCalendarsUsageDescription": [
+            {
+              "xml": "<string> </string>",
+              "count": 1
             }
           ]
         }
@@ -58,6 +78,10 @@
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "mx.ferreyra.callnumber": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-calendar": {
+      "CALENDAR_USAGE_DESCRIPTION": " ",
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
@@ -102,6 +126,14 @@
       "clobbers": [
         "call"
       ]
+    },
+    {
+      "id": "cordova-plugin-calendar.Calendar",
+      "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
+      "pluginId": "cordova-plugin-calendar",
+      "clobbers": [
+        "Calendar"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -110,6 +142,7 @@
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-ionic-webview": "1.1.16",
     "cordova-plugin-ionic-keyboard": "2.0.5",
-    "mx.ferreyra.callnumber": "0.0.2"
+    "mx.ferreyra.callnumber": "0.0.2",
+    "cordova-plugin-calendar": "5.0.0"
   }
 }
