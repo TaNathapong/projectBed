@@ -1,4 +1,4 @@
-#Wed Feb 21 12:31:48 ICT 2018
+#Wed Feb 21 13:59:49 ICT 2018
 base.0=/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
 file.0=/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex
