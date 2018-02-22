@@ -25723,6 +25723,10 @@ page-home .col {
   border-bottom: solid 1px lightgrey;
 }
 
+page-home .time {
+  font-size: 14px;
+}
+
 page-login .login-content {
   background-image: url("../assets/imgs/1.jpg") !important;
   background-color: #2a74d4;
