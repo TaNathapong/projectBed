@@ -16,7 +16,7 @@
     <ion-grid>
         <ion-row>
             <ion-col col-2>
-                <b>วอร์ดที่</b>
+                <b>วอร์ด</b>
             </ion-col>
             <ion-col col-5>
                 <b>จำนวนเตียงว่าง</b>
@@ -27,13 +27,13 @@
         </ion-row>
         <ion-row *ngFor="let bed of bedsData">
             <ion-col col-2>
-                <div>{{bed.id}}</div>
+                <div>{{bed.name}}</div>
             </ion-col>
             <ion-col col-5>
                 <div>{{bed.blank}}</div>
             </ion-col>
             <ion-col col-5>
-                <div class="time">{{bed.time | date:'dd/MM/yy - hh:mm a '}}</div>
+                <div class="time">{{bed.time | date:'dd/MM/yy - hh:mm a'}}</div>
             </ion-col>
         </ion-row>
     </ion-grid>

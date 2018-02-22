@@ -6,52 +6,66 @@
 
 <ion-content>
     <ion-grid>
-        <ion-row>
-            <ion-col col-2>
-                <b>วอร์ดที่</b>
-            </ion-col>
-            <ion-col col-5>
-                <b>จำนวนเตียงที่ว่าง</b>
-            </ion-col>
-            <ion-col col-5>
-                <b>เพิ่มผู้ป่วยเข้าเตียง</b>
-            </ion-col>
-        </ion-row>
-        <div *ngIf="profileData.ward == 000">
+
+        <div *ngIf="profileData.ward == admin">
+            <ion-row>
+                <ion-col col-2>
+                    <b>วอร์ด</b>
+                </ion-col>
+                <ion-col col-5>
+                    <b>จำนวนเตียงว่าง</b>
+                </ion-col>
+                <ion-col col-5>
+                    <b>เพิ่มผู้ป่วยเข้าเตียง</b>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngFor="let bed of bedsData">
+                <ion-col col-2>
+                    <div>{{bed.name}}</div>
+                </ion-col>
+                <ion-col col-5>
+                    <div>{{bed.blank}}</div>
+                </ion-col>
+                <ion-col col-5>
+                    <div (click)="addBed(bed)">
+                        <b class="add">
+                            <ion-icon name="add-circle"> เพิ่มผู้ป่วย</ion-icon>
+                        </b>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+
+        <div *ngIf="profileData.ward != admin">
+            <ion-row>
+                <ion-col col-2>
+                    <b>วอร์ด</b>
+                </ion-col>
+                <ion-col col-5>
+                    <b>จำนวนเตียงว่าง</b>
+                </ion-col>
+                <ion-col col-5>
+                    <b>แก้ไขจำนวนเตียง</b>
+                </ion-col>
+            </ion-row>
             <div *ngFor="let bed of bedsData">
-                <ion-row>
+                <ion-row *ngIf="bed.name == profileData.ward">
                     <ion-col col-2>
-                        <div>{{bed.id}}</div>
+                        <div>{{bed.name}}</div>
                     </ion-col>
                     <ion-col col-5>
                         <div>{{bed.blank}}</div>
                     </ion-col>
                     <ion-col col-5>
                         <div (click)="updateBed(bed)">
-                            <b class="add">เพิ่มผู้ป่วย</b>
+                            <b class="add">
+                                <ion-icon name="add-circle"> ปรับจำนวนเตียง</ion-icon>
+                            </b>
                         </div>
                     </ion-col>
                 </ion-row>
             </div>
         </div>
-        <div *ngIf="profileData.ward != 000">
-            <div *ngFor="let bed of bedsData">
-                <div *ngIf="bed.id == profileData.ward">
-                    <ion-row>
-                        <ion-col col-2>
-                            <div>{{bed.id}}</div>
-                        </ion-col>
-                        <ion-col col-5>
-                            <div>{{bed.blank}}</div>
-                        </ion-col>
-                        <ion-col col-5>
-                            <div (click)="updateBed(bed)">
-                                <b class="add">เพิ่มผู้ป่วย</b>
-                            </div>
-                        </ion-col>
-                    </ion-row>
-                </div>
-            </div>
-        </div>
+
     </ion-grid>
 </ion-content>

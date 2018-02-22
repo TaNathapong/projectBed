@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { CallNumber } from '@ionic-native/call-number';
-import { Calendar } from '@ionic-native/calendar';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -39,6 +38,7 @@ var firebase_config = {
     ProfilePage,
     BedDetailsPage,
     ContactDetailsPage
+
   ],
   imports: [
     BrowserModule,
@@ -63,7 +63,6 @@ var firebase_config = {
     StatusBar,
     SplashScreen,
     CallNumber,
-    Calendar,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

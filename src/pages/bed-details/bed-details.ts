@@ -12,6 +12,7 @@ import * as firebase from 'firebase';
 
 export class BedDetailsPage {
 
+  admin = "Admin";
   bedsData = [];
   profileData = {};
 
@@ -22,7 +23,7 @@ export class BedDetailsPage {
     this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
 
-        this.afDB.list("/beds/").valueChanges().subscribe(_data => {
+        this.afDB.list("/wards/").valueChanges().subscribe(_data => {
           this.bedsData = _data;
           console.log(this.bedsData);
         });
@@ -51,7 +52,7 @@ export class BedDetailsPage {
         {
           text: 'บันทึก',
           handler: data => {
-            this.afDB.object('/beds/' + bed.id)
+            this.afDB.object('/wards/' + bed.id)
               .update({
                 blank: data.blank,
                 time: firebase.database.ServerValue.TIMESTAMP
@@ -70,4 +71,41 @@ export class BedDetailsPage {
     prompt.present();
   }
 
+  addBed(bed) {
+    if (bed.blank > 0) {
+      let confirm = this.alertCtrl.create({
+        title: `ยืนยันการเพิ่มคนไข้ ?`,
+        message: `คุณต้องการยืนยันการเพิ่มคนไข้เข้าสู่วอร์ด ${bed.id}`,
+        buttons: [
+          {
+            text: 'ยกเลิก',
+            handler: () => {
+              console.log('Cancel');
+            }
+          },
+          {
+            text: 'ยืนยัน',
+
+            handler: () => {
+              this.afDB.object('/wards/' + bed.id)
+                .update({
+                  blank: bed.blank - 1,
+                  time: firebase.database.ServerValue.TIMESTAMP
+                });
+              console.log('Save complete');
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
+    else {
+      let alert = this.alertCtrl.create({
+        title: 'รายการไม่ถูกต้อง !!!',
+        subTitle: `ไม่สามารถเพิ่มคนไข้เข้าสู่วอร์ด ${bed.id} ได้เนื่องจากไม่มีเตียงผู้ป่วยที่ว่างในขณะนี้`,
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+  }
 }

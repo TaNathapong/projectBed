@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, MenuController, ToastController } from 'ionic-angular';
-import { User } from "../../models/user";
 import { AngularFireAuth } from 'angularfire2/auth';
+
+import { User } from "../../models/user";
 import { HomePage } from '../home/home';
+
 @IonicPage()
 @Component({
     selector: 'page-login',

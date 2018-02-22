@@ -12,7 +12,7 @@ export class HomePage {
     bedsData = []
 
     constructor(public navCtrl: NavController, private afDB: AngularFireDatabase) {
-        this.afDB.list("/beds/").valueChanges().subscribe(_data => {
+        this.afDB.list("/wards/").valueChanges().subscribe(_data => {
             this.bedsData = _data;
             console.log(this.bedsData);
         });
