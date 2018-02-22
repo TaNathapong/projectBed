@@ -36,9 +36,6 @@
     <feature name="CallNumber">
         <param name="ios-package" value="CFCallNumber" />
     </feature>
-    <feature name="Calendar">
-        <param name="ios-package" value="Calendar" />
-    </feature>
     <name>projectBed</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>

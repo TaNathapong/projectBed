@@ -24,9 +24,6 @@
     },
     "mx.ferreyra.callnumber": {
       "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-calendar": {
-      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {}

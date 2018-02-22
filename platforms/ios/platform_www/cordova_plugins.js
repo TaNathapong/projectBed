@@ -39,14 +39,6 @@ module.exports = [
     "clobbers": [
       "call"
     ]
-  },
-  {
-    "id": "cordova-plugin-calendar.Calendar",
-    "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
-    "pluginId": "cordova-plugin-calendar",
-    "clobbers": [
-      "Calendar"
-    ]
   }
 ];
 module.exports.metadata = 
@@ -57,8 +49,7 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-ionic-webview": "1.1.16",
   "cordova-plugin-ionic-keyboard": "2.0.5",
-  "mx.ferreyra.callnumber": "0.0.2",
-  "cordova-plugin-calendar": "5.0.0"
+  "mx.ferreyra.callnumber": "0.0.2"
 };
 // BOTTOM OF METADATA
 });

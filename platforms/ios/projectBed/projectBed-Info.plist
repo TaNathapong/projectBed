@@ -63,13 +63,7 @@
     <key>UILaunchStoryboardName</key>
     <string>CDVLaunchScreen</string>
     <key>CFBundleLocalizations</key>
-    <array>
-      <string>en</string>
-      <string>de</string>
-      <string>nl</string>
-      <string>fr</string>
-      <string>it</string>
-    </array>
+    <array/>
     <key>NSCalendarsUsageDescription</key>
     <string/>
   </dict>
