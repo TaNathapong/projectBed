@@ -1,13 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
 MERGED from [:CordovaLib] /Users/nathapong/ionic/projectBed/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
 	package
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:98-124
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
@@ -96,11 +96,3 @@ ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/Andr
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:15:61-85
 	android:name
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:15:19-60
-uses-permission#android.permission.READ_CALENDAR
-ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:16:5-72
-	android:name
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:16:22-69
-uses-permission#android.permission.WRITE_CALENDAR
-ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:17:5-73
-	android:name
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:17:22-70

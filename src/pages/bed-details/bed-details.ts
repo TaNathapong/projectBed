@@ -75,7 +75,7 @@ export class BedDetailsPage {
     if (bed.blank > 0) {
       let confirm = this.alertCtrl.create({
         title: `ยืนยันการเพิ่มคนไข้ ?`,
-        message: `คุณต้องการยืนยันการเพิ่มคนไข้เข้าสู่วอร์ด ${bed.id}`,
+        message: `คุณต้องการยืนยันการเพิ่มคนไข้เข้าสู่วอร์ด ${bed.name}`,
         buttons: [
           {
             text: 'ยกเลิก',
@@ -102,7 +102,7 @@ export class BedDetailsPage {
     else {
       let alert = this.alertCtrl.create({
         title: 'รายการไม่ถูกต้อง !!!',
-        subTitle: `ไม่สามารถเพิ่มคนไข้เข้าสู่วอร์ด ${bed.id} ได้เนื่องจากไม่มีเตียงผู้ป่วยที่ว่างในขณะนี้`,
+        subTitle: `ไม่สามารถเพิ่มคนไข้เข้าสู่วอร์ด ${bed.name} ได้เนื่องจากไม่มีเตียงผู้ป่วยที่ว่างในขณะนี้`,
         buttons: ['OK']
       });
       alert.present();

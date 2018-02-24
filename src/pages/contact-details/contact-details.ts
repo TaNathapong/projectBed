@@ -29,6 +29,7 @@ export class ContactDetailsPage {
     this.email = this.navParams.get('email');
     this.picture = this.navParams.get('picture');
   }
+
   call(phone) {
     this.callNumber.callNumber(phone, true)
       .then(() => console.log('Launched dialer!'))

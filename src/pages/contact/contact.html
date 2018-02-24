@@ -9,12 +9,13 @@
 
 <ion-content>
   <ion-item-group *ngFor="let contact of contactsData">
-    <ion-item (click)="openNavSubContact(contact)">
-      <ion-avatar item-start>
+    <ion-item>
+      <ion-avatar (click)="openNavSubContact(contact)" item-start>
         <img src="{{contact.picture}}" />
       </ion-avatar>
-      <h2>{{contact.name}}</h2>
-      <p>{{contact.type}} {{contact.aptitude}}</p>
+      <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+      <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+      <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
     </ion-item>
   </ion-item-group>
 </ion-content>

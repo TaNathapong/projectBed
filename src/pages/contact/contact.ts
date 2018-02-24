@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ContactDetailsPage } from '../contact-details/contact-details';
+import { CallNumber } from '@ionic-native/call-number';
 
 @IonicPage()
 @Component({
@@ -11,7 +12,7 @@ import { ContactDetailsPage } from '../contact-details/contact-details';
 export class ContactPage {
   contactsData = []
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private callNumber: CallNumber) {
 
     this.afDB.list("/contacts/").valueChanges().subscribe(_data => {
       this.contactsData = _data;
@@ -36,4 +37,9 @@ export class ContactPage {
     console.log('ionViewDidLoad ContactPage');
   }
 
+  call(phone) {
+    this.callNumber.callNumber(phone, true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
+  }
 }
