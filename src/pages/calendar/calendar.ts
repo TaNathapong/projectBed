@@ -1,5 +1,14 @@
 import { IonicPage, NavController } from 'ionic-angular';
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import 'rxjs/Rx';
+
+interface UserResponse {
+  login: string;
+  bio: string;
+  company: string;
+}
 
 @IonicPage()
 @Component({
@@ -7,9 +16,14 @@ import { Component } from "@angular/core";
   templateUrl: 'calendar.html',
 })
 export class CalendarPage {
-  eventSource;
-  viewTitle;
+  API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
+  CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
+  dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?key=', this.API_KEY].join('');;
 
+  eventSource;
+  dataSource;
+  viewTitle;
+  test: any;
   isToday: boolean;
   calendar = {
     mode: 'month',
@@ -26,7 +40,8 @@ export class CalendarPage {
     }
   };
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, @Inject(Http) private http: Http, private httpClient: HttpClient) {
+    this.loadEvents();
   }
 
   ionViewDidLoad() {
@@ -35,14 +50,53 @@ export class CalendarPage {
 
   loadEvents() {
     this.eventSource = this.createRandomEvents();
+    console.log(this.eventSource);
+  }
+
+  testApp() {
+    this.httpClient.get<UserResponse>('https://api.github.com/users/seeschweiler').subscribe(data => {
+      console.log("User Login: " + data.login);
+      console.log("Bio: " + data.bio);
+      console.log("Company: " + data.company);
+    });
+  }
+
+  getJson() {
+    return this.httpClient.get(this.dataUrl)
+      // .map(res => res.json())
+      ;
+  }
+
+  getDatas() {
+    this.getJson().subscribe(_data => {
+      this.test = _data;
+      console.log(this.test);
+    });
+    return this.test;
+  }
+
+  createDatas() {
+    var data;
+    data = this.getDatas();
+
+    var event = [];
+    event.push({
+      title: this.test.summary,
+      startTime: this.test.start,
+      endTime: this.test.end,
+      allDay: false
+    })
+    console.log(event);
+    return event;
+  }
+
+  loadDatas() {
+    this.dataSource = this.createDatas();
+    console.log(this.dataSource);
   }
 
   onViewTitleChanged(title) {
     this.viewTitle = title;
-  }
-
-  onEventSelected(event) {
-    console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
   }
 
   changeMode(mode) {
@@ -51,11 +105,6 @@ export class CalendarPage {
 
   today() {
     this.calendar.currentDate = new Date();
-  }
-
-  onTimeSelected(ev) {
-    console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
-      (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
   }
 
   onCurrentDateChanged(event: Date) {
@@ -102,13 +151,10 @@ export class CalendarPage {
     return events;
   }
 
-  onRangeChanged(ev) {
-    console.log('range changed: startTime: ' + ev.startTime + ', endTime: ' + ev.endTime);
-  }
-
   markDisabled = (date: Date) => {
     var current = new Date();
     current.setHours(0, 0, 0);
     return date < current;
-  };
+  }
+
 }

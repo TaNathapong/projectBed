@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
+// import { SchedulerPage } from '../pages/scheduler/scheduler';
 import { ProfilePage } from '../pages/profile/profile';
 import { Profile } from '../models/profile';
 

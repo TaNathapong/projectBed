@@ -11,6 +11,7 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { ProfilePage } from '../pages/profile/profile';
 import { BedDetailsPage } from '../pages/bed-details/bed-details';
 import { ContactDetailsPage } from '../pages/contact-details/contact-details';
+import { SchedulerPage } from '../pages/scheduler/scheduler';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,6 +19,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { NgCalendarModule } from 'ionic2-calendar';
+import { DxSchedulerModule } from 'devextreme-angular';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 var firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
@@ -37,8 +41,8 @@ var firebase_config = {
     CalendarPage,
     ProfilePage,
     BedDetailsPage,
-    ContactDetailsPage
-
+    ContactDetailsPage,
+    SchedulerPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,10 @@ var firebase_config = {
     NgCalendarModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(firebase_config)
+    AngularFireModule.initializeApp(firebase_config),
+    DxSchedulerModule,
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,7 +64,8 @@ var firebase_config = {
     CalendarPage,
     ProfilePage,
     BedDetailsPage,
-    ContactDetailsPage
+    ContactDetailsPage,
+    SchedulerPage
   ],
   providers: [
     StatusBar,
@@ -66,4 +74,5 @@ var firebase_config = {
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
+
 export class AppModule { }

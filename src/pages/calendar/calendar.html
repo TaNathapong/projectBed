@@ -6,7 +6,9 @@
         <ion-title>{{viewTitle}}</ion-title>
         <ion-buttons end>
             <button ion-button [disabled]="isToday" (click)="today()">Today</button>
-            <!-- <button ion-button (click)="loadEvents()"></button> -->
+            <!-- <button ion-button (click)="testApp()">Test</button>
+            <button ion-button (click)="createDatas()">Data</button> -->
+
         </ion-buttons>
     </ion-navbar>
     <ion-toolbar color="primary" no-border-top>
@@ -26,7 +28,6 @@
 
 <ion-content class="has-header">
     <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
-        (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)"
-        step="30">
+        (onTitleChanged)="onViewTitleChanged($event)" startHour="7" endHour="20" step="30">
     </calendar>
 </ion-content>
