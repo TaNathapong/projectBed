@@ -193,7 +193,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import { SchedulerPage } from '../pages/scheduler/scheduler';
 
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen, afDB, afAuth) {
@@ -202,7 +201,7 @@ var MyApp = (function () {
         this.splashScreen = splashScreen;
         this.afDB = afDB;
         this.afAuth = afAuth;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_9__pages_calendar_calendar__["a" /* CalendarPage */];
         this.initializeApp();
         this.pages = [
             { title: 'Bed Management', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
@@ -569,51 +568,50 @@ var CalendarPage = (function () {
             current.setHours(0, 0, 0);
             return date < current;
         };
-        this.loadEvents();
     }
     ;
     CalendarPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad CalendarPage');
     };
-    CalendarPage.prototype.loadEvents = function () {
-        this.eventSource = this.createRandomEvents();
-        console.log(this.eventSource);
-    };
-    CalendarPage.prototype.testApp = function () {
-        this.httpClient.get('https://api.github.com/users/seeschweiler').subscribe(function (data) {
-            console.log("User Login: " + data.login);
-            console.log("Bio: " + data.bio);
-            console.log("Company: " + data.company);
-        });
-    };
+    // loadEvents() {
+    //   this.eventSource = this.createRandomEvents();
+    //   console.log(this.eventSource);
+    // }
     CalendarPage.prototype.getJson = function () {
-        return this.httpClient.get(this.dataUrl);
-    };
-    CalendarPage.prototype.getDatas = function () {
         var _this = this;
-        this.getJson().subscribe(function (_data) {
-            _this.test = _data;
-            console.log(_this.test);
+        return this.http.get(this.dataUrl).subscribe(function (_data) {
+            _this.eventSource = _data;
+            // console.log("Summary: " + this.eventSource.items.summary);
+            // console.log("Start: " + this.eventSource.items.start);
+            // console.log("End: " + this.eventSource.items.end);
         });
-        return this.test;
+        // .map(res => res.json())
+        ;
     };
-    CalendarPage.prototype.createDatas = function () {
-        var data;
-        data = this.getDatas();
-        var event = [];
-        event.push({
-            title: this.test.summary,
-            startTime: this.test.start,
-            endTime: this.test.end,
-            allDay: false
-        });
-        console.log(event);
-        return event;
-    };
-    CalendarPage.prototype.loadDatas = function () {
-        this.dataSource = this.createDatas();
-        console.log(this.dataSource);
-    };
+    // getDatas() {
+    //   this.getJson().subscribe(_data => {
+    //     this.test = _data;
+    //     console.log(this.test);
+    //   });
+    //   return this.test;
+    // }
+    // createDatas() {
+    //   var data: any;
+    //   data = this.getDatas();
+    //   var event = [];
+    //   event.push({
+    //     title: data.summary,
+    //     startTime: data.start,
+    //     endTime: data.end,
+    //     allDay: false
+    //   })
+    //   console.log(event);
+    //   return event;
+    // }
+    // loadDatas() {
+    //   this.dataSource = this.createDatas();
+    //   console.log(this.dataSource);
+    // }
     CalendarPage.prototype.onViewTitleChanged = function (title) {
         this.viewTitle = title;
     };
@@ -668,12 +666,13 @@ var CalendarPage = (function () {
     };
     CalendarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n            <!-- <button ion-button (click)="testApp()">Test</button>\n            <button ion-button (click)="createDatas()">Data</button> -->\n\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="Month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="Week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="Day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class="has-header">\n    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"\n        (onTitleChanged)="onViewTitleChanged($event)" startHour="7" endHour="20" step="30">\n    </calendar>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
+            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n            <button ion-button (click)="findAllShows()">Test</button>\n            <button ion-button (click)="getJson()">Data</button>\n\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="Month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="Week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="Day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class="has-header">\n    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"\n        (onTitleChanged)="onViewTitleChanged($event)" startHour="7" endHour="20" step="30">\n    </calendar>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
         }),
         __param(1, Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */])),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
     ], CalendarPage);
     return CalendarPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=calendar.js.map

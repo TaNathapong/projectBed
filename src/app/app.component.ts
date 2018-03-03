@@ -10,7 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
-// import { SchedulerPage } from '../pages/scheduler/scheduler';
+import { SchedulerPage } from '../pages/scheduler/scheduler';
 import { ProfilePage } from '../pages/profile/profile';
 import { Profile } from '../models/profile';
 
@@ -20,9 +20,9 @@ import { Profile } from '../models/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = CalendarPage;
 
-  profileData: Observable<Profile>
+  profileData: Observable<Profile>;
 
   pages: Array<{ title: string, component: any }>;
 
