@@ -1,4 +1,4 @@
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, DateTime } from 'ionic-angular';
 import { Component, Inject } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -18,8 +18,16 @@ export interface IEvent {
 }
 
 export interface Calendar {
-  end: Date;
-  start: Date;
+  start: {
+    date: Date,
+    dateTime: DateTime,
+    timeZone: string
+  },
+  end: {
+    date: Date,
+    dateTime: DateTime,
+    timeZone: string
+  },
   summary: string;
 }
 
@@ -38,7 +46,7 @@ export class CalendarPage {
   dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?key=', this.API_KEY].join('');;
 
   eventSource;
-  dataSource ;
+  dataSource;
   viewTitle;
   isToday: boolean;
   calendar = {
@@ -73,11 +81,6 @@ export class CalendarPage {
       console.log(this.dataSource.summary);
     });
   }
-
-  // test(): Observable<IEvent> {
-  //   this.dataSource = this.eventSource.items.end;
-  //   console.log(this.dataSource);
-  // }
 
   getJson2() {
     this.eventSource = this.http.get(this.dataUrl)
@@ -145,7 +148,7 @@ export class CalendarPage {
 
   createRandomEvents() {
     var events = [];
-    for (var i = 0; i < 50; i += 1) {
+    for (var i = 0; i < 10; i += 1) {
       var date = new Date();
       var eventType = Math.floor(Math.random() * 2);
       var startDay = Math.floor(Math.random() * 90) - 45;
