@@ -2,18 +2,29 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { Component, Inject } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+
 import 'rxjs/Rx';
 
 export interface IEventObj {
-  allDay: boolean;
-  endTime: Date;
-  startTime: Date;
-  title: string;
+  allDay: boolean,
+  endTime: Date,
+  startTime: Date,
+  title: string
 }
 
 export interface IEvent {
-  items: Array<IEventObj>
+  items: IEventObj[]
+}
+
+export interface Calendar {
+  end: Date;
+  start: Date;
+  summary: string;
+}
+
+export interface ObjCalendar {
+  items: Calendar[]
 }
 
 @IonicPage()
@@ -27,7 +38,7 @@ export class CalendarPage {
   dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?key=', this.API_KEY].join('');;
 
   eventSource;
-  dataSource: Observable<IEvent>;
+  dataSource ;
   viewTitle;
   isToday: boolean;
   calendar = {
@@ -53,21 +64,50 @@ export class CalendarPage {
     console.log('ionViewDidLoad CalendarPage');
   }
 
-  // loadEvents() {
-  //   this.eventSource = this.createRandomEvents();
-  //   console.log(this.eventSource);
+  getJson() {
+    return this.httpClient.get<ObjCalendar>(this.dataUrl).subscribe(_data => {
+      this.eventSource = _data.items;
+      console.log(this.eventSource);
+
+      this.dataSource = this.eventSource;
+      console.log(this.dataSource.summary);
+    });
+  }
+
+  // test(): Observable<IEvent> {
+  //   this.dataSource = this.eventSource.items.end;
+  //   console.log(this.dataSource);
   // }
 
-  getJson() {
-    return this.http.get(this.dataUrl).subscribe(_data => {
-      this.eventSource = _data;
+  getJson2() {
+    this.eventSource = this.http.get(this.dataUrl)
+      .map(response => response.json())
+      .subscribe(data => console.log(data.items));
+  }
 
-      // console.log("Summary: " + this.eventSource.items.summary);
-      // console.log("Start: " + this.eventSource.items.start);
-      // console.log("End: " + this.eventSource.items.end);
-    });
-    // .map(res => res.json())
-    ;
+  onViewTitleChanged(title) {
+    this.viewTitle = title;
+  }
+
+  changeMode(mode) {
+    this.calendar.mode = mode;
+  }
+
+  today() {
+    this.calendar.currentDate = new Date();
+  }
+
+  onCurrentDateChanged(event: Date) {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    event.setHours(0, 0, 0, 0);
+    this.isToday = today.getTime() === event.getTime();
+  }
+
+  markDisabled = (date: Date) => {
+    var current = new Date();
+    current.setHours(0, 0, 0);
+    return date < current;
   }
 
   // getDatas() {
@@ -98,29 +138,9 @@ export class CalendarPage {
   //   console.log(this.dataSource);
   // }
 
-  onViewTitleChanged(title) {
-    this.viewTitle = title;
-  }
-
-  changeMode(mode) {
-    this.calendar.mode = mode;
-  }
-
-  today() {
-    this.calendar.currentDate = new Date();
-  }
-
-  onCurrentDateChanged(event: Date) {
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
-    event.setHours(0, 0, 0, 0);
-    this.isToday = today.getTime() === event.getTime();
-  }
-
-  markDisabled = (date: Date) => {
-    var current = new Date();
-    current.setHours(0, 0, 0);
-    return date < current;
+  loadEvents() {
+    this.eventSource = this.createRandomEvents();
+    console.log(this.eventSource);
   }
 
   createRandomEvents() {

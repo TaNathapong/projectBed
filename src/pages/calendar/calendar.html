@@ -6,9 +6,8 @@
         <ion-title>{{viewTitle}}</ion-title>
         <ion-buttons end>
             <button ion-button [disabled]="isToday" (click)="today()">Today</button>
-            <button ion-button (click)="findAllShows()">Test</button>
             <button ion-button (click)="getJson()">Data</button>
-
+            <button ion-button (click)="loadEvents()">Data</button>
         </ion-buttons>
     </ion-navbar>
     <ion-toolbar color="primary" no-border-top>
@@ -26,8 +25,19 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="has-header">
-    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
+<ion-content>
+    <!-- <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
         (onTitleChanged)="onViewTitleChanged($event)" startHour="7" endHour="20" step="30">
-    </calendar>
+    </calendar> -->
+    <ion-list>
+        <ion-item *ngFor="let event of eventSource">
+            <!-- <h2>{{event.summary}}</h2>
+            <h2>{{event.start}}</h2>
+            <h2>{{event.end}}</h2> -->
+            <h2>{{event.title}}</h2>
+            <h2>{{event.startTime}}</h2>
+            <h2>{{event.endTime}}</h2>
+            <h2>{{event.allDay}}</h2>            
+        </ion-item>
+    </ion-list>
 </ion-content>
