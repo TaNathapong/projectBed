@@ -6,16 +6,16 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/Rx';
 
-export interface IEventObj {
-  allDay: boolean,
-  endTime: Date,
-  startTime: Date,
-  title: string
-}
+// export interface IEventObj {
+//   allDay: boolean,
+//   endTime: Date,
+//   startTime: Date,
+//   title: string
+// }
 
-export interface IEvent {
-  items: IEventObj[]
-}
+// export interface IEvent {
+//   items: IEventObj[]
+// }
 
 export interface Calendar {
   start: {
@@ -43,7 +43,7 @@ export interface ObjCalendar {
 export class CalendarPage {
   API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
   CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-  dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?key=', this.API_KEY].join('');;
+  dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');;
 
   eventSource;
   dataSource;
@@ -67,25 +67,15 @@ export class CalendarPage {
   constructor(public navCtrl: NavController, @Inject(Http) private http: Http, private httpClient: HttpClient) {
 
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendarPage');
-  }
-
   getJson() {
     return this.httpClient.get<ObjCalendar>(this.dataUrl).subscribe(_data => {
       this.eventSource = _data.items;
       console.log(this.eventSource);
-
-      this.dataSource = this.eventSource;
-      console.log(this.dataSource.summary);
     });
   }
 
-  getJson2() {
-    this.eventSource = this.http.get(this.dataUrl)
-      .map(response => response.json())
-      .subscribe(data => console.log(data.items));
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CalendarPage');
   }
 
   onViewTitleChanged(title) {
@@ -148,7 +138,7 @@ export class CalendarPage {
 
   createRandomEvents() {
     var events = [];
-    for (var i = 0; i < 10; i += 1) {
+    for (var i = 0; i < 25; i += 1) {
       var date = new Date();
       var eventType = Math.floor(Math.random() * 2);
       var startDay = Math.floor(Math.random() * 90) - 45;
@@ -182,5 +172,4 @@ export class CalendarPage {
     }
     return events;
   }
-
 }

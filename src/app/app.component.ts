@@ -20,7 +20,7 @@ import { Profile } from '../models/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CalendarPage;
+  rootPage: any = SchedulerPage;
 
   profileData: Observable<Profile>;
 

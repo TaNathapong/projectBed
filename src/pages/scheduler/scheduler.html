@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <dx-scheduler [dataSource]="dataSource" [editing]="false" startDateExpr="start.dateTime" endDateExpr="end.dateTime" textExpr="summary"
-    [startDayHour]="8" [endDayHour]="22" timeZone="Asia/Bangkok" [showAllDayPanel]="true" [views]='["day", "week", "month"]'
-    currentView="month" [currentDate]="currentDate" [height]="500">
+  <dx-scheduler [dataSource]="dataSource" [editing]="false" startDateExpr="start.dateTime" endDateExpr="end.dateTime"
+    textExpr="summary" allDayExpr="allDay" [startDayHour]="8" [endDayHour]="22" timeZone="Asia/Bangkok" [showAllDayPanel]="true"
+    [views]='["day", "week", "month"]' currentView="month" [currentDate]="currentDate" [height]="500">
   </dx-scheduler>
 </ion-content>
