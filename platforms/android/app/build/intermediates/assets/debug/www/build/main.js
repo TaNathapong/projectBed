@@ -1,12 +1,95 @@
 webpackJsonp([6],{
 
-/***/ 1054:
+/***/ 1053:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export GCalendar */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SchedulerPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source__ = __webpack_require__(1874);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(922);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+if (!/localhost/.test(document.location.host)) {
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+}
+// export class Appointment {
+//   text: string;
+//   startDate: Date;
+//   endDate: Date;
+//   allDay?: boolean;
+// }
+var GCalendar = (function () {
+    function GCalendar() {
+    }
+    return GCalendar;
+}());
+
+var SchedulerPage = (function () {
+    function SchedulerPage(http) {
+        var _this = this;
+        this.http = http;
+        this.API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
+        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
+        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?key=', this.API_KEY].join('');
+        this.currentDate = new Date();
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source___default.a({
+            store: new __WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store___default.a({
+                load: function (options) { return _this.getData(options, { showDeleted: false }); }
+            })
+        });
+    }
+    SchedulerPage.prototype.getData = function (options, requestOptions) {
+        return this.http.get(this.dataUrl, requestOptions).toPromise().then(this.extractData);
+    };
+    SchedulerPage.prototype.extractData = function (res) {
+        return res.json().items;
+    };
+    SchedulerPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SchedulerPage');
+    };
+    SchedulerPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-scheduler',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/scheduler/scheduler.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>ปฏิทิน</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <dx-scheduler [dataSource]="dataSource" [showAllDayPanel]="false" [editing]="true" startDateExpr="start.dateTime" endDateExpr="end.dateTime"\n    textExpr="summary" [startDayHour]="8" [endDayHour]="19" timeZone="Asia/Bangkok" [views]=\'["day", "week", "month"]\' currentView="week"\n    [currentDate]="currentDate" [height]="auto">\n  </dx-scheduler>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/scheduler/scheduler.html"*/
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], SchedulerPage);
+    return SchedulerPage;
+}());
+
+//# sourceMappingURL=scheduler.js.map
+
+/***/ }),
+
+/***/ 1055:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(1055);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(1059);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(1056);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(1060);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_take__ = __webpack_require__(991);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_take__);
 
@@ -17,7 +100,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 1059:
+/***/ 1060:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26,7 +109,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__ = __webpack_require__(486);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(1872);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(1873);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(514);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_contact_contact__ = __webpack_require__(513);
@@ -34,14 +117,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_profile_profile__ = __webpack_require__(515);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_bed_details_bed_details__ = __webpack_require__(510);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_contact_details_contact_details__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_scheduler_scheduler__ = __webpack_require__(1873);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_scheduler_scheduler__ = __webpack_require__(1053);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_status_bar__ = __webpack_require__(1051);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_splash_screen__ = __webpack_require__(1052);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_auth__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angularfire2_database__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ionic2_calendar__ = __webpack_require__(1875);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_devextreme_angular__ = __webpack_require__(1053);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_devextreme_angular__ = __webpack_require__(1054);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_devextreme_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_devextreme_angular__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_common_http__ = __webpack_require__(920);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_http__ = __webpack_require__(353);
@@ -144,21 +227,21 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 1241:
+/***/ 1242:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 1243:
+/***/ 1244:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 1872:
+/***/ 1873:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -173,7 +256,8 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(513);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_calendar_calendar__ = __webpack_require__(511);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_profile_profile__ = __webpack_require__(515);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_scheduler_scheduler__ = __webpack_require__(1053);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__ = __webpack_require__(515);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -193,7 +277,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import { SchedulerPage } from '../pages/scheduler/scheduler';
+
 
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen, afDB, afAuth) {
@@ -202,7 +286,7 @@ var MyApp = (function () {
         this.splashScreen = splashScreen;
         this.afDB = afDB;
         this.afAuth = afAuth;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_10__pages_scheduler_scheduler__["a" /* SchedulerPage */];
         this.initializeApp();
         this.pages = [
             { title: 'Bed Management', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
@@ -235,7 +319,7 @@ var MyApp = (function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */]);
     };
     MyApp.prototype.profilePage = function () {
-        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_10__pages_profile_profile__["a" /* ProfilePage */]);
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__["a" /* ProfilePage */]);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
@@ -250,73 +334,6 @@ var MyApp = (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 1873:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SchedulerPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source__ = __webpack_require__(1874);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(922);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-
-
-
-
-var SchedulerPage = (function () {
-    function SchedulerPage(http) {
-        var _this = this;
-        this.http = http;
-        this.API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
-        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?key=', this.API_KEY].join('');
-        this.currentDate = new Date();
-        this.dataSource = new __WEBPACK_IMPORTED_MODULE_2_devextreme_data_data_source___default.a({
-            store: new __WEBPACK_IMPORTED_MODULE_3_devextreme_data_custom_store___default.a({
-                load: function (options) { return _this.getData(options, { showDeleted: false }); }
-            })
-        });
-    }
-    SchedulerPage.prototype.getData = function (options, requestOptions) {
-        return this.http.get(this.dataUrl, requestOptions).toPromise().then(this.extractData);
-    };
-    SchedulerPage.prototype.extractData = function (res) {
-        return res.json().items;
-    };
-    SchedulerPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SchedulerPage');
-    };
-    SchedulerPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-scheduler',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/scheduler/scheduler.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>ปฏิทิน</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <dx-scheduler [dataSource]="dataSource" [editing]="false" startDateExpr="start.dateTime" endDateExpr="end.dateTime" textExpr="summary"\n    [startDayHour]="8" [endDayHour]="22" timeZone="Asia/Bangkok" [showAllDayPanel]="true" [views]=\'["day", "week", "month"]\'\n    currentView="month" [currentDate]="currentDate" [height]="500">\n  </dx-scheduler>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/scheduler/scheduler.html"*/
-        }),
-        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */])),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
-    ], SchedulerPage);
-    return SchedulerPage;
-}());
-
-//# sourceMappingURL=scheduler.js.map
 
 /***/ }),
 
@@ -388,7 +405,7 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(1144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(1145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -549,7 +566,7 @@ var CalendarPage = (function () {
         this.httpClient = httpClient;
         this.API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
         this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?key=', this.API_KEY].join('');
+        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');
         this.calendar = {
             mode: 'month',
             currentDate: new Date(),
@@ -569,50 +586,17 @@ var CalendarPage = (function () {
             current.setHours(0, 0, 0);
             return date < current;
         };
-        this.loadEvents();
     }
     ;
+    CalendarPage.prototype.getJson = function () {
+        var _this = this;
+        return this.httpClient.get(this.dataUrl).subscribe(function (_data) {
+            _this.eventSource = _data.items;
+            console.log(_this.eventSource);
+        });
+    };
     CalendarPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad CalendarPage');
-    };
-    CalendarPage.prototype.loadEvents = function () {
-        this.eventSource = this.createRandomEvents();
-        console.log(this.eventSource);
-    };
-    CalendarPage.prototype.testApp = function () {
-        this.httpClient.get('https://api.github.com/users/seeschweiler').subscribe(function (data) {
-            console.log("User Login: " + data.login);
-            console.log("Bio: " + data.bio);
-            console.log("Company: " + data.company);
-        });
-    };
-    CalendarPage.prototype.getJson = function () {
-        return this.httpClient.get(this.dataUrl);
-    };
-    CalendarPage.prototype.getDatas = function () {
-        var _this = this;
-        this.getJson().subscribe(function (_data) {
-            _this.test = _data;
-            console.log(_this.test);
-        });
-        return this.test;
-    };
-    CalendarPage.prototype.createDatas = function () {
-        var data;
-        data = this.getDatas();
-        var event = [];
-        event.push({
-            title: this.test.summary,
-            startTime: this.test.start,
-            endTime: this.test.end,
-            allDay: false
-        });
-        console.log(event);
-        return event;
-    };
-    CalendarPage.prototype.loadDatas = function () {
-        this.dataSource = this.createDatas();
-        console.log(this.dataSource);
     };
     CalendarPage.prototype.onViewTitleChanged = function (title) {
         this.viewTitle = title;
@@ -629,9 +613,37 @@ var CalendarPage = (function () {
         event.setHours(0, 0, 0, 0);
         this.isToday = today.getTime() === event.getTime();
     };
+    // getDatas() {
+    //   this.getJson().subscribe(_data => {
+    //     this.test = _data;
+    //     console.log(this.test);
+    //   });
+    //   return this.test;
+    // }
+    // createDatas() {
+    //   var data: any;
+    //   data = this.getDatas();
+    //   var event = [];
+    //   event.push({
+    //     title: data.summary,
+    //     startTime: data.start,
+    //     endTime: data.end,
+    //     allDay: false
+    //   })
+    //   console.log(event);
+    //   return event;
+    // }
+    // loadDatas() {
+    //   this.dataSource = this.createDatas();
+    //   console.log(this.dataSource);
+    // }
+    CalendarPage.prototype.loadEvents = function () {
+        this.eventSource = this.createRandomEvents();
+        console.log(this.eventSource);
+    };
     CalendarPage.prototype.createRandomEvents = function () {
         var events = [];
-        for (var i = 0; i < 50; i += 1) {
+        for (var i = 0; i < 25; i += 1) {
             var date = new Date();
             var eventType = Math.floor(Math.random() * 2);
             var startDay = Math.floor(Math.random() * 90) - 45;
@@ -668,7 +680,7 @@ var CalendarPage = (function () {
     };
     CalendarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n            <!-- <button ion-button (click)="testApp()">Test</button>\n            <button ion-button (click)="createDatas()">Data</button> -->\n\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="Month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="Week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="Day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class="has-header">\n    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"\n        (onTitleChanged)="onViewTitleChanged($event)" startHour="7" endHour="20" step="30">\n    </calendar>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
+            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n            <button ion-button (click)="loadEvents()">Data</button>\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="Month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="Week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="Day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"\n        (onTitleChanged)="onViewTitleChanged($event)" startHour="7" endHour="20" step="30">\n    </calendar>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
         }),
         __param(1, Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
@@ -1078,5 +1090,5 @@ module.exports = webpackAsyncContext;
 
 /***/ })
 
-},[1054]);
+},[1055]);
 //# sourceMappingURL=main.js.map

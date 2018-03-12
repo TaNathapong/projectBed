@@ -3,10 +3,9 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>{{viewTitle}}</ion-title>
+        <ion-title class="title">{{viewTitle}}</ion-title>
         <ion-buttons end>
             <button ion-button [disabled]="isToday" (click)="today()">Today</button>
-            <button ion-button (click)="loadEvents()">Data</button>
         </ion-buttons>
     </ion-navbar>
     <ion-toolbar color="primary" no-border-top>
@@ -25,7 +24,8 @@
 </ion-header>
 
 <ion-content>
-    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
-        (onTitleChanged)="onViewTitleChanged($event)" startHour="7" endHour="20" step="30">
+    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"
+        (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"
+        (onTimeSelected)="onTimeSelected($event)" step="30">
     </calendar>
 </ion-content>

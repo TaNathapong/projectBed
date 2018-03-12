@@ -17,24 +17,19 @@ export class BedDetailsPage {
   profileData = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(data => {
+      if (data && data.email && data.uid) {
+        this.afDB.list("/wards/").valueChanges().subscribe(_data => {
+          this.bedsData = _data;
+        });
+        this.afDB.object(`profiles/${data.uid}`).valueChanges().subscribe(_data => {
+          this.profileData = _data;
+        });
+      }
+    });
   }
 
   ionViewDidLoad() {
-    this.afAuth.authState.subscribe(data => {
-      if (data && data.email && data.uid) {
-
-        this.afDB.list("/wards/").valueChanges().subscribe(_data => {
-          this.bedsData = _data;
-          console.log(this.bedsData);
-        });
-
-        this.afDB.object(`profiles/${data.uid}`).valueChanges().subscribe(_data => {
-          this.profileData = _data;
-          console.log(this.profileData);
-        });
-
-      }
-    });
     console.log('ionViewDidLoad BedDetailsPage');
   }
 
@@ -57,7 +52,6 @@ export class BedDetailsPage {
                 blank: data.blank,
                 time: firebase.database.ServerValue.TIMESTAMP
               });
-            console.log(bed.time);
             console.log('Save complete');
           }
         }, {

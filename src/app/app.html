@@ -1,7 +1,7 @@
 <ion-menu menuClose [content]="content">
   <ion-content>
     <ion-item (click)="profilePage()">
-      <ion-avatar style="width:30%" item-start>
+      <ion-avatar style="width:25%" item-start>
         <img style="width:100%; height:100%" src="{{(profileData | async)?.picture}}">
       </ion-avatar>
       <h2>{{(profileData | async)?.username}}</h2>

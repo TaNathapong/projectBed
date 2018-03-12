@@ -44,26 +44,26 @@ export class LoginPage {
         }
     }
 
-    async register(user: User) {
-        this.menu.enable(true);
-        try {
-            const result = await this.afAuth.auth.createUserWithEmailAndPassword(
-                user.email,
-                user.password
-            );
-            if (result) {
-                this.navCtrl.setRoot(HomePage);
-            }
-        } catch (e) {
-            console.error(e);
-            let alert = this.alertCtrl.create({
-                title: 'Alert!',
-                subTitle: 'the email / password combination is not valid',
-                buttons: ['OK']
-            });
-            alert.present();
-        }
-    }
+    // async register(user: User) {
+    //     this.menu.enable(true);
+    //     try {
+    //         const result = await this.afAuth.auth.createUserWithEmailAndPassword(
+    //             user.email,
+    //             user.password
+    //         );
+    //         if (result) {
+    //             this.navCtrl.setRoot(HomePage);
+    //         }
+    //     } catch (e) {
+    //         console.error(e);
+    //         let alert = this.alertCtrl.create({
+    //             title: 'Alert!',
+    //             subTitle: 'the email / password combination is not valid',
+    //             buttons: ['OK']
+    //         });
+    //         alert.present();
+    //     }
+    // }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad LoginPage');

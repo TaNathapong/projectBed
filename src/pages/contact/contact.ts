@@ -13,12 +13,9 @@ export class ContactPage {
   contactsData = []
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private callNumber: CallNumber) {
-
     this.afDB.list("/contacts/").valueChanges().subscribe(_data => {
       this.contactsData = _data;
-      console.log(this.contactsData);
     });
-
   }
 
   openNavSubContact(contact) {
@@ -39,7 +36,7 @@ export class ContactPage {
 
   call(phone) {
     this.callNumber.callNumber(phone, true)
-      .then(() => console.log('Launched dialer!'))
-      .catch(() => console.log('Error launching dialer'));
+      .then(() => console.log('Launched dialer'))
+      .catch(() => console.log('Error launching dialer!'));
   }
 }

@@ -32,7 +32,7 @@ export class ContactDetailsPage {
 
   call(phone) {
     this.callNumber.callNumber(phone, true)
-      .then(() => console.log('Launched dialer!'))
-      .catch(() => console.log('Error launching dialer'));
+      .then(() => console.log('Launched dialer'))
+      .catch(() => console.log('Error launching dialer!'));
   }
 }

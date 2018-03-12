@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { NgCalendarModule } from 'ionic2-calendar';
+import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { CallNumber } from '@ionic-native/call-number';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -11,17 +15,11 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { ProfilePage } from '../pages/profile/profile';
 import { BedDetailsPage } from '../pages/bed-details/bed-details';
 import { ContactDetailsPage } from '../pages/contact-details/contact-details';
-import { SchedulerPage } from '../pages/scheduler/scheduler';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { NgCalendarModule } from 'ionic2-calendar';
-import { DxSchedulerModule } from 'devextreme-angular';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
+import { CallNumber } from '@ionic-native/call-number';
+
 
 var firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
@@ -41,8 +39,7 @@ var firebase_config = {
     CalendarPage,
     ProfilePage,
     BedDetailsPage,
-    ContactDetailsPage,
-    SchedulerPage
+    ContactDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -51,9 +48,7 @@ var firebase_config = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebase_config),
-    DxSchedulerModule,
-    HttpClientModule,
-    HttpModule
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,8 +59,7 @@ var firebase_config = {
     CalendarPage,
     ProfilePage,
     BedDetailsPage,
-    ContactDetailsPage,
-    SchedulerPage
+    ContactDetailsPage
   ],
   providers: [
     StatusBar,

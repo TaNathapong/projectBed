@@ -1,38 +1,16 @@
-import { IonicPage, NavController, DateTime } from 'ionic-angular';
-import { Component, Inject } from "@angular/core";
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { Component } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import 'rxjs/Rx';
-
-// export interface IEventObj {
-//   allDay: boolean,
-//   endTime: Date,
-//   startTime: Date,
-//   title: string
-// }
-
-// export interface IEvent {
-//   items: IEventObj[]
-// }
-
-export interface Calendar {
-  start: {
-    date: Date,
-    dateTime: DateTime,
-    timeZone: string
-  },
-  end: {
-    date: Date,
-    dateTime: DateTime,
-    timeZone: string
-  },
-  summary: string;
+export interface IEvent {
+  allDay: boolean;
+  endTime: Date;
+  startTime: Date;
+  title: string;
 }
 
-export interface ObjCalendar {
-  items: Calendar[]
+export interface ObjIEvent {
+  items: Array<IEvent[]>;
 }
 
 @IonicPage()
@@ -46,36 +24,57 @@ export class CalendarPage {
   dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');;
 
   eventSource;
-  dataSource;
   viewTitle;
   isToday: boolean;
   calendar = {
     mode: 'month',
     currentDate: new Date(),
-    dateFormatter: {
-      formatMonthViewDay: function (date: Date) { return date.getDate().toString(); },
-      formatMonthViewDayHeader: function (date: Date) { return 'MonMH'; },
-      formatMonthViewTitle: function (date: Date) { return 'testMT'; },
-      formatWeekViewDayHeader: function (date: Date) { return 'MonWH'; },
-      formatWeekViewTitle: function (date: Date) { return 'testWT'; },
-      formatWeekViewHourColumn: function (date: Date) { return 'testWH'; },
-      formatDayViewHourColumn: function (date: Date) { return 'testDH'; },
-      formatDayViewTitle: function (date: Date) { return 'testDT'; }
-    }
   };
 
-  constructor(public navCtrl: NavController, @Inject(Http) private http: Http, private httpClient: HttpClient) {
-
-  }
-  getJson() {
-    return this.httpClient.get<ObjCalendar>(this.dataUrl).subscribe(_data => {
-      this.eventSource = _data.items;
-      console.log(this.eventSource);
-    });
+  constructor(public navCtrl: NavController, private http: HttpClient, private alertCtrl: AlertController) {
+    this.getEvent();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalendarPage');
+  }
+
+  getEvent() {
+    var data: any;
+    return this.http.get<ObjIEvent>(this.dataUrl).subscribe(_data => {
+      data = _data.items;
+      var events = [];
+      for (let i = 0; i < data.length; i++) {
+        var startTime = data[i].start.dateTime;
+        var endTime = data[i].end.dateTime;
+        var startDate = data[i].end.date;
+        var endDate = data[i].end.date;
+
+        if (startDate != undefined) {   // All day event is true
+          if (endDate === startDate) {
+            var day = new Date(endDate);
+            startDate = new Date(startDate);
+            endDate = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 1);
+          }
+          events.push({
+            title: data[i].summary,
+            startTime: startDate,
+            endTime: endDate,
+            allDay: true,
+          });
+        }
+        else {                          // All day event is false
+          events.push({
+            title: data[i].summary,
+            startTime: new Date(startTime),
+            endTime: new Date(endTime),
+            allDay: false,
+          });
+        }
+      }
+      this.eventSource = events;
+      console.log(this.eventSource);
+    });
   }
 
   onViewTitleChanged(title) {
@@ -97,79 +96,24 @@ export class CalendarPage {
     this.isToday = today.getTime() === event.getTime();
   }
 
+  onEventSelected = (event) => {
+    console.log(event.title);
+    let alert = this.alertCtrl.create({
+      title: event.title,
+      subTitle: 'xxx',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  onTimeSelected = (ev: { selectedTime: Date, events: any[] }) => {
+    console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' + (ev.events !== undefined && ev.events.length !== 0));
+  }
+
   markDisabled = (date: Date) => {
     var current = new Date();
     current.setHours(0, 0, 0);
     return date < current;
   }
 
-  // getDatas() {
-  //   this.getJson().subscribe(_data => {
-  //     this.test = _data;
-  //     console.log(this.test);
-  //   });
-  //   return this.test;
-  // }
-
-  // createDatas() {
-  //   var data: any;
-  //   data = this.getDatas();
-
-  //   var event = [];
-  //   event.push({
-  //     title: data.summary,
-  //     startTime: data.start,
-  //     endTime: data.end,
-  //     allDay: false
-  //   })
-  //   console.log(event);
-  //   return event;
-  // }
-
-  // loadDatas() {
-  //   this.dataSource = this.createDatas();
-  //   console.log(this.dataSource);
-  // }
-
-  loadEvents() {
-    this.eventSource = this.createRandomEvents();
-    console.log(this.eventSource);
-  }
-
-  createRandomEvents() {
-    var events = [];
-    for (var i = 0; i < 25; i += 1) {
-      var date = new Date();
-      var eventType = Math.floor(Math.random() * 2);
-      var startDay = Math.floor(Math.random() * 90) - 45;
-      var endDay = Math.floor(Math.random() * 2) + startDay;
-      var startTime;
-      var endTime;
-      if (eventType === 0) {
-        startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
-        if (endDay === startDay) {
-          endDay += 1;
-        }
-        endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
-        events.push({
-          title: 'All Day - ' + i,
-          startTime: startTime,
-          endTime: endTime,
-          allDay: true
-        });
-      } else {
-        var startMinute = Math.floor(Math.random() * 24 * 60);
-        var endMinute = Math.floor(Math.random() * 180) + startMinute;
-        startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
-        endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
-        events.push({
-          title: 'Event - ' + i,
-          startTime: startTime,
-          endTime: endTime,
-          allDay: false
-        });
-      }
-    }
-    return events;
-  }
 }
