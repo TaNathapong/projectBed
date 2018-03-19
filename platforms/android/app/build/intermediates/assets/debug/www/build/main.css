@@ -25698,6 +25698,11 @@ page-bed-details .add {
   font-size: 16px;
 }
 
+page-bed-details .remove {
+  color: #f53d3d;
+  font-size: 16px;
+}
+
 page-calendar ion-title {
   font-size: 14px;
 }

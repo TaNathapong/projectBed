@@ -36,11 +36,11 @@ export class BedDetailsPage {
   updateBed(bed) {
     let prompt = this.alertCtrl.create({
       title: `วอร์ดที่ ${bed.id}`,
+      message: "กรอกจำนวนเตียงที่ว่าง",
       inputs: [
         {
           name: 'blank',
           placeholder: 'จำนวนเตียงที่ว่าง',
-          value: bed.blank
         },
       ],
       buttons: [
