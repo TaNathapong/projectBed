@@ -6,7 +6,7 @@
 
 <ion-content>
     <ion-grid>
-        <div *ngIf="profileData.role == 'admin' || profileData.role == 'adcenter'">
+        <div *ngIf="profileData.role == 'Admin' || profileData.role == 'Admission Center'">
             <ion-row>
                 <ion-col col-3>
                     <b>วอร์ด</b>
@@ -36,7 +36,7 @@
             </ion-row>
         </div>
 
-        <div *ngIf="profileData.role == 'resident'">
+        <div *ngIf="profileData.role == 'Resident'">
             <ion-row>
                 <ion-col col-3>
                     <b>วอร์ด</b>

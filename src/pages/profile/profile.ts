@@ -24,14 +24,24 @@ export class ProfilePage {
 
   createProfile() {
     this.afAuth.authState.subscribe(auth => {
-      this.afDB.object(`profiles/${auth.uid}`).update(this.profile)
-        .then(() => this.navCtrl.setRoot(HomePage))
-      let alert = this.alertCtrl.create({
-        title: 'บันทึกสำเร็จ',
-        subTitle: 'การอัพเดทข้อมูลเสร็จสิ้น',
-        buttons: ['OK']
-      });
-      alert.present();
+      if (this.profile.firstname != null || this.profile.lastname != null || this.profile.username != null) {
+        this.afDB.object(`profiles/${auth.uid}`).update(this.profile)
+          .then(() => this.navCtrl.setRoot(HomePage))
+        let alert = this.alertCtrl.create({
+          title: 'บันทึกข้อมูลสำเร็จ',
+          subTitle: 'การอัพเดทข้อมูลเสร็จสิ้น',
+          buttons: ['OK']
+        });
+        alert.present();
+      } else {
+        let alert = this.alertCtrl.create({
+          title: 'รายการไม่ถูกต้อง!',
+          subTitle: 'กรุณากรอกข้อมูล',
+          buttons: ['OK']
+        });
+        alert.present();
+
+      }
     });
   }
 

@@ -60,7 +60,7 @@ export class BedDetailsPage {
                                         time: firebase.database.ServerValue.TIMESTAMP
                                     });
                                 let alert = this.alertCtrl.create({
-                                    title: 'รายการสำเร็จ',
+                                    title: 'บันทึกข้อมูลสำเร็จ',
                                     subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',
                                     buttons: ['OK']
                                 });
@@ -103,7 +103,7 @@ export class BedDetailsPage {
                                     time: firebase.database.ServerValue.TIMESTAMP
                                 });
                             let alert = this.alertCtrl.create({
-                                title: 'รายการสำเร็จ',
+                                title: 'บันทึกข้อมูลสำเร็จ',
                                 subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',
                                 buttons: ['OK']
                             });

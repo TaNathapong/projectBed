@@ -25763,17 +25763,9 @@ page-login .login-content ion-row {
 
 page-login .login-content ion-item {
   border-radius: 5px !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
   margin-bottom: 10px;
-}
-
-page-login .login-content .submit-col {
-  margin: 0px 20px 0px 20px;
-}
-
-page-login .login-content .item-inner {
-  border-bottom-color: #ffffff !important;
 }
 
 page-login .login-content .submit-btn {
