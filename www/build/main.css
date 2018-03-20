@@ -25698,7 +25698,7 @@ page-bed-details .add {
   font-size: 16px;
 }
 
-page-bed-details .remove {
+page-bed-details .reduce {
   color: #f53d3d;
   font-size: 16px;
 }
@@ -25781,5 +25781,9 @@ page-login .login-content .submit-btn {
 }
 
 page-profile .submit {
+  margin-top: 25px;
+}
+
+page-resetpwd .submit {
   margin-top: 25px;
 }

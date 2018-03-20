@@ -6,8 +6,7 @@
 
 <ion-content>
     <ion-grid>
-
-        <div *ngIf="profileData.ward == admin">
+        <div *ngIf="profileData.role == 'admin' || profileData.role == 'adcenter'">
             <ion-row>
                 <ion-col col-2>
                     <b>วอร์ด</b>
@@ -16,7 +15,7 @@
                     <b>จำนวนเตียงว่าง</b>
                 </ion-col>
                 <ion-col col-5>
-                    <b>เพิ่มผู้ป่วยเข้าเตียง</b>
+                    <b>เพิ่ม/ลดจำนวนเตียง</b>
                 </ion-col>
             </ion-row>
             <ion-row *ngFor="let bed of bedsData">
@@ -27,16 +26,21 @@
                     <div>{{bed.blank}}</div>
                 </ion-col>
                 <ion-col col-5>
+                    <div (click)="reduceBed(bed)">
+                        <b class="reduce">
+                            <ion-icon name="remove-circle"> ลด</ion-icon>
+                        </b>
+                    </div>
                     <div (click)="addBed(bed)">
-                        <b class="remove">
-                            <ion-icon name="remove-circle"> ลดเตียงว่าง</ion-icon>
+                        <b class="add">
+                            <ion-icon name="add-circle"> เพิ่ม</ion-icon>
                         </b>
                     </div>
                 </ion-col>
             </ion-row>
         </div>
 
-        <div *ngIf="profileData.ward != admin">
+        <div *ngIf="profileData.role == 'resident'">
             <ion-row>
                 <ion-col col-2>
                     <b>วอร์ด</b>
@@ -66,6 +70,5 @@
                 </ion-row>
             </div>
         </div>
-
     </ion-grid>
 </ion-content>

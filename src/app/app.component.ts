@@ -64,6 +64,6 @@ export class MyApp {
   }
 
   profilePage() {
-    this.nav.setRoot(ProfilePage);
+    this.nav.push(ProfilePage);
   }
 }

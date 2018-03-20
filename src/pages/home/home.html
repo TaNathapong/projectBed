@@ -4,7 +4,7 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>รพ.ศรีนครินทร์</ion-title>
-        <ion-buttons end>
+        <ion-buttons *ngIf="profileData.role != 'staff'" end>
             <button ion-button icon-only (click)="openNavDetailsPage()">แก้ไขเตียง </button>
         </ion-buttons>
     </ion-navbar>

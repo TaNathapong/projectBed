@@ -5,30 +5,29 @@
         </ion-col>
     </ion-row>
 
-    <div>
-        <ion-row>
-            <ion-col>
-                <ion-list inset>
-                    <ion-item>
-                        <ion-input type="email" [(ngModel)]="user.email" placeholder="Email" required></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" required></ion-input>
-                    </ion-item>
-                    <ion-buttons end>
-                        <button ion-button color="light" clear>forget password</button>
-                    </ion-buttons>
-                </ion-list>
-            </ion-col>
-        </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-list inset>
+                <ion-item>
+                    <ion-input type="email" [(ngModel)]="user.email" placeholder="Email" required></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" required></ion-input>
+                </ion-item>
+                <ion-buttons end>
+                    <button ion-button color="light" (click)="openNavResetpwdPage()" clear>forget password</button>
+                </ion-buttons>
+            </ion-list>
+        </ion-col>
+    </ion-row>
 
-        <ion-row>
-            <ion-col class="submit-col">
-                <button ion-button medium class="submit-btn" (click)="login(user)" full>Login</button>
-            </ion-col>
-            <!-- <ion-col class="submit-col">
+    <ion-row>
+        <ion-col class="submit-col">
+            <button ion-button medium class="submit-btn" (click)="login(user)" full>Login</button>
+        </ion-col>
+        <!-- <ion-col class="submit-col">
                 <button ion-button medium class="submit-btn" (click)="register(user)" full>Register</button>
             </ion-col> -->
-        </ion-row>
-    </div>
+    </ion-row>
+
 </ion-content>

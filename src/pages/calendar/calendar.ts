@@ -104,12 +104,23 @@ export class CalendarPage {
         // var startDate = new Date(startDay.getMonth());
         // var endDay = event.startTime;
         // var endDate = new Date(endDay.getMonth())
-        let alert = this.alertCtrl.create({
-            title: event.title,
-            subTitle: `<p>เริ่มต้น : ${event.startTime}</p><p>สิ้นสุด : ${event.endTime}</p><p>ผู้สร้าง : ${event.creator}</p>`,
-            buttons: ['OK']
-        });
-        alert.present();
+        if (event.allDay == true) {
+            // var startDay = new Date(event.startTime.getYear());
+            // console.log(startDay);
+            let alert = this.alertCtrl.create({
+                title: event.title,
+                subTitle: `<p>เริ่มต้น : ${event.startTime}</p><p>สิ้นสุด : ${event.endTime}</p><p>ผู้สร้าง : ${event.creator}</p>`,
+                buttons: ['OK']
+            });
+            alert.present();
+        } else {
+            let alert = this.alertCtrl.create({
+                title: event.title,
+                subTitle: `<p>เริ่มต้น : ${event.startTime}</p><p>สิ้นสุด : ${event.endTime}</p><p>ผู้สร้าง : ${event.creator}</p>`,
+                buttons: ['OK']
+            });
+            alert.present();
+        }
     }
 
     onTimeSelected = (ev: { selectedTime: Date, events: any[] }) => {

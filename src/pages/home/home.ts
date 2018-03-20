@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { BedDetailsPage } from '../bed-details/bed-details';
 
@@ -9,11 +10,20 @@ import { BedDetailsPage } from '../bed-details/bed-details';
     templateUrl: 'home.html'
 })
 export class HomePage {
-    bedsData = []
 
-    constructor(public navCtrl: NavController, private afDB: AngularFireDatabase) {
-        this.afDB.list("/wards/").valueChanges().subscribe(_data => {
-            this.bedsData = _data;
+    bedsData = []
+    profileData = {};
+
+    constructor(public navCtrl: NavController, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
+        this.afAuth.authState.subscribe(data => {
+            if (data && data.email && data.uid) {
+                this.afDB.list("/wards/").valueChanges().subscribe(_data => {
+                    this.bedsData = _data;
+                });
+                this.afDB.object(`profiles/${data.uid}`).valueChanges().subscribe(_data => {
+                    this.profileData = _data;
+                });
+            }
         });
     }
 
@@ -21,10 +31,8 @@ export class HomePage {
         console.log('ionViewDidLoad HomePage');
     }
 
-    openNavDetailsPage(item) {
+    openNavDetailsPage() {
         this.navCtrl.push(BedDetailsPage);
     }
-
-
 
 }

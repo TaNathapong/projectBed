@@ -9,6 +9,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
@@ -20,8 +21,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 
-
-var firebase_config = {
+export const firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
   authDomain: "hospital-bed-kku.firebaseapp.com",
   databaseURL: "https://hospital-bed-kku.firebaseio.com",
@@ -34,6 +34,7 @@ var firebase_config = {
   declarations: [
     MyApp,
     LoginPage,
+    ResetpwdPage,
     HomePage,
     ContactPage,
     CalendarPage,
@@ -54,6 +55,7 @@ var firebase_config = {
   entryComponents: [
     MyApp,
     LoginPage,
+    ResetpwdPage,
     HomePage,
     ContactPage,
     CalendarPage,
