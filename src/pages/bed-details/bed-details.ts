@@ -44,21 +44,38 @@ export class BedDetailsPage {
             ],
             buttons: [
                 {
-                    text: 'บันทึก',
-                    handler: data => {
-                        this.afDB.object('/wards/' + bed.id)
-                            .update({
-                                blank: data.blank,
-                                time: firebase.database.ServerValue.TIMESTAMP
-                            });
-                        console.log('Save complete');
-                    }
-                }, {
                     text: 'ยกเลิก',
+                    role: 'cancel',
                     handler: data => {
                         console.log('Cancel clicked');
                     }
-                },
+                }, {
+                    text: 'ยืนยัน',
+                    handler:
+                        data => {
+                            if (data.blank != '') {
+                                this.afDB.object('/wards/' + bed.id)
+                                    .update({
+                                        blank: data.blank,
+                                        time: firebase.database.ServerValue.TIMESTAMP
+                                    });
+                                let alert = this.alertCtrl.create({
+                                    title: 'รายการสำเร็จ',
+                                    subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',
+                                    buttons: ['OK']
+                                });
+                                alert.present();
+                                console.log('Save complete');
+                            } else {
+                                let alert = this.alertCtrl.create({
+                                    title: 'รายการไม่ถูกต้อง!',
+                                    subTitle: 'กรุณากรอกจำนวนเตียง',
+                                    buttons: ['OK']
+                                });
+                                alert.present();
+                            }
+                        }
+                }
             ]
         });
         prompt.present();
@@ -85,6 +102,12 @@ export class BedDetailsPage {
                                     blank: bed.blank - 1,
                                     time: firebase.database.ServerValue.TIMESTAMP
                                 });
+                            let alert = this.alertCtrl.create({
+                                title: 'รายการสำเร็จ',
+                                subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',
+                                buttons: ['OK']
+                            });
+                            alert.present();
                             console.log('Save complete');
                         }
                     }
@@ -122,6 +145,12 @@ export class BedDetailsPage {
                                 blank: bed.blank + 1,
                                 time: firebase.database.ServerValue.TIMESTAMP
                             });
+                        let alert = this.alertCtrl.create({
+                            title: 'รายการสำเร็จ',
+                            subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',
+                            buttons: ['OK']
+                        });
+                        alert.present();
                         console.log('Save complete');
                     }
                 }

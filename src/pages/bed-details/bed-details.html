@@ -15,7 +15,7 @@
                     <b>จำนวนเตียงว่าง</b>
                 </ion-col>
                 <ion-col col-5>
-                    <b>เพิ่ม/ลดจำนวนเตียง</b>
+                    <b>เพิ่ม/ลดเตียง</b>
                 </ion-col>
             </ion-row>
             <ion-row *ngFor="let bed of bedsData">
@@ -26,16 +26,12 @@
                     <div>{{bed.blank}}</div>
                 </ion-col>
                 <ion-col col-5>
-                    <div (click)="reduceBed(bed)">
-                        <b class="reduce">
-                            <ion-icon name="remove-circle"> ลด</ion-icon>
-                        </b>
-                    </div>
-                    <div (click)="addBed(bed)">
-                        <b class="add">
-                            <ion-icon name="add-circle"> เพิ่ม</ion-icon>
-                        </b>
-                    </div>
+                    <b class="reduce" (click)="reduceBed(bed)">
+                        <ion-icon name="remove-circle"> ลด&nbsp;</ion-icon>
+                    </b>
+                    <b class="add" (click)="addBed(bed)">
+                        <ion-icon name="add-circle"> เพิ่ม </ion-icon>
+                    </b>
                 </ion-col>
             </ion-row>
         </div>
@@ -63,7 +59,7 @@
                     <ion-col col-5>
                         <div (click)="updateBed(bed)">
                             <b class="add">
-                                <ion-icon name="add-circle"> ปรับจำนวนเตียง</ion-icon>
+                                <ion-icon name="add-circle"> ปรับจำนวน</ion-icon>
                             </b>
                         </div>
                     </ion-col>
