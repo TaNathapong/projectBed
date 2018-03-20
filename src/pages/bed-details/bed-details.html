@@ -11,10 +11,10 @@
                 <ion-col col-3>
                     <b>วอร์ด</b>
                 </ion-col>
-                <ion-col col-4>
+                <ion-col col-3>
                     <b>เตียงว่าง</b>
                 </ion-col>
-                <ion-col col-5>
+                <ion-col col-6>
                     <b>เพิ่ม/ลดเตียง</b>
                 </ion-col>
             </ion-row>
@@ -22,10 +22,10 @@
                 <ion-col col-3>
                     <div>{{bed.name}}</div>
                 </ion-col>
-                <ion-col col-4>
+                <ion-col col-3>
                     <div>{{bed.blank}}</div>
                 </ion-col>
-                <ion-col col-5>
+                <ion-col col-6>
                     <b class="reduce" (click)="reduceBed(bed)">
                         <ion-icon name="remove-circle"> ลด&nbsp;</ion-icon>
                     </b>
@@ -41,22 +41,22 @@
                 <ion-col col-3>
                     <b>วอร์ด</b>
                 </ion-col>
-                <ion-col col-4>
+                <ion-col col-3>
                     <b>เตียงว่าง</b>
                 </ion-col>
-                <ion-col col-5>
+                <ion-col col-6>
                     <b>แก้ไขจำนวน</b>
                 </ion-col>
             </ion-row>
             <div *ngFor="let bed of bedsData">
                 <ion-row *ngIf="bed.name == profileData.ward">
-                    <ion-col col-2>
+                    <ion-col col-3>
                         <div>{{bed.name}}</div>
                     </ion-col>
-                    <ion-col col-5>
+                    <ion-col col-3>
                         <div>{{bed.blank}}</div>
                     </ion-col>
-                    <ion-col col-5>
+                    <ion-col col-6>
                         <div (click)="updateBed(bed)">
                             <b class="add">
                                 <ion-icon name="add-circle"> ปรับจำนวน</ion-icon>

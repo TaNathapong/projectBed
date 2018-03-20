@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -15,7 +15,7 @@ export class ProfilePage {
 
   profile = {} as Profile;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, private afDB: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private afAuth: AngularFireAuth, private afDB: AngularFireDatabase) {
   }
 
   ionViewDidLoad() {
@@ -26,6 +26,12 @@ export class ProfilePage {
     this.afAuth.authState.subscribe(auth => {
       this.afDB.object(`profiles/${auth.uid}`).update(this.profile)
         .then(() => this.navCtrl.setRoot(HomePage))
+      let alert = this.alertCtrl.create({
+        title: 'บันทึกสำเร็จ',
+        subTitle: 'การอัพเดทข้อมูลเสร็จสิ้น',
+        buttons: ['OK']
+      });
+      alert.present();
     });
   }
 

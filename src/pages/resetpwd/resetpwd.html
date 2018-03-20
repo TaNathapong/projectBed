@@ -9,6 +9,7 @@
         <ion-label floating>Email Address</ion-label>
         <ion-input type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
-    <button ion-button class="submit " (click)="resetPwd(email)" round>Reset Password</button>
-
+    <div style="text-align:right;">
+        <button ion-button class="submit " (click)="resetPwd(email)">Reset Password</button>
+    </div>
 </ion-content>
