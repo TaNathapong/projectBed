@@ -25686,7 +25686,7 @@ ion-navbar.toolbar {
 
 page-bed-details ion-grid {
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-bed-details .col {
@@ -25695,12 +25695,12 @@ page-bed-details .col {
 
 page-bed-details .add {
   color: #488aff;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-bed-details .reduce {
   color: #f53d3d;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-calendar ion-title {
@@ -25730,7 +25730,7 @@ page-contact-details .avatar {
 
 page-home ion-grid {
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-home .col {
@@ -25738,7 +25738,7 @@ page-home .col {
 }
 
 page-home .time {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-login .login-content {

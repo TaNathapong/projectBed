@@ -25686,7 +25686,7 @@ ion-navbar.toolbar {
 
 page-bed-details ion-grid {
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-bed-details .col {
@@ -25695,11 +25695,20 @@ page-bed-details .col {
 
 page-bed-details .add {
   color: #488aff;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+page-bed-details .reduce {
+  color: #f53d3d;
+  font-size: 18px;
 }
 
 page-calendar ion-title {
   font-size: 14px;
+}
+
+page-calendar ion-content .calendar-event-inner {
+  background-color: red;
 }
 
 page-contact-details .logo-row {
@@ -25721,7 +25730,7 @@ page-contact-details .avatar {
 
 page-home ion-grid {
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-home .col {
@@ -25729,7 +25738,7 @@ page-home .col {
 }
 
 page-home .time {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 page-login .login-content {
@@ -25756,7 +25765,7 @@ page-login .login-content ion-item {
   border-radius: 5px !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 page-login .login-content .submit-col {
@@ -25772,5 +25781,9 @@ page-login .login-content .submit-btn {
 }
 
 page-profile .submit {
+  margin-top: 25px;
+}
+
+page-resetpwd .submit {
   margin-top: 25px;
 }

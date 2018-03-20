@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Mar 20 12:12:31 ICT 2018
+#Tue Mar 20 13:30:52 ICT 2018
 60.set=ASSET
 52.set=ANDROID_RESOURCE
 53.base=/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_

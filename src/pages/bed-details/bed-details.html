@@ -8,21 +8,21 @@
     <ion-grid>
         <div *ngIf="profileData.role == 'admin' || profileData.role == 'adcenter'">
             <ion-row>
-                <ion-col col-2>
+                <ion-col col-3>
                     <b>วอร์ด</b>
                 </ion-col>
-                <ion-col col-5>
-                    <b>จำนวนเตียงว่าง</b>
+                <ion-col col-4>
+                    <b>เตียงว่าง</b>
                 </ion-col>
                 <ion-col col-5>
                     <b>เพิ่ม/ลดเตียง</b>
                 </ion-col>
             </ion-row>
             <ion-row *ngFor="let bed of bedsData">
-                <ion-col col-2>
+                <ion-col col-3>
                     <div>{{bed.name}}</div>
                 </ion-col>
-                <ion-col col-5>
+                <ion-col col-4>
                     <div>{{bed.blank}}</div>
                 </ion-col>
                 <ion-col col-5>
@@ -38,14 +38,14 @@
 
         <div *ngIf="profileData.role == 'resident'">
             <ion-row>
-                <ion-col col-2>
+                <ion-col col-3>
                     <b>วอร์ด</b>
                 </ion-col>
-                <ion-col col-5>
-                    <b>จำนวนเตียงว่าง</b>
+                <ion-col col-4>
+                    <b>เตียงว่าง</b>
                 </ion-col>
                 <ion-col col-5>
-                    <b>แก้ไขจำนวนเตียง</b>
+                    <b>แก้ไขจำนวน</b>
                 </ion-col>
             </ion-row>
             <div *ngFor="let bed of bedsData">
