@@ -1,0 +1,50 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>สร้างตารางนัดหมาย</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="getting-started">
+    <ion-list>
+        <ion-item-group>
+            <ion-item>
+                <ion-label floating>Name</ion-label>
+                <ion-input type="text" [(ngModel)]="calendarEvent.name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Description</ion-label>
+                <ion-input type="text" [(ngModel)]="calendarEvent.description"></ion-input>
+            </ion-item>
+
+            <ion-row>
+                <ion-item col-6>
+                    <ion-label floating>Start Date</ion-label>
+                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>
+                </ion-item>
+                <ion-item class="line" col-6>
+                    <ion-label floating>Start Time</ion-label>
+                    <ion-datetime displayFormat="hh:mm:a" pickerFormat="hh:mm:a" [(ngModel)]="calendarEvent.startTime"></ion-datetime>
+                </ion-item>
+            </ion-row>
+
+            <ion-row>
+                <ion-item col-6>
+                    <ion-label floating>End Date</ion-label>
+                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="calendarEvent.endDate"></ion-datetime>
+                </ion-item>
+                <ion-item class="line" col-6>
+                    <ion-label floating>End Time</ion-label>
+                    <ion-datetime displayFormat="hh:mm:a" pickerFormat="hh:mm:a" [(ngModel)]="calendarEvent.endTime"></ion-datetime>
+                </ion-item>
+            </ion-row>
+
+        </ion-item-group>
+    </ion-list>
+
+    <div style="text-align:right;">
+        <button ion-button primary (click)="createEvent()">Create Event</button>
+    </div>
+</ion-content>

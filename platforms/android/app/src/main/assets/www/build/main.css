@@ -25728,6 +25728,16 @@ page-contact-details .avatar {
   border-radius: 50%;
 }
 
+page-create-calendar .getting-started p {
+  margin: 20px 0;
+  line-height: 22px;
+  font-size: 16px;
+}
+
+page-create-calendar .line {
+  border-bottom: 1px solid #dedede;
+}
+
 page-home ion-grid {
   text-align: center;
   font-size: 18px;

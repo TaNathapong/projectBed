@@ -2,16 +2,7 @@ import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { Component } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 
-export interface IEvent {
-    allDay: boolean;
-    endTime: Date;
-    startTime: Date;
-    title: string;
-}
-
-export interface ObjIEvent {
-    items: Array<IEvent[]>;
-}
+import { CreateCalendarPage } from '../create-calendar/create-calendar';
 
 @IonicPage()
 @Component({
@@ -21,7 +12,7 @@ export interface ObjIEvent {
 export class CalendarPage {
     API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
     CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-    dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');;
+    dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');
 
     eventSource;
     viewTitle;
@@ -39,10 +30,14 @@ export class CalendarPage {
         console.log('ionViewDidLoad CalendarPage');
     }
 
+    openNavCreateCalendarPage() {
+        this.navCtrl.push(CreateCalendarPage);
+    }
+
     getEvent() {
         var data: any;
-        return this.http.get<ObjIEvent>(this.dataUrl).subscribe(_data => {
-            data = _data.items;
+        return this.http.get(this.dataUrl).subscribe(_data => {
+            data = _data['items'];
             var events = [];
             for (let i = 0; i < data.length; i++) {
                 var startTime = data[i].start.dateTime;
@@ -61,7 +56,8 @@ export class CalendarPage {
                         startTime: startDate,
                         endTime: endDate,
                         allDay: true,
-                        creator: data[i].creator.email
+                        creator: data[i].creator.email,
+                        description: data[i].description
                     });
                 }
                 else {                              // All day event is false
@@ -70,13 +66,17 @@ export class CalendarPage {
                         startTime: new Date(startTime),
                         endTime: new Date(endTime),
                         allDay: false,
-                        creator: data[i].creator.email
+                        creator: data[i].creator.email,
+                        description: data[i].description
                     });
                 }
             }
             this.eventSource = events;
-            console.log(this.eventSource);
         });
+    }
+
+    deleteEvent() {
+        this.http.request('delete', this.dataUrl, );
     }
 
     onViewTitleChanged(title) {
@@ -98,25 +98,38 @@ export class CalendarPage {
         this.isToday = today.getTime() === event.getTime();
     }
 
+    checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
     onEventSelected = (event) => {
-        console.log(event.title);
-        // var startDay = event.startTime;
-        // var startDate = new Date(startDay.getMonth());
-        // var endDay = event.startTime;
-        // var endDate = new Date(endDay.getMonth())
+        var startHour = event.startTime.getHours();
+        var startMinute = event.startTime.getMinutes();
+        var endHour = event.endTime.getHours();
+        var endMinute = event.endTime.getMinutes();
+
+        startHour = this.checkTime(startHour);
+        startMinute = this.checkTime(startMinute);
+        endHour = this.checkTime(endHour);
+        endMinute = this.checkTime(endMinute);
+
+        var startTime = startHour + ":" + startHour;
+        var endTime = endMinute + ":" + endMinute;
+
         if (event.allDay == true) {
-            // var startDay = new Date(event.startTime.getYear());
-            // console.log(startDay);
             let alert = this.alertCtrl.create({
                 title: event.title,
-                subTitle: `<p>เริ่มต้น : ${event.startTime}</p><p>สิ้นสุด : ${event.endTime}</p><p>ผู้สร้าง : ${event.creator}</p>`,
+                subTitle: `<p>รายละเอียด : ${event.description}</p><p>ระยะเวลา : ทั้งวัน </p><p>ผู้สร้าง : ${event.creator}</p>`,
                 buttons: ['OK']
             });
             alert.present();
         } else {
             let alert = this.alertCtrl.create({
                 title: event.title,
-                subTitle: `<p>เริ่มต้น : ${event.startTime}</p><p>สิ้นสุด : ${event.endTime}</p><p>ผู้สร้าง : ${event.creator}</p>`,
+                subTitle: `<p>รายละเอียด : ${event.description}</p><p>เริ่ม : ${startTime} น. สิ้นสุด : ${endTime} น.</p><p>ผู้สร้าง : ${event.creator}</p>`,
                 buttons: ['OK']
             });
             alert.present();

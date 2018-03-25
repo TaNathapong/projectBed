@@ -24,6 +24,11 @@
 </ion-header>
 
 <ion-content>
+    <ion-fab bottom right>
+        <button (click)="openNavCreateCalendarPage()" ion-fab mini color="primary">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
     <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"
         (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"
         (onTimeSelected)="onTimeSelected($event)" step="30">
