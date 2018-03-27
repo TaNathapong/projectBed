@@ -12,6 +12,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { ProfilePage } from '../pages/profile/profile';
 import { Profile } from '../models/profile';
+import { GlobalProvider } from "../providers/global/global";
 
 @Component({
   templateUrl: 'app.html'
@@ -19,13 +20,13 @@ import { Profile } from '../models/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CalendarPage;
+  rootPage: any = LoginPage;
 
   profileData: Observable<Profile>;
 
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
+  constructor(public global: GlobalProvider, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.initializeApp();
 
     this.pages = [
@@ -60,6 +61,7 @@ export class MyApp {
   logout() {
     this.afAuth.auth.signOut();
     this.profileData = null;
+    this.global.access_token = null;
     this.nav.setRoot(LoginPage);
   }
 

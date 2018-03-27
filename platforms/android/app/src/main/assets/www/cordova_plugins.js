@@ -33,11 +33,20 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-calendar.Calendar",
-    "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
-    "pluginId": "cordova-plugin-calendar",
+    "id": "cordova-plugin-inappbrowser.inappbrowser",
+    "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+    "pluginId": "cordova-plugin-inappbrowser",
     "clobbers": [
-      "Calendar"
+      "cordova.InAppBrowser.open",
+      "window.open"
+    ]
+  },
+  {
+    "id": "cordova-plugin-googleplus.GooglePlus",
+    "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+    "pluginId": "cordova-plugin-googleplus",
+    "clobbers": [
+      "window.plugins.googleplus"
     ]
   }
 ];
@@ -50,7 +59,8 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-whitelist": "1.3.3",
   "mx.ferreyra.callnumber": "0.0.2",
-  "cordova-plugin-calendar": "5.0.0"
+  "cordova-plugin-inappbrowser": "2.0.2",
+  "cordova-plugin-googleplus": "5.2.2"
 };
 // BOTTOM OF METADATA
 });

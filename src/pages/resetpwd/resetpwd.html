@@ -4,12 +4,17 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-item>
-        <ion-label floating>Email Address</ion-label>
-        <ion-input type="email" [(ngModel)]="email"></ion-input>
-    </ion-item>
-    <div style="text-align:right;">
-        <button ion-button class="submit " (click)="resetPwd(email)">Reset Password</button>
-    </div>
+<ion-content class="reset-content" padding>
+    <ion-list padding-left padding-right padding-top>
+        <ion-item>
+            <ion-label>
+                <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+            </ion-label>
+            <ion-input type="email" [(ngModel)]="email" placeholder="Email Address" required></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <ion-row padding-left padding-right>
+        <button ion-button block color="danger" (click)="resetPwd(email)">Reset Password</button>
+    </ion-row>
 </ion-content>

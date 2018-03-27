@@ -1,11 +1,11 @@
 <ion-menu menuClose [content]="content">
   <ion-content>
-    <ion-item (click)="profilePage()">
+    <!-- <ion-item (click)="profilePage()"> -->
+    <ion-item>
       <ion-avatar style="width:25%" item-start>
         <img style="width:100%; height:100%" src="{{(profileData | async)?.picture}}">
       </ion-avatar>
-      <h2>{{(profileData | async)?.username}}</h2>
-      <p>{{(profileData | async)?.firstname}} {{(profileData | async)?.lastname}}</p>
+      <h2>{{(profileData | async)?.name}}</h2>
       <p>หน้าที่ : {{(profileData | async)?.role}}</p>
     </ion-item>
 

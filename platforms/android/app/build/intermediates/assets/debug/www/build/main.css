@@ -25707,10 +25707,6 @@ page-calendar ion-title {
   font-size: 14px;
 }
 
-page-calendar ion-content .calendar-event-inner {
-  background-color: red;
-}
-
 page-contact-details .logo-row {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -25759,8 +25755,8 @@ page-login .login-content {
 }
 
 page-login .login-content .logo-row {
-  padding-top: 50px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 page-login .login-content ion-row {
@@ -25771,21 +25767,19 @@ page-login .login-content ion-row {
   text-align: center;
 }
 
-page-login .login-content ion-item {
-  border-radius: 5px !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  margin-bottom: 10px;
-}
-
-page-login .login-content .submit-btn {
-  border-radius: 5px !important;
+page-login u {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 page-profile .submit {
   margin-top: 25px;
 }
 
-page-resetpwd .submit {
-  margin-top: 25px;
+page-resetpwd .reset-content {
+  background-image: url("../assets/imgs/1.jpg") !important;
+  background-color: #2a74d4;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

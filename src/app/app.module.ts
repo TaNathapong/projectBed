@@ -21,6 +21,7 @@ import { ContactDetailsPage } from '../pages/contact-details/contact-details';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
+import { GlobalProvider } from '../providers/global/global';
 
 export const firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
@@ -70,7 +71,8 @@ export const firebase_config = {
     StatusBar,
     SplashScreen,
     CallNumber,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    GlobalProvider
   ]
 })
 

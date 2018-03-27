@@ -5,21 +5,17 @@ page-login {
         background-repeat: no-repeat;
         background-size: cover;
         .logo-row {
-            padding-top: 50px;
-            padding-bottom: 20px;
+            padding-top: 30px;
+            padding-bottom: 30px;
         }
         ion-row {
             align-items: center;
             text-align: center;
         }
-        ion-item {
-            border-radius: 5px !important;
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-            margin-bottom: 10px;
-        }
-        .submit-btn {
-            border-radius: 5px !important;
-        }
+    }
+    u {
+        font-size: 14px;
+        color: #ffffff;
+        text-decoration: underline;
     }
 }

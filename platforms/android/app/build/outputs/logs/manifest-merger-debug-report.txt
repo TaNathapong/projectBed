@@ -1,15 +1,34 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
+ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:17:1-39:12
+MERGED from [com.google.android.gms:play-services-identity:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-11.8.0.aar/a552514059ce88d9c9029fec7abaffad/AndroidManifest.xml:17:1-24:12
 MERGED from [:CordovaLib] /Users/nathapong/ionic/projectBed/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
-INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-16:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.8.0.aar/af4fad5235384f101a6d05f70b4778da/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.8.0.aar/9e0a0c326ce3437fa9ccc37627bbd6f5/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/0ab7840d1d74144fb00b4b54fc5cd933/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-license-11.8.0.aar/98f668ac0085c19b7d3d254a35c1859e/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/626da773570d33eaacb7f5ad30ab7e8b/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/f952d614ccba8b28353ac20b96d1f595/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/235f8da86f178a8c4f17f99900d440cb/AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:support-v4:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-v4-25.2.0.aar/ae3fbe64c6af6a877a069e232c4a3c2d/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/d537b29ce6f20869ca239ba978791d98/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/93d2a8d6b03488502cef2592eab367ec/AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:support-fragment:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-fragment-25.2.0.aar/2c99b0e3bcc009a880a441c5b318ff86/AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-media-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.2.0.aar/04138e4af9c6df1596be9818e5e300b0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-utils:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.2.0.aar/8a0a9ebeefe7b6e86455b4c77d7f1d32/AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-ui:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.2.0.aar/5ec9776124056d6dd9e132b2659f15fc/AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-compat-25.2.0.aar/1801955d92bf06aabc895bc8796836e7/AndroidManifest.xml:17:1-27:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
 	package
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:98-124
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:98-150
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -19,7 +38,7 @@ INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/A
 	android:hardwareAccelerated
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:125-183
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:151-209
 	android:versionCode
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:46-69
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
@@ -44,6 +63,40 @@ ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/Andr
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
 ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:5:5-12:19
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-identity:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-11.8.0.aar/a552514059ce88d9c9029fec7abaffad/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-identity:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-11.8.0.aar/a552514059ce88d9c9029fec7abaffad/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/0ab7840d1d74144fb00b4b54fc5cd933/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/0ab7840d1d74144fb00b4b54fc5cd933/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-license-11.8.0.aar/98f668ac0085c19b7d3d254a35c1859e/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-license-11.8.0.aar/98f668ac0085c19b7d3d254a35c1859e/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/626da773570d33eaacb7f5ad30ab7e8b/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/626da773570d33eaacb7f5ad30ab7e8b/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/f952d614ccba8b28353ac20b96d1f595/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/f952d614ccba8b28353ac20b96d1f595/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/235f8da86f178a8c4f17f99900d440cb/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/235f8da86f178a8c4f17f99900d440cb/AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:support-v4:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-v4-25.2.0.aar/ae3fbe64c6af6a877a069e232c4a3c2d/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-v4-25.2.0.aar/ae3fbe64c6af6a877a069e232c4a3c2d/AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/d537b29ce6f20869ca239ba978791d98/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/d537b29ce6f20869ca239ba978791d98/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/93d2a8d6b03488502cef2592eab367ec/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/93d2a8d6b03488502cef2592eab367ec/AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:support-fragment:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-fragment-25.2.0.aar/2c99b0e3bcc009a880a441c5b318ff86/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-fragment-25.2.0.aar/2c99b0e3bcc009a880a441c5b318ff86/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.2.0.aar/04138e4af9c6df1596be9818e5e300b0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.2.0.aar/04138e4af9c6df1596be9818e5e300b0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.2.0.aar/8a0a9ebeefe7b6e86455b4c77d7f1d32/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.2.0.aar/8a0a9ebeefe7b6e86455b4c77d7f1d32/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.2.0.aar/5ec9776124056d6dd9e132b2659f15fc/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.2.0.aar/5ec9776124056d6dd9e132b2659f15fc/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-compat-25.2.0.aar/1801955d92bf06aabc895bc8796836e7/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-compat-25.2.0.aar/1801955d92bf06aabc895bc8796836e7/AndroidManifest.xml:25:5-20
 	android:supportsRtl
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
 	android:label
@@ -52,7 +105,7 @@ ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/Andr
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
 	android:icon
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
-activity#io.ionic.starter.MainActivity
+activity#com.ionicframework.ionic2googlelogin263837.MainActivity
 ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
 	android:label
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
@@ -80,8 +133,48 @@ ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/Andr
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
 uses-sdk
 ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:13:5-74
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-11.8.0.aar/a552514059ce88d9c9029fec7abaffad/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-11.8.0.aar/a552514059ce88d9c9029fec7abaffad/AndroidManifest.xml:20:5-44
 MERGED from [:CordovaLib] /Users/nathapong/ionic/projectBed/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
 MERGED from [:CordovaLib] /Users/nathapong/ionic/projectBed/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.8.0.aar/af4fad5235384f101a6d05f70b4778da/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.8.0.aar/af4fad5235384f101a6d05f70b4778da/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.8.0.aar/9e0a0c326ce3437fa9ccc37627bbd6f5/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.8.0.aar/9e0a0c326ce3437fa9ccc37627bbd6f5/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/0ab7840d1d74144fb00b4b54fc5cd933/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/0ab7840d1d74144fb00b4b54fc5cd933/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-license-11.8.0.aar/98f668ac0085c19b7d3d254a35c1859e/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-identity-license-11.8.0.aar/98f668ac0085c19b7d3d254a35c1859e/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/626da773570d33eaacb7f5ad30ab7e8b/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.8.0.aar/626da773570d33eaacb7f5ad30ab7e8b/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/f952d614ccba8b28353ac20b96d1f595/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.8.0.aar/f952d614ccba8b28353ac20b96d1f595/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/235f8da86f178a8c4f17f99900d440cb/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/235f8da86f178a8c4f17f99900d440cb/AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:support-v4:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-v4-25.2.0.aar/ae3fbe64c6af6a877a069e232c4a3c2d/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-v4-25.2.0.aar/ae3fbe64c6af6a877a069e232c4a3c2d/AndroidManifest.xml:21:5-23:54
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/d537b29ce6f20869ca239ba978791d98/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/d537b29ce6f20869ca239ba978791d98/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/93d2a8d6b03488502cef2592eab367ec/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/93d2a8d6b03488502cef2592eab367ec/AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:support-fragment:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-fragment-25.2.0.aar/2c99b0e3bcc009a880a441c5b318ff86/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-fragment-25.2.0.aar/2c99b0e3bcc009a880a441c5b318ff86/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.2.0.aar/04138e4af9c6df1596be9818e5e300b0/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.2.0.aar/04138e4af9c6df1596be9818e5e300b0/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.2.0.aar/8a0a9ebeefe7b6e86455b4c77d7f1d32/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.2.0.aar/8a0a9ebeefe7b6e86455b4c77d7f1d32/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.2.0.aar/5ec9776124056d6dd9e132b2659f15fc/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.2.0.aar/5ec9776124056d6dd9e132b2659f15fc/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-compat-25.2.0.aar/1801955d92bf06aabc895bc8796836e7/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-compat-25.2.0.aar/1801955d92bf06aabc895bc8796836e7/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:25.2.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/support-v4-25.2.0.aar/ae3fbe64c6af6a877a069e232c4a3c2d/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:13:42-71
 	android:minSdkVersion
@@ -96,3 +189,43 @@ ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/Andr
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:15:61-85
 	android:name
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:15:19-60
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:16:5-71
+	android:name
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:16:22-68
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:17:5-74
+	android:name
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:17:22-71
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:33:9-36:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:35:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/f65c072b8ba2fdf2e5b91e3296369604/AndroidManifest.xml:34:13-89
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/2e054e5c90e26503dfeb60bebf4d53ef/AndroidManifest.xml:24:13-58
