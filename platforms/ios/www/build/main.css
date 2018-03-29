@@ -25707,14 +25707,6 @@ page-calendar ion-title {
   font-size: 14px;
 }
 
-page-calendar ion-content .calendar-event-inner {
-  background-color: red;
-}
-
-page-calendar .buttoncss {
-  color: #e74c3c;
-}
-
 page-contact-details .logo-row {
   padding-top: 10px;
   padding-bottom: 10px;

@@ -21,6 +21,7 @@ import { ContactDetailsPage } from '../pages/contact-details/contact-details';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GlobalProvider } from '../providers/global/global';
 
 export const firebase_config = {
@@ -71,6 +72,7 @@ export const firebase_config = {
     StatusBar,
     SplashScreen,
     CallNumber,
+    InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     GlobalProvider
   ]

@@ -27,6 +27,9 @@
     },
     "cordova-plugin-googleplus": {
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.ionicframework.ionic2googlelogin263837"
     }
   },
   "dependent_plugins": {}

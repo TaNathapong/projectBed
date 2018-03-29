@@ -47,6 +47,15 @@ module.exports = [
     "clobbers": [
       "window.plugins.googleplus"
     ]
+  },
+  {
+    "id": "cordova-plugin-inappbrowser.inappbrowser",
+    "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+    "pluginId": "cordova-plugin-inappbrowser",
+    "clobbers": [
+      "cordova.InAppBrowser.open",
+      "window.open"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -58,7 +67,8 @@ module.exports.metadata =
   "cordova-plugin-ionic-webview": "1.1.16",
   "cordova-plugin-ionic-keyboard": "2.0.5",
   "mx.ferreyra.callnumber": "0.0.2",
-  "cordova-plugin-googleplus": "5.2.2"
+  "cordova-plugin-googleplus": "5.2.2",
+  "cordova-plugin-inappbrowser": "2.0.2"
 };
 // BOTTOM OF METADATA
 });

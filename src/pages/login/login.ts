@@ -77,30 +77,36 @@ export class LoginPage {
     googleLogin() {
         const provider = new firebase.auth.GoogleAuthProvider()
         provider.addScope('https://www.googleapis.com/auth/calendar');
-        return this.socialSignIn(provider);
+        return this.socialSignIn(provider).catch(error => console.log(error));
     }
 
     private socialSignIn(provider) {
-        return this.afAuth.auth.signInWithPopup(provider)
-            .then((credential) => {
-                this.authState = credential.user
-                this.global.access_token = credential.credential.accessToken;
-                this.updateUserData()
+        return this.afAuth.auth.signInWithPopup(provider).then((credential) => {
+            this.authState = credential.user
+            this.global.access_token = credential.credential.accessToken;
+            this.updateUserData()
 
-                this.navCtrl.setRoot(HomePage);
-                this.menu.enable(true);
+            this.navCtrl.setRoot(HomePage);
+            this.menu.enable(true);
 
-                this.afAuth.authState.subscribe(data => {
-                    if (data && data.email && data.uid) {
-                        this.toast.create({
-                            message: `ยินดีต้อนรับ ${data.displayName}`,
-                            duration: 3000
-                        }).present();
-                    }
-                });
+            this.afAuth.authState.subscribe(data => {
+                if (data && data.email && data.uid) {
+                    this.toast.create({
+                        message: `ยินดีต้อนรับ ${data.displayName}`,
+                        duration: 3000
+                    }).present();
+                }
+            });
 
-            })
-            .catch(error => console.log(error));
+        }).catch((e) => {
+            console.error(e);
+            let alert = this.alertCtrl.create({
+                title: 'Error!',
+                subTitle: e.message,
+                buttons: ['OK']
+            });
+            alert.present();
+        })
     }
 
     get authenticated(): boolean {

@@ -1,11 +1,15 @@
 [
     {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_dark.xml.flat",
+        "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_focused.xml.flat",
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_text_dark_focused.xml"
     },
     {
-        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_dark.xml.flat",
-        "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_icon_dark.xml"
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_previous_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-mdpi/ic_action_previous_item.png"
     },
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-port-hdpi_screen.png.flat",
@@ -20,12 +24,16 @@
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/color/common_google_signin_btn_tint.xml"
     },
     {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_light.xml.flat",
+        "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat",
         "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/mipmap-mdpi/icon.png"
     },
     {
-        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_light.xml.flat",
-        "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_icon_light.xml"
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_previous_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-hdpi/ic_action_previous_item.png"
     },
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light_focused.xml.flat",
@@ -36,8 +44,16 @@
         "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-land-xhdpi/screen.png"
     },
     {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_remove.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-hdpi/ic_action_remove.png"
+    },
+    {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/mipmap-ldpi_icon.png.flat",
         "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/mipmap-ldpi/icon.png"
+    },
+    {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_next_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-xxhdpi/ic_action_next_item.png"
     },
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
@@ -54,6 +70,10 @@
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_disabled.xml.flat",
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_next_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-xhdpi/ic_action_next_item.png"
     },
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/xml_config.xml.flat",
@@ -132,6 +152,10 @@
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
     },
     {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_next_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-hdpi/ic_action_next_item.png"
+    },
+    {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-port-xxhdpi_screen.png.flat",
         "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png"
     },
@@ -184,6 +208,10 @@
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/color/common_google_signin_btn_text_dark.xml"
     },
     {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_remove.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-xxhdpi/ic_action_remove.png"
+    },
+    {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
         "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png"
     },
@@ -196,12 +224,20 @@
         "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-port-xhdpi/screen.png"
     },
     {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_remove.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-xhdpi/ic_action_remove.png"
+    },
+    {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_normal.xml.flat",
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable/common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_remove.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-mdpi/ic_action_remove.png"
     },
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
@@ -240,6 +276,14 @@
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable-hdpi-v4/common_full_open_on_phone.png"
     },
     {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_next_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-mdpi/ic_action_next_item.png"
+    },
+    {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_previous_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-xxhdpi/ic_action_previous_item.png"
+    },
+    {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
@@ -250,6 +294,10 @@
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
         "source": "/Users/nathapong/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/bb09442050bdd7652f552f8de9ae3bcc/res/drawable-xxhdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_previous_item.png.flat",
+        "source": "/Users/nathapong/ionic/projectBed/platforms/android/app/src/main/res/drawable-xhdpi/ic_action_previous_item.png"
     },
     {
         "merged": "/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",

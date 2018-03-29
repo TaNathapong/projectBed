@@ -50,6 +50,7 @@
 		60E94302938A48EFAAE4C2B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C875BAC05514B71A74A0782 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AE7A5733B564402F9933E647 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C272E5A7FC974E25AE435211 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1641C77320CB4235864AEAF7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1F12873F14412DB56DDB07 /* libz.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CAA3FA184E884F23AF7F53F6 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5811192B1E6B470BA6ACF645 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,8 @@
 		1C875BAC05514B71A74A0782 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		C272E5A7FC974E25AE435211 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		8E1F12873F14412DB56DDB07 /* libz.dylib */ = {isa = PBXFileReference; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		5811192B1E6B470BA6ACF645 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		10BB044E39E04301AD41062F /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,8 @@
 				0E0D9C55C67B4864AC325F0B /* CFCallNumber.h */,
 				7213E820A59341A78AA422AD /* GooglePlus.m */,
 				479CE52CEB3E4A4EB72DC6E3 /* GooglePlus.h */,
+				5811192B1E6B470BA6ACF645 /* CDVInAppBrowser.m */,
+				10BB044E39E04301AD41062F /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = projectBed/Plugins;
@@ -482,6 +487,7 @@
 				56D8C70BF2424BF084312AB0 /* CDVIonicKeyboard.m in Sources */,
 				86E1AD7DE1A5466D959D381F /* CFCallNumber.m in Sources */,
 				D60433EAFD8D418295AB9DEA /* GooglePlus.m in Sources */,
+				CAA3FA184E884F23AF7F53F6 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
