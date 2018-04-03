@@ -554,39 +554,28 @@ var LoginPage = (function () {
     LoginPage.prototype.login = function (user) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            var result, error_1, alert_1;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)];
-                    case 1:
-                        result = _a.sent();
-                        if (result) {
-                            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
-                            this.menu.enable(true);
-                            this.afAuth.authState.subscribe(function (data) {
-                                if (data && data.email && data.uid) {
-                                    _this.toast.create({
-                                        message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.email,
-                                        duration: 3000
-                                    }).present();
-                                }
-                            });
+                __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithEmailAndPassword(user.email, user.password).then(function (result) {
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+                    _this.menu.enable(true);
+                    _this.afAuth.authState.subscribe(function (data) {
+                        if (data && data.email && data.uid) {
+                            _this.toast.create({
+                                message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.email,
+                                duration: 3000
+                            }).present();
                         }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.error(error_1);
-                        alert_1 = this.alertCtrl.create({
-                            title: 'Error!',
-                            subTitle: error_1.message,
-                            buttons: ['OK']
-                        });
-                        alert_1.present();
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
-                }
+                    });
+                }).catch(function (error) {
+                    console.error(error);
+                    var alert = _this.alertCtrl.create({
+                        title: 'Error!',
+                        subTitle: error.message,
+                        buttons: ['OK']
+                    });
+                    alert.present();
+                });
+                return [2 /*return*/];
             });
         });
     };
@@ -610,17 +599,10 @@ var LoginPage = (function () {
                                         }).present();
                                     }
                                 });
+                                console.log(user);
                                 _this.menu.enable(true);
                                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
                             }
-                        }).catch(function (error) {
-                            console.error(error);
-                            var alert = this.alertCtrl.create({
-                                title: 'Error!',
-                                subTitle: error.message,
-                                buttons: ['OK']
-                            });
-                            alert.present();
                         });
                     }
                     else {
@@ -670,7 +652,7 @@ var LoginPage = (function () {
     });
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/'<ion-content class="login-content" padding>\n\n    <ion-row class="logo-row">\n\n        <ion-col>\n\n            <img style="width:125px;" src="assets/imgs/logo.png" />\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-list padding-left padding-right>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            </ion-label>\n\n            <ion-input type="email" [(ngModel)]="user.email" placeholder="Email" required></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-key" md="md-key"></ion-icon>\n\n            </ion-label>\n\n            <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" required></ion-input>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button block color="primary" (click)="login(user)">Login</button>\n\n    </ion-row>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button icon-left block color="danger" (click)="googleLogin()">\n\n            <ion-icon ios="logo-google" md="logo-google"></ion-icon> Sign In With Google\n\n        </button>\n\n    </ion-row>\n\n\n\n    <div style="text-align:right;" padding>\n\n        <u (click)="openNavResetpwdPage()" end>Forgot Password?</u>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/
+            selector: 'page-login',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/'<ion-content class="login-content" padding>\n\n    <ion-row class="logo-row">\n\n        <ion-col>\n\n            <img style="width:125px;" src="assets/imgs/logo.png" />\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-list padding-left padding-right>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            </ion-label>\n\n            <ion-input type="email" [(ngModel)]="user.email" placeholder="Email" required></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-key" md="md-key"></ion-icon>\n\n            </ion-label>\n\n            <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" required></ion-input>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button block color="primary" (click)="login(user)" medium>Login</button>\n\n    </ion-row>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button icon-left block color="danger" (click)="googleLogin()" medium>\n\n            <ion-icon ios="logo-google" md="logo-google"></ion-icon> Sign In With Google\n\n        </button>\n\n    </ion-row>\n\n\n\n    <div style="text-align:right;" padding>\n\n        <u (click)="openNavResetpwdPage()" end>Forgot Password?</u>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], LoginPage);
@@ -1152,6 +1134,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyApp = (function () {
     function MyApp(global, platform, statusBar, alertCtrl, splashScreen, afDB, afAuth) {
+        var _this = this;
         this.global = global;
         this.platform = platform;
         this.statusBar = statusBar;
@@ -1160,25 +1143,59 @@ var MyApp = (function () {
         this.afDB = afDB;
         this.afAuth = afAuth;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */];
-        this.initializeApp();
+        this.alertShown = false;
+        this.counter = 0;
         this.pages = [
             { title: 'Bed Management', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
             { title: 'Contact', component: __WEBPACK_IMPORTED_MODULE_9__pages_contact_contact__["a" /* ContactPage */] },
             { title: 'Calendar', component: __WEBPACK_IMPORTED_MODULE_10__pages_calendar_calendar__["a" /* CalendarPage */] }
         ];
-    }
-    MyApp.prototype.initializeApp = function () {
-        var _this = this;
-        this.platform.ready().then(function () {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            _this.statusBar.styleDefault();
-            _this.splashScreen.hide();
-        });
-        this.afAuth.authState.subscribe(function (data) {
+        afAuth.authState.subscribe(function (data) {
             if (data && data.email && data.uid) {
                 _this.profileData = _this.afDB.object("profiles/" + data.uid).valueChanges();
             }
+        });
+        platform.ready().then(function () {
+            statusBar.styleDefault();
+            splashScreen.hide();
+            platform.registerBackButtonAction(function () {
+                if (_this.counter == 0) {
+                    _this.nav.pop();
+                    _this.counter++;
+                    setTimeout(function () { _this.counter = 0; }, 1500);
+                }
+                else {
+                    _this.presentConfirm();
+                }
+            }, 0);
+        });
+    }
+    MyApp.prototype.presentConfirm = function () {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: 'ออกจากแอพ',
+            message: 'ต้องการออกจากโปรแกรมหรือไม่ ?',
+            buttons: [
+                {
+                    text: 'ยกเลิก',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                        _this.alertShown = false;
+                    }
+                },
+                {
+                    text: 'ตกลง',
+                    handler: function () {
+                        console.log('Yes clicked');
+                        _this.logout();
+                        _this.platform.exitApp();
+                    }
+                }
+            ]
+        });
+        alert.present().then(function () {
+            _this.alertShown = true;
         });
     };
     MyApp.prototype.openPage = function (page) {
@@ -1191,6 +1208,7 @@ var MyApp = (function () {
         this.global.access_token = null;
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */]);
         __WEBPACK_IMPORTED_MODULE_6_firebase__["auth"]().signOut();
+        window.location.reload();
     };
     MyApp.prototype.profilePage = function () {
         this.nav.push(__WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__["a" /* ProfilePage */]);

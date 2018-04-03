@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Apr 03 12:14:55 ICT 2018
+#Tue Apr 03 17:53:54 ICT 2018
 122.file=/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-xxhdpi-v4/ic_action_remove.png
 60.set=ASSET
 129.file=/Users/nathapong/ionic/projectBed/platforms/android/app/build/intermediates/assets/debug/www/assets/css/dx.greenmist.css

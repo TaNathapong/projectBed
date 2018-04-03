@@ -31,21 +31,18 @@ export class LoginPage {
     }
 
     async login(user: User): Promise<any> {
-        try {
-            const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
-            if (result) {
-                this.navCtrl.setRoot(HomePage);
-                this.menu.enable(true);
-                this.afAuth.authState.subscribe(data => {
-                    if (data && data.email && data.uid) {
-                        this.toast.create({
-                            message: `ยินดีต้อนรับ ${data.email}`,
-                            duration: 3000
-                        }).present();
-                    }
-                });
-            }
-        } catch (error) {
+        firebase.auth().signInWithEmailAndPassword(user.email, user.password).then((result) => {
+            this.navCtrl.setRoot(HomePage);
+            this.menu.enable(true);
+            this.afAuth.authState.subscribe(data => {
+                if (data && data.email && data.uid) {
+                    this.toast.create({
+                        message: `ยินดีต้อนรับ ${data.email}`,
+                        duration: 3000
+                    }).present();
+                }
+            });
+        }).catch((error) => {
             console.error(error);
             let alert = this.alertCtrl.create({
                 title: 'Error!',
@@ -53,7 +50,7 @@ export class LoginPage {
                 buttons: ['OK']
             });
             alert.present();
-        }
+        });
     }
 
     async googleLogin(): Promise<any> {
@@ -73,17 +70,10 @@ export class LoginPage {
                                 }).present();
                             }
                         });
+                        console.log(user);
                         this.menu.enable(true);
                         this.navCtrl.setRoot(HomePage);
                     }
-                }).catch(function (error) {
-                    console.error(error);
-                    let alert = this.alertCtrl.create({
-                        title: 'Error!',
-                        subTitle: error.message,
-                        buttons: ['OK']
-                    });
-                    alert.present();
                 });
             } else {
                 firebase.auth().signInWithRedirect(provider).then(function () {

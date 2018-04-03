@@ -22,33 +22,65 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = LoginPage;
-
   profileData: Observable<Profile>;
-
   pages: Array<{ title: string, component: any }>;
+  public alertShown: boolean = false;
+  public counter = 0;
 
   constructor(public global: GlobalProvider, public platform: Platform, public statusBar: StatusBar, public alertCtrl: AlertController, public splashScreen: SplashScreen, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
-    this.initializeApp();
+    platform.ready().then(() => {
+      statusBar.styleDefault();
+      splashScreen.hide();
+
+      platform.registerBackButtonAction(() => {
+        if (this.counter == 0) {
+          this.nav.pop();
+          this.counter++;
+          setTimeout(() => { this.counter = 0 }, 1500)
+        } else {
+          this.presentConfirm();
+        }
+      }, 0)
+    });
 
     this.pages = [
       { title: 'Bed Management', component: HomePage },
       { title: 'Contact', component: ContactPage },
       { title: 'Calendar', component: CalendarPage }
     ];
-  }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-
-    this.afAuth.authState.subscribe(data => {
+    afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
         this.profileData = this.afDB.object<Profile>(`profiles/${data.uid}`).valueChanges();
       }
+    });
+  }
+
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'ออกจากแอพ',
+      message: 'ต้องการออกจากโปรแกรมหรือไม่ ?',
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+            this.alertShown = false;
+          }
+        },
+        {
+          text: 'ตกลง',
+          handler: () => {
+            console.log('Yes clicked');
+            this.logout();
+            this.platform.exitApp();
+          }
+        }
+      ]
+    });
+    alert.present().then(() => {
+      this.alertShown = true;
     });
   }
 
@@ -63,6 +95,7 @@ export class MyApp {
     this.global.access_token = null;
     this.nav.setRoot(LoginPage);
     firebase.auth().signOut();
+    window.location.reload();
   }
 
   profilePage() {
