@@ -32,11 +32,11 @@ export class CalendarPage {
     };
 
     constructor(public global: GlobalProvider, public navCtrl: NavController, private http: HttpClient, private alertCtrl: AlertController) {
-        this.getEvent();
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad CalendarPage');
+        this.getEvent();
     }
 
     openNavCreateCalendarPage() {
@@ -56,7 +56,6 @@ export class CalendarPage {
         var data: any;
         return this.http.get(this.dataUrl).subscribe(_data => {
             data = _data['items'];
-            console.log(data);
             var events = [];
             for (let i = 0; i < data.length; i++) {
                 var startTime = data[i].start.dateTime;
@@ -105,12 +104,12 @@ export class CalendarPage {
                     buttons: ['OK']
                 });
                 alert.present();
+                this.navCtrl.setRoot(CalendarPage);
             },
-                err => {
-                    console.log(err);
+                (error) => {
                     let alert = this.alertCtrl.create({
-                        title: err.name,
-                        subTitle: err.message,
+                        title: error.name,
+                        subTitle: error.message,
                         buttons: ['OK']
                     });
                     alert.present();

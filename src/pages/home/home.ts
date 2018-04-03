@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { BedDetailsPage } from '../bed-details/bed-details';
+import { GlobalProvider } from "../../providers/global/global";
 
 @Component({
     selector: 'page-home',
@@ -14,7 +15,7 @@ export class HomePage {
     bedsData = []
     profileData = {};
 
-    constructor(public navCtrl: NavController, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
+    constructor(public global: GlobalProvider, public navCtrl: NavController, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
         this.afAuth.authState.subscribe(data => {
             if (data && data.email && data.uid) {
                 this.afDB.list("/wards/").valueChanges().subscribe(_data => {
@@ -34,5 +35,4 @@ export class HomePage {
     openNavDetailsPage() {
         this.navCtrl.push(BedDetailsPage);
     }
-
 }

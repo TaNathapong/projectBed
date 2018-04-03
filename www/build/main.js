@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ webpackJsonp([8],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -187,279 +187,6 @@ var BedDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 159:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_calendar_create_calendar__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_global__ = __webpack_require__(68);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var CalendarPage = (function () {
-    function CalendarPage(global, navCtrl, http, alertCtrl) {
-        var _this = this;
-        this.global = global;
-        this.navCtrl = navCtrl;
-        this.http = http;
-        this.alertCtrl = alertCtrl;
-        this.httpOptions = {
-            headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + this.global.access_token
-            })
-        };
-        this.API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
-        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');
-        this.deleteUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events';
-        this.calendar = {
-            mode: 'month',
-            currentDate: new Date(),
-        };
-        this.onEventSelected = function (event) {
-            var startHour = event.startTime.getHours();
-            var startMinute = event.startTime.getMinutes();
-            var endHour = event.endTime.getHours();
-            var endMinute = event.endTime.getMinutes();
-            startHour = _this.checkTime(startHour);
-            startMinute = _this.checkTime(startMinute);
-            endHour = _this.checkTime(endHour);
-            endMinute = _this.checkTime(endMinute);
-            var startTime = startHour + ":" + startMinute;
-            var endTime = endHour + ":" + endMinute;
-            if (event.allDay == true) {
-                var confirmAlert = _this.alertCtrl.create({
-                    title: event.title,
-                    message: "<p>\u0E23\u0E32\u0E22\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14 : " + event.description + "</p><p>\u0E23\u0E30\u0E22\u0E30\u0E40\u0E27\u0E25\u0E32 : \u0E17\u0E31\u0E49\u0E07\u0E27\u0E31\u0E19 </p><p>\u0E1C\u0E39\u0E49\u0E2A\u0E23\u0E49\u0E32\u0E07 : " + event.creator + "</p>",
-                    buttons: [
-                        {
-                            text: 'ยกเลิก',
-                            role: 'cancel',
-                            handler: function () {
-                                console.log('Cancel clicked');
-                            }
-                        },
-                        {
-                            text: 'ลบข้อมูล',
-                            handler: function () {
-                                var confirmDeleteAlert = _this.alertCtrl.create({
-                                    title: 'ยืนยันการลบ',
-                                    message: "\u0E17\u0E48\u0E32\u0E19\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E1A : " + event.title,
-                                    buttons: [
-                                        {
-                                            text: 'ยกเลิก',
-                                            role: 'cancel',
-                                            handler: function () {
-                                                console.log('Cancel clicked');
-                                            }
-                                        },
-                                        {
-                                            text: 'ลบ',
-                                            handler: function () {
-                                                _this.deleteEvent(event.id);
-                                                console.log('ลบข้อมูลที่ :' + event.id);
-                                            }
-                                        }
-                                    ]
-                                });
-                                confirmDeleteAlert.present();
-                            }
-                        }
-                    ]
-                });
-                confirmAlert.present();
-            }
-            else {
-                var confirmAlert = _this.alertCtrl.create({
-                    title: event.title,
-                    message: "<p>\u0E23\u0E32\u0E22\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14 : " + event.description + "</p><p>\u0E40\u0E23\u0E34\u0E48\u0E21 : " + startTime + " \u0E19. \u0E2A\u0E34\u0E49\u0E19\u0E2A\u0E38\u0E14 : " + endTime + " \u0E19.</p><p>\u0E1C\u0E39\u0E49\u0E2A\u0E23\u0E49\u0E32\u0E07 : " + event.creator + "</p>",
-                    buttons: [
-                        {
-                            text: 'ยกเลิก',
-                            role: 'cancel',
-                            handler: function () {
-                                console.log('Cancel clicked');
-                            }
-                        },
-                        {
-                            text: 'ลบข้อมูล',
-                            handler: function () {
-                                var confirmDeleteAlert = _this.alertCtrl.create({
-                                    title: 'ยืนยันการลบ',
-                                    message: "\u0E17\u0E48\u0E32\u0E19\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E1A : " + event.title,
-                                    buttons: [
-                                        {
-                                            text: 'ยกเลิก',
-                                            role: 'cancel',
-                                            handler: function () {
-                                                console.log('Cancel clicked');
-                                            }
-                                        },
-                                        {
-                                            text: 'ลบ',
-                                            handler: function () {
-                                                _this.deleteEvent(event.id);
-                                                console.log('ลบข้อมูลที่ :' + event.id);
-                                            }
-                                        }
-                                    ]
-                                });
-                                confirmDeleteAlert.present();
-                            }
-                        }
-                    ]
-                });
-                confirmAlert.present();
-            }
-        };
-        this.onTimeSelected = function (ev) {
-            console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' + (ev.events !== undefined && ev.events.length !== 0));
-        };
-        this.markDisabled = function (date) {
-            var current = new Date();
-            current.setHours(0, 0, 0);
-            return date < current;
-        };
-        this.getEvent();
-    }
-    CalendarPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CalendarPage');
-    };
-    CalendarPage.prototype.openNavCreateCalendarPage = function () {
-        if (this.global.access_token) {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__create_calendar_create_calendar__["a" /* CreateCalendarPage */]);
-        }
-        else {
-            var alert_1 = this.alertCtrl.create({
-                title: 'รายการล้มเหลว!',
-                subTitle: 'สิทธิของท่านไม่สามารถเพิ่มปฏิทินได้',
-                buttons: ['OK']
-            });
-            alert_1.present();
-        }
-    };
-    CalendarPage.prototype.getEvent = function () {
-        var _this = this;
-        var data;
-        return this.http.get(this.dataUrl).subscribe(function (_data) {
-            data = _data['items'];
-            console.log(data);
-            var events = [];
-            for (var i = 0; i < data.length; i++) {
-                var startTime = data[i].start.dateTime;
-                var endTime = data[i].end.dateTime;
-                var startDate = data[i].end.date;
-                var endDate = data[i].end.date;
-                if (startDate != undefined) {
-                    if (endDate === startDate) {
-                        var day = new Date(endDate);
-                        startDate = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 0);
-                        endDate = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 0);
-                    }
-                    events.push({
-                        id: data[i].id,
-                        title: data[i].summary,
-                        startTime: startDate,
-                        endTime: endDate,
-                        allDay: true,
-                        creator: data[i].creator.email,
-                        description: data[i].description
-                    });
-                }
-                else {
-                    events.push({
-                        id: data[i].id,
-                        title: data[i].summary,
-                        startTime: new Date(startTime),
-                        endTime: new Date(endTime),
-                        allDay: false,
-                        creator: data[i].creator.email,
-                        description: data[i].description
-                    });
-                }
-            }
-            _this.eventSource = events;
-        });
-    };
-    CalendarPage.prototype.deleteEvent = function (eventId) {
-        var _this = this;
-        if (this.global.access_token) {
-            this.http.delete(this.deleteUrl + "/" + eventId, this.httpOptions).subscribe(function (res) {
-                var alert = _this.alertCtrl.create({
-                    title: 'รายการสำเร็จ!',
-                    subTitle: 'ลบข้อมูลเสร็จสิ้น',
-                    buttons: ['OK']
-                });
-                alert.present();
-            }, function (err) {
-                console.log(err);
-                var alert = _this.alertCtrl.create({
-                    title: err.name,
-                    subTitle: err.message,
-                    buttons: ['OK']
-                });
-                alert.present();
-            });
-        }
-        else {
-            var alert_2 = this.alertCtrl.create({
-                title: 'รายการล้มเหลว!',
-                subTitle: 'สิทธิของท่านไม่สามารถลบปฏิทินได้',
-                buttons: ['OK']
-            });
-            alert_2.present();
-        }
-    };
-    CalendarPage.prototype.onViewTitleChanged = function (title) {
-        this.viewTitle = title;
-    };
-    CalendarPage.prototype.changeMode = function (mode) {
-        this.calendar.mode = mode;
-    };
-    CalendarPage.prototype.today = function () {
-        this.calendar.currentDate = new Date();
-    };
-    CalendarPage.prototype.onCurrentDateChanged = function (event) {
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);
-        event.setHours(0, 0, 0, 0);
-        this.isToday = today.getTime() === event.getTime();
-    };
-    CalendarPage.prototype.checkTime = function (i) {
-        if (i < 10) {
-            i = "0" + i;
-        }
-        return i;
-    };
-    CalendarPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title class="title">{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="Month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="Week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="Day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-fab bottom right>\n        <button (click)="openNavCreateCalendarPage()" ion-fab mini color="primary">\n            <ion-icon name="add"></ion-icon>\n        </button>\n    </ion-fab>\n    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"\n        (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"\n        (onTimeSelected)="onTimeSelected($event)" step="30">\n    </calendar>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */]])
-    ], CalendarPage);
-    return CalendarPage;
-}());
-
-//# sourceMappingURL=calendar.js.map
-
-/***/ }),
-
 /***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -467,8 +194,9 @@ var CalendarPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCalendarPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_global_global__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calendar_calendar__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -478,6 +206,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -536,11 +265,12 @@ var CreateCalendarPage = (function () {
                     buttons: ['OK']
                 });
                 alert.present();
-            }, function (err) {
-                console.log(err);
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__calendar_calendar__["a" /* CalendarPage */]);
+            }, function (error) {
+                console.log(error);
                 var alert = _this.alertCtrl.create({
-                    title: err.name,
-                    subTitle: err.message,
+                    title: error.name,
+                    subTitle: error.message,
                     buttons: ['OK']
                 });
                 alert.present();
@@ -572,7 +302,7 @@ var CreateCalendarPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-create-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/create-calendar/create-calendar.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>สร้างตารางนัดหมาย</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding class="getting-started">\n    <ion-list>\n        <ion-item-group>\n            <ion-item>\n                <ion-label floating>Name</ion-label>\n                <ion-input type="text" [(ngModel)]="calendarEvent.name"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label floating>Description</ion-label>\n                <ion-input type="text" [(ngModel)]="calendarEvent.description"></ion-input>\n            </ion-item>\n\n            <ion-row>\n                <ion-item col-6>\n                    <ion-label floating>Start Date</ion-label>\n                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>\n                </ion-item>\n                <ion-item class="line" col-6>\n                    <ion-label floating>Start Time</ion-label>\n                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" [(ngModel)]="calendarEvent.startTime"></ion-datetime>\n                </ion-item>\n            </ion-row>\n\n            <ion-row>\n                <ion-item col-6>\n                    <ion-label floating>End Date</ion-label>\n                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="calendarEvent.endDate"></ion-datetime>\n                </ion-item>\n                <ion-item class="line" col-6>\n                    <ion-label floating>End Time</ion-label>\n                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" [(ngModel)]="calendarEvent.endTime"></ion-datetime>\n                </ion-item>\n            </ion-row>\n\n        </ion-item-group>\n    </ion-list>\n\n    <div style="text-align:right;">\n        <button ion-button primary (click)="addEvent()">Create Event</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/create-calendar/create-calendar.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], CreateCalendarPage);
     return CreateCalendarPage;
 }());
@@ -588,7 +318,7 @@ var CreateCalendarPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_call_number__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_call_number__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -643,8 +373,8 @@ var ContactDetailsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__contact_details_contact_details__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -744,11 +474,11 @@ var ContactPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_global_global__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -813,15 +543,18 @@ var LoginPage = (function () {
         this.afAuth = afAuth;
         this.user = {};
         this.authState = null;
-        this.menu.enable(false);
+        // this.menu.enable(false);
     }
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
     };
+    LoginPage.prototype.openNavResetpwdPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__["a" /* ResetpwdPage */]);
+    };
     LoginPage.prototype.login = function (user) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            var result, e_1, alert_1;
+            var result, error_1, alert_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -843,11 +576,11 @@ var LoginPage = (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        e_1 = _a.sent();
-                        console.error(e_1);
+                        error_1 = _a.sent();
+                        console.error(error_1);
                         alert_1 = this.alertCtrl.create({
                             title: 'Error!',
-                            subTitle: e_1.message,
+                            subTitle: error_1.message,
                             buttons: ['OK']
                         });
                         alert_1.present();
@@ -857,56 +590,69 @@ var LoginPage = (function () {
             });
         });
     };
-    // async register(user: User) {
-    //     this.menu.enable(true);
-    //     try {
-    //         const result = await this.afAuth.auth.createUserWithEmailAndPassword(
-    //             user.email,
-    //             user.password
-    //         );
-    //         if (result) {
-    //             this.navCtrl.setRoot(HomePage);
-    //         }
-    //     } catch (e) {
-    //         console.error(e);
-    //         let alert = this.alertCtrl.create({
-    //             title: 'Alert!',
-    //             subTitle: 'the email / password combination is not valid',
-    //             buttons: ['OK']
-    //         });
-    //         alert.present();
-    //     }
-    // }
     LoginPage.prototype.googleLogin = function () {
-        var provider = new __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"].GoogleAuthProvider();
-        provider.addScope('https://www.googleapis.com/auth/calendar');
-        return this.socialSignIn(provider).catch(function (error) { return console.log(error); });
-    };
-    LoginPage.prototype.socialSignIn = function (provider) {
-        var _this = this;
-        return this.afAuth.auth.signInWithPopup(provider).then(function (credential) {
-            _this.authState = credential.user;
-            _this.global.access_token = credential.credential.accessToken;
-            _this.updateUserData();
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
-            _this.menu.enable(true);
-            _this.afAuth.authState.subscribe(function (data) {
-                if (data && data.email && data.uid) {
-                    _this.toast.create({
-                        message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.displayName,
-                        duration: 3000
-                    }).present();
-                }
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var provider;
+            return __generator(this, function (_a) {
+                provider = new __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"].GoogleAuthProvider();
+                provider.addScope('https://www.googleapis.com/auth/calendar');
+                __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().onAuthStateChanged(function (user) {
+                    if (user) {
+                        __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult().then(function (result) {
+                            if (result.user) {
+                                _this.global.access_token = result.credential.accessToken;
+                                _this.afAuth.authState.subscribe(function (data) {
+                                    if (data && data.email && data.uid) {
+                                        _this.toast.create({
+                                            message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.displayName,
+                                            duration: 3000
+                                        }).present();
+                                    }
+                                });
+                                _this.menu.enable(true);
+                                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+                            }
+                        }).catch(function (error) {
+                            console.error(error);
+                            var alert = this.alertCtrl.create({
+                                title: 'Error!',
+                                subTitle: error.message,
+                                buttons: ['OK']
+                            });
+                            alert.present();
+                        });
+                    }
+                    else {
+                        __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithRedirect(provider).then(function () {
+                            return __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult();
+                        }).then(function (result) {
+                            _this.authState = result.user;
+                            _this.updateUserData();
+                        }).catch(function (error) {
+                            var alert = _this.alertCtrl.create({
+                                title: 'Error!',
+                                subTitle: error.message,
+                                buttons: ['OK']
+                            });
+                            alert.present();
+                        });
+                    }
+                });
+                return [2 /*return*/];
             });
-        }).catch(function (e) {
-            console.error(e);
-            var alert = _this.alertCtrl.create({
-                title: 'Error!',
-                subTitle: e.message,
-                buttons: ['OK']
-            });
-            alert.present();
         });
+    };
+    LoginPage.prototype.updateUserData = function () {
+        // Writes user name and email to realtime db
+        // useful if your app displays information about users or for admin features
+        var path = "profiles/" + this.currentUserId; // Endpoint on firebase
+        var data = {
+            email: this.authState.email,
+            name: this.authState.displayName,
+            picture: this.authState.photoURL
+        };
+        this.afDB.object(path).update(data).catch(function (error) { return console.log(error); });
     };
     Object.defineProperty(LoginPage.prototype, "authenticated", {
         get: function () {
@@ -922,21 +668,6 @@ var LoginPage = (function () {
         enumerable: true,
         configurable: true
     });
-    LoginPage.prototype.updateUserData = function () {
-        // Writes user name and email to realtime db
-        // useful if your app displays information about users or for admin features
-        var path = "profiles/" + this.currentUserId; // Endpoint on firebase
-        var data = {
-            email: this.authState.email,
-            name: this.authState.displayName,
-            picture: this.authState.photoURL
-        };
-        this.afDB.object(path).update(data)
-            .catch(function (error) { return console.log(error); });
-    };
-    LoginPage.prototype.openNavResetpwdPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__["a" /* ResetpwdPage */]);
-    };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/'<ion-content class="login-content" padding>\n\n    <ion-row class="logo-row">\n\n        <ion-col>\n\n            <img style="width:125px;" src="assets/imgs/logo.png" />\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-list padding-left padding-right>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            </ion-label>\n\n            <ion-input type="email" [(ngModel)]="user.email" placeholder="Email" required></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-key" md="md-key"></ion-icon>\n\n            </ion-label>\n\n            <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" required></ion-input>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button block color="primary" (click)="login(user)">Login</button>\n\n    </ion-row>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button icon-left block color="danger" (click)="googleLogin()">\n\n            <ion-icon ios="logo-google" md="logo-google"></ion-icon> Sign In With Google\n\n        </button>\n\n    </ion-row>\n\n\n\n    <div style="text-align:right;" padding>\n\n        <u (click)="openNavResetpwdPage()" end>Forgot Password?</u>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/
@@ -1090,7 +821,7 @@ var ResetpwdPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(87);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1252,23 +983,23 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(520);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_resetpwd_resetpwd__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_contact_contact__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_calendar_calendar__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_calendar_calendar__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_create_calendar_create_calendar__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_profile_profile__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_bed_details_bed_details__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_bed_details_bed_details__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_contact_details_contact_details__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_call_number__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_call_number__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_in_app_browser__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_global_global__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1302,9 +1033,7 @@ var firebase_config = {
     apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
     authDomain: "hospital-bed-kku.firebaseapp.com",
     databaseURL: "https://hospital-bed-kku.firebaseio.com",
-    projectId: "hospital-bed-kku",
-    storageBucket: "hospital-bed-kku.appspot.com",
-    messagingSenderId: "487459412590"
+    storageBucket: "hospital-bed-kku.appspot.com"
 };
 var AppModule = (function () {
     function AppModule() {
@@ -1391,12 +1120,14 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(321);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_calendar_calendar__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_profile_profile__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_global_global__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_contact_contact__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_calendar_calendar__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1418,20 +1149,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = (function () {
-    function MyApp(global, platform, statusBar, splashScreen, afDB, afAuth) {
+    function MyApp(global, platform, statusBar, alertCtrl, splashScreen, afDB, afAuth) {
         this.global = global;
         this.platform = platform;
         this.statusBar = statusBar;
+        this.alertCtrl = alertCtrl;
         this.splashScreen = splashScreen;
         this.afDB = afDB;
         this.afAuth = afAuth;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */];
         this.initializeApp();
         this.pages = [
-            { title: 'Bed Management', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
-            { title: 'Contact', component: __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__["a" /* ContactPage */] },
-            { title: 'Calendar', component: __WEBPACK_IMPORTED_MODULE_9__pages_calendar_calendar__["a" /* CalendarPage */] }
+            { title: 'Bed Management', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
+            { title: 'Contact', component: __WEBPACK_IMPORTED_MODULE_9__pages_contact_contact__["a" /* ContactPage */] },
+            { title: 'Calendar', component: __WEBPACK_IMPORTED_MODULE_10__pages_calendar_calendar__["a" /* CalendarPage */] }
         ];
     }
     MyApp.prototype.initializeApp = function () {
@@ -1454,13 +1187,13 @@ var MyApp = (function () {
         this.nav.setRoot(page.component);
     };
     MyApp.prototype.logout = function () {
-        this.afAuth.auth.signOut();
         this.profileData = null;
         this.global.access_token = null;
-        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */]);
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */]);
+        __WEBPACK_IMPORTED_MODULE_6_firebase__["auth"]().signOut();
     };
     MyApp.prototype.profilePage = function () {
-        this.nav.push(__WEBPACK_IMPORTED_MODULE_10__pages_profile_profile__["a" /* ProfilePage */]);
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__["a" /* ProfilePage */]);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
@@ -1469,7 +1202,7 @@ var MyApp = (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/app/app.html"*/'<ion-menu menuClose [content]="content">\n  <ion-content>\n    <!-- <ion-item (click)="profilePage()"> -->\n    <ion-item>\n      <ion-avatar style="width:25%" item-start>\n        <img style="width:100%; height:100%" src="{{(profileData | async)?.picture}}">\n      </ion-avatar>\n      <h2>{{(profileData | async)?.name}}</h2>\n      <p>หน้าที่ : {{(profileData | async)?.role}}</p>\n    </ion-item>\n\n    <ion-list>\n      <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">\n        {{page.title}}\n      </button>\n    </ion-list>\n\n    <ion-footer>\n      <button class="logout" (click)="logout()" menuClose ion-item>\n        Log Out\n      </button>\n    </ion-footer>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_11__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_12__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], MyApp);
     return MyApp;
 }());
@@ -1478,12 +1211,12 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 68:
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1511,7 +1244,7 @@ var GlobalProvider = (function () {
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1520,7 +1253,8 @@ var GlobalProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bed_details_bed_details__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bed_details_bed_details__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1535,9 +1269,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomePage = (function () {
-    function HomePage(navCtrl, afDB, afAuth) {
+    function HomePage(global, navCtrl, afDB, afAuth) {
         var _this = this;
+        this.global = global;
         this.navCtrl = navCtrl;
         this.afDB = afDB;
         this.afAuth = afAuth;
@@ -1564,12 +1300,286 @@ var HomePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>รพ.ศรีนครินทร์</ion-title>\n\n        <ion-buttons *ngIf="profileData.role != \'Staff\'" end>\n\n            <button ion-button icon-only (click)="openNavDetailsPage()">แก้ไขเตียง </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-3>\n\n                <b>วอร์ด</b>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <b>เตียงว่าง</b>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <b>อัปเดตล่าสุด</b>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngFor="let bed of bedsData">\n\n            <ion-col col-3>\n\n                <div>{{bed.name}}</div>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <div>{{bed.blank}}</div>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <div class="time">{{bed.time | date:\'EEE hh:mm a\'}}</div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], HomePage);
     return HomePage;
 }());
 
 //# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 93:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_calendar_create_calendar__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_global__ = __webpack_require__(54);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CalendarPage = (function () {
+    function CalendarPage(global, navCtrl, http, alertCtrl) {
+        var _this = this;
+        this.global = global;
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.alertCtrl = alertCtrl;
+        this.httpOptions = {
+            headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + this.global.access_token
+            })
+        };
+        this.API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
+        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
+        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');
+        this.deleteUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events';
+        this.calendar = {
+            mode: 'month',
+            currentDate: new Date(),
+        };
+        this.onEventSelected = function (event) {
+            var startHour = event.startTime.getHours();
+            var startMinute = event.startTime.getMinutes();
+            var endHour = event.endTime.getHours();
+            var endMinute = event.endTime.getMinutes();
+            startHour = _this.checkTime(startHour);
+            startMinute = _this.checkTime(startMinute);
+            endHour = _this.checkTime(endHour);
+            endMinute = _this.checkTime(endMinute);
+            var startTime = startHour + ":" + startMinute;
+            var endTime = endHour + ":" + endMinute;
+            if (event.allDay == true) {
+                var confirmAlert = _this.alertCtrl.create({
+                    title: event.title,
+                    message: "<p>\u0E23\u0E32\u0E22\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14 : " + event.description + "</p><p>\u0E23\u0E30\u0E22\u0E30\u0E40\u0E27\u0E25\u0E32 : \u0E17\u0E31\u0E49\u0E07\u0E27\u0E31\u0E19 </p><p>\u0E1C\u0E39\u0E49\u0E2A\u0E23\u0E49\u0E32\u0E07 : " + event.creator + "</p>",
+                    buttons: [
+                        {
+                            text: 'ยกเลิก',
+                            role: 'cancel',
+                            handler: function () {
+                                console.log('Cancel clicked');
+                            }
+                        },
+                        {
+                            text: 'ลบข้อมูล',
+                            handler: function () {
+                                var confirmDeleteAlert = _this.alertCtrl.create({
+                                    title: 'ยืนยันการลบ',
+                                    message: "\u0E17\u0E48\u0E32\u0E19\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E1A : " + event.title,
+                                    buttons: [
+                                        {
+                                            text: 'ยกเลิก',
+                                            role: 'cancel',
+                                            handler: function () {
+                                                console.log('Cancel clicked');
+                                            }
+                                        },
+                                        {
+                                            text: 'ลบ',
+                                            handler: function () {
+                                                _this.deleteEvent(event.id);
+                                                console.log('ลบข้อมูลที่ :' + event.id);
+                                            }
+                                        }
+                                    ]
+                                });
+                                confirmDeleteAlert.present();
+                            }
+                        }
+                    ]
+                });
+                confirmAlert.present();
+            }
+            else {
+                var confirmAlert = _this.alertCtrl.create({
+                    title: event.title,
+                    message: "<p>\u0E23\u0E32\u0E22\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14 : " + event.description + "</p><p>\u0E40\u0E23\u0E34\u0E48\u0E21 : " + startTime + " \u0E19. \u0E2A\u0E34\u0E49\u0E19\u0E2A\u0E38\u0E14 : " + endTime + " \u0E19.</p><p>\u0E1C\u0E39\u0E49\u0E2A\u0E23\u0E49\u0E32\u0E07 : " + event.creator + "</p>",
+                    buttons: [
+                        {
+                            text: 'ยกเลิก',
+                            role: 'cancel',
+                            handler: function () {
+                                console.log('Cancel clicked');
+                            }
+                        },
+                        {
+                            text: 'ลบข้อมูล',
+                            handler: function () {
+                                var confirmDeleteAlert = _this.alertCtrl.create({
+                                    title: 'ยืนยันการลบ',
+                                    message: "\u0E17\u0E48\u0E32\u0E19\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E1A : " + event.title,
+                                    buttons: [
+                                        {
+                                            text: 'ยกเลิก',
+                                            role: 'cancel',
+                                            handler: function () {
+                                                console.log('Cancel clicked');
+                                            }
+                                        },
+                                        {
+                                            text: 'ลบ',
+                                            handler: function () {
+                                                _this.deleteEvent(event.id);
+                                                console.log('ลบข้อมูลที่ :' + event.id);
+                                            }
+                                        }
+                                    ]
+                                });
+                                confirmDeleteAlert.present();
+                            }
+                        }
+                    ]
+                });
+                confirmAlert.present();
+            }
+        };
+        this.onTimeSelected = function (ev) {
+            console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' + (ev.events !== undefined && ev.events.length !== 0));
+        };
+        this.markDisabled = function (date) {
+            var current = new Date();
+            current.setHours(0, 0, 0);
+            return date < current;
+        };
+    }
+    CalendarPage_1 = CalendarPage;
+    CalendarPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CalendarPage');
+        this.getEvent();
+    };
+    CalendarPage.prototype.openNavCreateCalendarPage = function () {
+        if (this.global.access_token) {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__create_calendar_create_calendar__["a" /* CreateCalendarPage */]);
+        }
+        else {
+            var alert_1 = this.alertCtrl.create({
+                title: 'รายการล้มเหลว!',
+                subTitle: 'สิทธิของท่านไม่สามารถเพิ่มปฏิทินได้',
+                buttons: ['OK']
+            });
+            alert_1.present();
+        }
+    };
+    CalendarPage.prototype.getEvent = function () {
+        var _this = this;
+        var data;
+        return this.http.get(this.dataUrl).subscribe(function (_data) {
+            data = _data['items'];
+            var events = [];
+            for (var i = 0; i < data.length; i++) {
+                var startTime = data[i].start.dateTime;
+                var endTime = data[i].end.dateTime;
+                var startDate = data[i].end.date;
+                var endDate = data[i].end.date;
+                if (startDate != undefined) {
+                    if (endDate === startDate) {
+                        var day = new Date(endDate);
+                        startDate = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 0);
+                        endDate = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 0);
+                    }
+                    events.push({
+                        id: data[i].id,
+                        title: data[i].summary,
+                        startTime: startDate,
+                        endTime: endDate,
+                        allDay: true,
+                        creator: data[i].creator.email,
+                        description: data[i].description
+                    });
+                }
+                else {
+                    events.push({
+                        id: data[i].id,
+                        title: data[i].summary,
+                        startTime: new Date(startTime),
+                        endTime: new Date(endTime),
+                        allDay: false,
+                        creator: data[i].creator.email,
+                        description: data[i].description
+                    });
+                }
+            }
+            _this.eventSource = events;
+        });
+    };
+    CalendarPage.prototype.deleteEvent = function (eventId) {
+        var _this = this;
+        if (this.global.access_token) {
+            this.http.delete(this.deleteUrl + "/" + eventId, this.httpOptions).subscribe(function (res) {
+                var alert = _this.alertCtrl.create({
+                    title: 'รายการสำเร็จ!',
+                    subTitle: 'ลบข้อมูลเสร็จสิ้น',
+                    buttons: ['OK']
+                });
+                alert.present();
+                _this.navCtrl.setRoot(CalendarPage_1);
+            }, function (error) {
+                var alert = _this.alertCtrl.create({
+                    title: error.name,
+                    subTitle: error.message,
+                    buttons: ['OK']
+                });
+                alert.present();
+            });
+        }
+        else {
+            var alert_2 = this.alertCtrl.create({
+                title: 'รายการล้มเหลว!',
+                subTitle: 'สิทธิของท่านไม่สามารถลบปฏิทินได้',
+                buttons: ['OK']
+            });
+            alert_2.present();
+        }
+    };
+    CalendarPage.prototype.onViewTitleChanged = function (title) {
+        this.viewTitle = title;
+    };
+    CalendarPage.prototype.changeMode = function (mode) {
+        this.calendar.mode = mode;
+    };
+    CalendarPage.prototype.today = function () {
+        this.calendar.currentDate = new Date();
+    };
+    CalendarPage.prototype.onCurrentDateChanged = function (event) {
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        event.setHours(0, 0, 0, 0);
+        this.isToday = today.getTime() === event.getTime();
+    };
+    CalendarPage.prototype.checkTime = function (i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    };
+    CalendarPage = CalendarPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title class="title">{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="Month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="Week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="Day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-fab bottom right>\n        <button (click)="openNavCreateCalendarPage()" ion-fab mini color="primary">\n            <ion-icon name="add"></ion-icon>\n        </button>\n    </ion-fab>\n    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"\n        (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"\n        (onTimeSelected)="onTimeSelected($event)" step="30">\n    </calendar>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */]])
+    ], CalendarPage);
+    return CalendarPage;
+    var CalendarPage_1;
+}());
+
+//# sourceMappingURL=calendar.js.map
 
 /***/ })
 

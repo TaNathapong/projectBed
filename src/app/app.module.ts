@@ -28,10 +28,8 @@ export const firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
   authDomain: "hospital-bed-kku.firebaseapp.com",
   databaseURL: "https://hospital-bed-kku.firebaseio.com",
-  projectId: "hospital-bed-kku",
-  storageBucket: "hospital-bed-kku.appspot.com",
-  messagingSenderId: "487459412590"
-};
+  storageBucket: "hospital-bed-kku.appspot.com"
+}
 
 @NgModule({
   declarations: [

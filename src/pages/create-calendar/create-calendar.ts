@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { CalendarPage } from '../calendar/calendar';
 import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
@@ -62,12 +63,13 @@ export class CreateCalendarPage {
                     buttons: ['OK']
                 });
                 alert.present();
+                this.navCtrl.setRoot(CalendarPage);
             },
-                err => {
-                    console.log(err);
+                error => {
+                    console.log(error);
                     let alert = this.alertCtrl.create({
-                        title: err.name,
-                        subTitle: err.message,
+                        title: error.name,
+                        subTitle: error.message,
                         buttons: ['OK']
                     });
                     alert.present();

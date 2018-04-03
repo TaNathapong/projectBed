@@ -7,31 +7,44 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.ionic.starter"
+    "cordova-plugin-browsertab": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "cordova-plugin-buildinfo": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "com.firebase.cordova",
+      "PACKAGE_NAME": "com.projectBed.kku"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-ionic-keyboard": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "mx.ferreyra.callnumber": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-googleplus": {
-      "REVERSED_CLIENT_ID": "myreversedclientid",
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "com.projectBed.kku"
     },
     "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "com.ionicframework.ionic2googlelogin263837"
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "cordova-universal-links-plugin": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    },
+    "mx.ferreyra.callnumber": {
+      "PACKAGE_NAME": "com.projectBed.kku"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.projectBed.kku"
+    }
+  }
 }

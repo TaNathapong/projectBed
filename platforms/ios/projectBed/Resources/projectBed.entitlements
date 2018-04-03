@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)io.ionic.starter</string>
-	</array>
-</dict>
+  <dict>
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+      <string>applinks:a2zk6.app.goo.gl</string>
+      <string>applinks:hospital-bed-kku.firebaseapp.com</string>
+    </array>
+  </dict>
 </plist>
