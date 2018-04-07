@@ -1,4 +1,9 @@
 page-calendar {
+    .calendar-content {
+        background-image: url("../assets/imgs/1-1.jpg") !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     ion-title {
         font-size: 14px;
     }

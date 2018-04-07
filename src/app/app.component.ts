@@ -11,7 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
-import { ProfilePage } from '../pages/profile/profile';
+// import { ProfilePage } from '../pages/profile/profile';
 import { Profile } from '../models/profile';
 import { GlobalProvider } from "../providers/global/global";
 
@@ -49,7 +49,7 @@ export class MyApp {
       { title: 'Calendar', component: CalendarPage }
     ];
 
-    afAuth.authState.subscribe(data => {
+    this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
         this.profileData = this.afDB.object<Profile>(`profiles/${data.uid}`).valueChanges();
       }
@@ -73,7 +73,7 @@ export class MyApp {
           text: 'ตกลง',
           handler: () => {
             console.log('Yes clicked');
-            this.logout();
+            this.logOut();
             this.platform.exitApp();
           }
         }
@@ -90,7 +90,7 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  logout() {
+  logOut() {
     this.profileData = null;
     this.global.access_token = null;
     this.nav.setRoot(LoginPage);
@@ -98,7 +98,7 @@ export class MyApp {
     window.location.reload();
   }
 
-  profilePage() {
-    this.nav.push(ProfilePage);
-  }
+  // profilePage() {
+  //   this.nav.push(ProfilePage);
+  // }
 }

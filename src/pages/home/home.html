@@ -4,13 +4,13 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>รพ.ศรีนครินทร์</ion-title>
-        <ion-buttons *ngIf="profileData.role != 'Staff'" end>
+        <!-- <ion-buttons *ngIf="profileData.role != 'Staff'" end>
             <button ion-button icon-only (click)="openNavDetailsPage()">แก้ไขเตียง </button>
-        </ion-buttons>
+        </ion-buttons> -->
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="home-content">
     <ion-grid>
         <ion-row>
             <ion-col col-3>
@@ -35,4 +35,10 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+
+    <ion-fab *ngIf="profileData.role != 'Staff'" bottom right>
+        <button (click)="openNavDetailsPage()" ion-fab color="primary">
+            <ion-icon name="md-create"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>

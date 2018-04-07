@@ -49,6 +49,11 @@
     <feature name="CallNumber">
         <param name="ios-package" value="CFCallNumber" />
     </feature>
+    <feature name="GooglePlus">
+        <param name="ios-package" value="GooglePlus" />
+        <param name="onload" value="true" />
+    </feature>
+    <access origin="https://accounts.google.com/*" />
     <name>projectBed</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="nathapong.ta@gmail.com" href="https://www.facebook.com/nathaponghirunmapor">Nathapong Hirunmaporn</author>

@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar color="primary" no-border-bottom>
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
@@ -10,27 +10,27 @@
     </ion-navbar>
     <ion-toolbar color="primary" no-border-top>
         <ion-segment color="light" [(ngModel)]="mode">
-            <ion-segment-button value="Month" (click)="changeMode('month')">
+            <ion-segment-button value="month" (click)="changeMode('month')">
                 Month
             </ion-segment-button>
-            <ion-segment-button value="Week" (click)="changeMode('week')">
+            <ion-segment-button value="week" (click)="changeMode('week')">
                 Week
             </ion-segment-button>
-            <ion-segment-button value="Day" (click)="changeMode('day')">
+            <ion-segment-button value="day" (click)="changeMode('day')">
                 Day
             </ion-segment-button>
         </ion-segment>
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-fab bottom right>
-        <button (click)="openNavCreateCalendarPage()" ion-fab mini color="primary">
-            <ion-icon name="add"></ion-icon>
-        </button>
-    </ion-fab>
-    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"
+<ion-content class="calendar-content">
+    <calendar [eventSource]="eventSource" [calendarMode]="mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"
         (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"
         (onTimeSelected)="onTimeSelected($event)" step="30">
     </calendar>
+    <ion-fab bottom right>
+        <button (click)="openNavCreateCalendarPage()" ion-fab color="primary">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>

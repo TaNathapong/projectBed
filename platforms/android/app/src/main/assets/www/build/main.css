@@ -25684,6 +25684,12 @@ ion-navbar.toolbar {
   text-align: center;
 }
 
+page-bed-details .bed-details-content {
+  background-image: url("../assets/imgs/1-1.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 page-bed-details ion-grid {
   text-align: center;
   font-size: 18px;
@@ -25703,8 +25709,26 @@ page-bed-details .reduce {
   font-size: 18px;
 }
 
+page-calendar .calendar-content {
+  background-image: url("../assets/imgs/1-1.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 page-calendar ion-title {
   font-size: 14px;
+}
+
+page-contact .contact-content {
+  background-image: url("../assets/imgs/1-1.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+page-contact-details .contact-details {
+  background-image: url("../assets/imgs/1-1.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 page-contact-details .logo-row {
@@ -25724,7 +25748,13 @@ page-contact-details .avatar {
   border-radius: 50%;
 }
 
-page-create-calendar .getting-started p {
+page-create-calendar .create-calendar-content {
+  background-image: url("../assets/imgs/1-1.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+page-create-calendar .create-calendar-content p {
   margin: 20px 0;
   line-height: 22px;
   font-size: 16px;
@@ -25732,6 +25762,13 @@ page-create-calendar .getting-started p {
 
 page-create-calendar .line {
   border-bottom: 1px solid #dedede;
+  border-left: 0.1px solid #dedede;
+}
+
+page-home .home-content {
+  background-image: url("../assets/imgs/1-1.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 page-home ion-grid {
@@ -25778,7 +25815,7 @@ page-profile .submit {
 }
 
 page-resetpwd .reset-content {
-  background-image: url("../assets/imgs/1.jpg") !important;
+  background-image: url("../assets/imgs/1-1.jpg") !important;
   background-color: #2a74d4;
   background-repeat: no-repeat;
   background-size: cover;

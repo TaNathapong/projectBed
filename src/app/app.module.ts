@@ -23,12 +23,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GlobalProvider } from '../providers/global/global';
+import { ManageWorkProvider } from '../providers/manage-work/manage-work';
 
 export const firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
   authDomain: "hospital-bed-kku.firebaseapp.com",
   databaseURL: "https://hospital-bed-kku.firebaseio.com",
-  storageBucket: "hospital-bed-kku.appspot.com"
+  projectId: "hospital-bed-kku",
+  storageBucket: "hospital-bed-kku.appspot.com",
+  messagingSenderId: "487459412590"
 }
 
 @NgModule({
@@ -72,7 +75,8 @@ export const firebase_config = {
     CallNumber,
     InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    GlobalProvider
+    GlobalProvider,
+    ManageWorkProvider
   ]
 })
 

@@ -18,10 +18,8 @@
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
 		5A4E3EB599B84E75B412A0FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A739581071EC41BBAFD2CB33 /* GoogleService-Info.plist */; };
 		F10C259A6D73402FB45E6DE2 /* CBTBrowserTab.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E4E8A5B3EA444FB7D64AD1 /* CBTBrowserTab.m */; };
-		19632160AB6340C68506C85F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908D8DBAD5B14320B32FD0C7 /* SafariServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AFAC5ECAA03B47C792F5A90A /* CDVBuildInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 256EEFEB906D4F89AC2D86A1 /* CDVBuildInfo.m */; };
 		C637B8FDF478470AA5428FEA /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6531674EE20149A9BC712826 /* CDVDevice.m */; };
-		E6004235AE20443E87CC803F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA1B9E1F16E430781FA351E /* libz.tbd */; };
 		9B799DFDCE59465BB038CCFC /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6548547AE4B988A609F0F /* CDVInAppBrowser.m */; };
 		4AE3F2C1C2B84ACD94B768A3 /* CDVIonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 36649B196EAA4F778B15667C /* CDVIonicKeyboard.m */; };
 		5DE8C299E6344B268CC27895 /* CDVWKWebViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB18A8C257C4EA49963B878 /* CDVWKWebViewEngine.m */; };
@@ -97,12 +95,10 @@
 		A739581071EC41BBAFD2CB33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; name = "GoogleService-Info.plist"; path = "GoogleService-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
 		C8E4E8A5B3EA444FB7D64AD1 /* CBTBrowserTab.m */ = {isa = PBXFileReference; name = "CBTBrowserTab.m"; path = "cordova-plugin-browsertab/CBTBrowserTab.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		AE3BD6096EEC4DBBBF362133 /* CBTBrowserTab.h */ = {isa = PBXFileReference; name = "CBTBrowserTab.h"; path = "cordova-plugin-browsertab/CBTBrowserTab.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		908D8DBAD5B14320B32FD0C7 /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		256EEFEB906D4F89AC2D86A1 /* CDVBuildInfo.m */ = {isa = PBXFileReference; name = "CDVBuildInfo.m"; path = "cordova-plugin-buildinfo/CDVBuildInfo.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		C60FFC2AC5C14D04B2ECD579 /* CDVBuildInfo.h */ = {isa = PBXFileReference; name = "CDVBuildInfo.h"; path = "cordova-plugin-buildinfo/CDVBuildInfo.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		6531674EE20149A9BC712826 /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		1B756C6A9CB34ECA98AD6E15 /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		3AA1B9E1F16E430781FA351E /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		0CA6548547AE4B988A609F0F /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		5D5951BE396645E99D74F197 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		36649B196EAA4F778B15667C /* CDVIonicKeyboard.m */ = {isa = PBXFileReference; name = "CDVIonicKeyboard.m"; path = "cordova-plugin-ionic-keyboard/CDVIonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
@@ -175,8 +171,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				19632160AB6340C68506C85F /* SafariServices.framework in Frameworks */,
-				E6004235AE20443E87CC803F /* libz.tbd in Frameworks */,
 				87129E3581074F0398AF542F /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,8 +244,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				908D8DBAD5B14320B32FD0C7 /* SafariServices.framework */,
-				3AA1B9E1F16E430781FA351E /* libz.tbd */,
 				DD385D6DE38845D4A1F3B7F4 /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -529,6 +521,15 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				PRODUCT_NAME = "projectBed";
 				CODE_SIGN_ENTITLEMENTS = "projectBed/Resources/projectBed.entitlements";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+				);
 			};
 			name = Debug;
 		};
@@ -552,6 +553,15 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				PRODUCT_NAME = "projectBed";
 				CODE_SIGN_ENTITLEMENTS = "projectBed/Resources/projectBed.entitlements";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+					"\"projectBed/Plugins/cordova-plugin-googleplus\"",
+				);
 			};
 			name = Release;
 		};

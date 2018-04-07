@@ -1,17 +1,19 @@
-page-contact-details 
-{
+page-contact-details {
+    .contact-details {
+        background-image: url("../assets/imgs/1-1.jpg") !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .logo-row {
         padding-top: 10px;
         padding-bottom: 10px;
-      }
-
+    }
     ion-row {
         align-items: center;
         text-align: center;
-      }
-
-      .avatar{
+    }
+    .avatar {
         -webkit-border-radius: 50%;
         border-radius: 50%;
-      }
+    }
 }

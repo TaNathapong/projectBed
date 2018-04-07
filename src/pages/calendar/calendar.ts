@@ -26,9 +26,9 @@ export class CalendarPage {
     eventSource;
     viewTitle;
     isToday: boolean;
+    mode: string = 'month';
     calendar = {
-        mode: 'month',
-        currentDate: new Date(),
+        currentDate: new Date()
     };
 
     constructor(public global: GlobalProvider, public navCtrl: NavController, private http: HttpClient, private alertCtrl: AlertController) {
@@ -130,7 +130,7 @@ export class CalendarPage {
     }
 
     changeMode(mode) {
-        this.calendar.mode = mode;
+        this.mode = mode;
     }
 
     today() {

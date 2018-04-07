@@ -1,5 +1,8 @@
 page-create-calendar {
-    .getting-started {
+    .create-calendar-content {
+        background-image: url("../assets/imgs/1-1.jpg") !important;
+        background-repeat: no-repeat;
+        background-size: cover;
         p {
             margin: 20px 0;
             line-height: 22px;
@@ -8,5 +11,6 @@ page-create-calendar {
     }
     .line {
         border-bottom: 1px solid $list-md-border-color;
+        border-left: 0.1px solid $list-md-border-color;
     }
 }
