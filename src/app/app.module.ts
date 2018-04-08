@@ -13,8 +13,7 @@ import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
-import { CreateCalendarPage } from '../pages/create-calendar/create-calendar';
-import { ProfilePage } from '../pages/profile/profile';
+import { CreateCalendarPage } from '../pages/calendar-create/calendar-create';
 import { BedDetailsPage } from '../pages/bed-details/bed-details';
 import { ContactDetailsPage } from '../pages/contact-details/contact-details';
 
@@ -43,7 +42,6 @@ export const firebase_config = {
     ContactPage,
     CalendarPage,
     CreateCalendarPage,
-    ProfilePage,
     BedDetailsPage,
     ContactDetailsPage
   ],
@@ -65,7 +63,6 @@ export const firebase_config = {
     ContactPage,
     CalendarPage,
     CreateCalendarPage,
-    ProfilePage,
     BedDetailsPage,
     ContactDetailsPage
   ],

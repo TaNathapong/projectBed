@@ -24,6 +24,26 @@ export class LoginPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad LoginPage');
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                firebase.auth().getRedirectResult().then((result) => {
+                    if (result.user) {
+                        this.global.access_token = result.credential.accessToken;
+                        this.afAuth.authState.subscribe(data => {
+                            if (data && data.email && data.uid) {
+                                this.toast.create({
+                                    message: `ยินดีต้อนรับ ${data.displayName}`,
+                                    duration: 3000
+                                }).present();
+                            }
+                        });
+                        this.menu.enable(true);
+                        this.navCtrl.setRoot(HomePage);
+                    }
+                });
+            }
+        });
     }
 
     openNavResetpwdPage() {
@@ -59,39 +79,19 @@ export class LoginPage {
         var provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('https://www.googleapis.com/auth/calendar');
 
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                firebase.auth().getRedirectResult().then((result) => {
-                    if (result.user) {
-                        this.global.access_token = result.credential.accessToken;
-                        this.afAuth.authState.subscribe(data => {
-                            if (data && data.email && data.uid) {
-                                this.toast.create({
-                                    message: `ยินดีต้อนรับ ${data.displayName}`,
-                                    duration: 3000
-                                }).present();
-                            }
-                        });
-                        this.menu.enable(true);
-                        this.navCtrl.setRoot(HomePage);
-                    }
-                });
-            } else {
-                firebase.auth().signInWithRedirect(provider).then(function () {
-                    return firebase.auth().getRedirectResult();
-                }).then((result) => {
-                    this.authState = result.user;
-                    this.updateUserData();
-                }).catch((error) => {
-                    let alert = this.alertCtrl.create({
-                        title: 'Error!',
-                        subTitle: error.message,
-                        buttons: ['OK']
-                    });
-                    alert.present();
-                });
-            }
-        })
+        firebase.auth().signInWithRedirect(provider).then(function () {
+            return firebase.auth().getRedirectResult();
+        }).then((result) => {
+            this.authState = result.user;
+            this.updateUserData();
+        }).catch((error) => {
+            let alert = this.alertCtrl.create({
+                title: 'Error!',
+                subTitle: error.message,
+                buttons: ['OK']
+            });
+            alert.present();
+        });
     }
 
     private updateUserData(): void {

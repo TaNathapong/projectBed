@@ -2,7 +2,7 @@ import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { Component } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { CreateCalendarPage } from '../create-calendar/create-calendar';
+import { CreateCalendarPage } from '../calendar-create/calendar-create';
 import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()

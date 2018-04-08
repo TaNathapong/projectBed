@@ -11,7 +11,6 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
-// import { ProfilePage } from '../pages/profile/profile';
 import { Profile } from '../models/profile';
 import { GlobalProvider } from "../providers/global/global";
 
@@ -40,7 +39,7 @@ export class MyApp {
         } else {
           this.presentConfirm();
         }
-      }, 0)
+      });
     });
 
     this.pages = [
@@ -91,14 +90,9 @@ export class MyApp {
   }
 
   logOut() {
+    firebase.auth().signOut();
     this.profileData = null;
     this.global.access_token = null;
-    this.nav.setRoot(LoginPage);
-    firebase.auth().signOut();
     window.location.reload();
   }
-
-  // profilePage() {
-  //   this.nav.push(ProfilePage);
-  // }
 }

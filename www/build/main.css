@@ -25719,6 +25719,23 @@ page-calendar ion-title {
   font-size: 14px;
 }
 
+page-calendar-create .calendar-create-content {
+  background-image: url("../assets/imgs/1-1.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+page-calendar-create .calendar-create-content p {
+  margin: 20px 0;
+  line-height: 22px;
+  font-size: 16px;
+}
+
+page-calendar-create .line {
+  border-bottom: 1px solid #dedede;
+  border-left: 0.1px solid #dedede;
+}
+
 page-contact .contact-content {
   background-image: url("../assets/imgs/1-1.jpg") !important;
   background-repeat: no-repeat;
@@ -25746,23 +25763,6 @@ page-contact-details ion-row {
 
 page-contact-details .avatar {
   border-radius: 50%;
-}
-
-page-create-calendar .create-calendar-content {
-  background-image: url("../assets/imgs/1-1.jpg") !important;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-page-create-calendar .create-calendar-content p {
-  margin: 20px 0;
-  line-height: 22px;
-  font-size: 16px;
-}
-
-page-create-calendar .line {
-  border-bottom: 1px solid #dedede;
-  border-left: 0.1px solid #dedede;
 }
 
 page-home .home-content {
@@ -25808,10 +25808,6 @@ page-login u {
   font-size: 14px;
   color: #ffffff;
   text-decoration: underline;
-}
-
-page-profile .submit {
-  margin-top: 25px;
 }
 
 page-resetpwd .reset-content {

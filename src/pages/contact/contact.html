@@ -8,13 +8,11 @@
 </ion-header>
 
 <ion-content class="contact-content">
-
     <ion-searchbar [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>
-
     <ion-list>
         <ion-item style="background-color: transparent;" *ngFor="let contact of contactList">
-            <ion-avatar style="width:15%" (click)="openNavSubContact(contact)" item-start>
-                <img style="width:100%; height:100%" src="{{contact.picture}}" />
+            <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                <img src="{{contact.picture}}" />
             </ion-avatar>
             <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
             <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
