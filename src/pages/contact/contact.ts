@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { CallNumber } from '@ionic-native/call-number';
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 
 import { ContactDetailsPage } from '../contact-details/contact-details';
 

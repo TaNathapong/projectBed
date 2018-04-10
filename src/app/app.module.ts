@@ -22,7 +22,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GlobalProvider } from '../providers/global/global';
-import { ManageWorkProvider } from '../providers/manage-work/manage-work';
 
 export const firebase_config = {
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
@@ -73,7 +72,6 @@ export const firebase_config = {
     InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     GlobalProvider,
-    ManageWorkProvider
   ]
 })
 

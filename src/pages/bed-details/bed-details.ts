@@ -54,11 +54,10 @@ export class BedDetailsPage {
                     handler:
                         data => {
                             if (data.blank != '') {
-                                this.afDB.object('/wards/' + bed.id)
-                                    .update({
-                                        blank: data.blank,
-                                        time: firebase.database.ServerValue.TIMESTAMP
-                                    });
+                                this.afDB.object('/wards/' + bed.id).update({
+                                    blank: data.blank,
+                                    time: firebase.database.ServerValue.TIMESTAMP
+                                });
                                 let alert = this.alertCtrl.create({
                                     title: 'บันทึกข้อมูลสำเร็จ',
                                     subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',
@@ -97,11 +96,10 @@ export class BedDetailsPage {
                         text: 'ยืนยัน',
 
                         handler: () => {
-                            this.afDB.object('/wards/' + bed.id)
-                                .update({
-                                    blank: bed.blank - 1,
-                                    time: firebase.database.ServerValue.TIMESTAMP
-                                });
+                            this.afDB.object('/wards/' + bed.id).update({
+                                blank: bed.blank - 1,
+                                time: firebase.database.ServerValue.TIMESTAMP
+                            });
                             let alert = this.alertCtrl.create({
                                 title: 'บันทึกข้อมูลสำเร็จ',
                                 subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',

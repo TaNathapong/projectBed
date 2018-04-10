@@ -43,9 +43,9 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'Bed Management', component: HomePage },
-      { title: 'Contact', component: ContactPage },
-      { title: 'Calendar', component: CalendarPage }
+      { title: 'หน้าแรก', component: HomePage },
+      { title: 'รายชื่อบุคลากร', component: ContactPage },
+      { title: 'ปฏิทินตารางนัดหมาย', component: CalendarPage }
     ];
 
     this.afAuth.authState.subscribe(data => {

@@ -5,10 +5,10 @@
         </button>
         <ion-title>รายชื่อ</ion-title>
     </ion-navbar>
+    <ion-searchbar class="searchbar" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
 
 <ion-content class="contact-content">
-    <ion-searchbar [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
         <ion-item style="background-color: transparent;" *ngFor="let contact of contactList">
             <ion-avatar (click)="openNavSubContact(contact)" item-start>

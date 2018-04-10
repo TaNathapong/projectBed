@@ -42,6 +42,7 @@ export class CreateCalendarPage {
         } else {
             var startDateTimeISO = this.buildISODate(this.calendarEvent.startDate, this.calendarEvent.startTime);
             var enddateTimeISO = this.buildISODate(this.calendarEvent.endDate, this.calendarEvent.endTime);
+            console.log(enddateTimeISO);
 
             var body = {
                 "summary": this.calendarEvent.name,
@@ -78,7 +79,7 @@ export class CreateCalendarPage {
         }
     }
 
-    buildISODate(date, time) {
+    buildISODate(date, time) {                      // ISO 8601
         var dateArray = date && date.split('-');
         var timeArray = time && time.split(':');
         var normalDate = new Date(parseInt(dateArray[0]), parseInt(dateArray[1]) - 1, parseInt(dateArray[2]), parseInt(timeArray[0]), parseInt(timeArray[1]), 0, 0);
