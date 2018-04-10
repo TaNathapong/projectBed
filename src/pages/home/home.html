@@ -36,7 +36,7 @@
         </ion-row>
     </ion-grid>
 
-    <ion-fab *ngIf="profileData.role != 'Staff'" bottom right>
+    <ion-fab *ngIf="profileData.role" bottom right>
         <button (click)="openNavDetailsPage()" ion-fab color="primary">
             <ion-icon name="md-create"></ion-icon>
         </button>

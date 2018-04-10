@@ -25742,6 +25742,10 @@ page-contact .contact-content {
   background-size: cover;
 }
 
+page-contact ion-searchbar.searchbar {
+  background-color: #488aff;
+}
+
 page-contact-details .contact-details {
   background-image: url("../assets/imgs/1-1.jpg") !important;
   background-repeat: no-repeat;

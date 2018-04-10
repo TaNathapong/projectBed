@@ -28,7 +28,8 @@
         (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"
         (onTimeSelected)="onTimeSelected($event)" step="30">
     </calendar>
-    <ion-fab bottom right>
+
+    <ion-fab *ngIf="global.access_token" bottom right>
         <button (click)="openNavCreateCalendarPage()" ion-fab color="primary">
             <ion-icon name="add"></ion-icon>
         </button>
