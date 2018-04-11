@@ -21,7 +21,6 @@ export class ContactPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private callNumber: CallNumber) {
         this.contactRef = firebase.database().ref('/contacts');
-        console.log(this.contactRef);
 
         this.contactRef.on('value', countryList => {
             let countries = [];
