@@ -11,7 +11,6 @@ import { GlobalProvider } from "../../providers/global/global";
     templateUrl: 'calendar-create.html',
 })
 export class CreateCalendarPage {
-    myDate: String = new Date().toLocaleString();
     calendarEvent: any = {};
     validation: any = {};
     httpOptions = {
