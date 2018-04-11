@@ -43,9 +43,6 @@
     },
     "mx.ferreyra.callnumber": {
       "PACKAGE_NAME": "com.projectBed.kku"
-    },
-    "cordova-plugin-datepicker": {
-      "PACKAGE_NAME": "com.projectBed.kku"
     }
   },
   "dependent_plugins": {}

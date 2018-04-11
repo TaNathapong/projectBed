@@ -33,7 +33,6 @@
     "cordova-plugin-buildinfo": "^2.0.1",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-customurlscheme": "^4.3.0",
-    "cordova-plugin-datepicker": "^0.9.3",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-inappbrowser": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
@@ -76,8 +75,7 @@
         "ANDROID_HOST": " ",
         "ANDROID_PATHPREFIX": "/"
       },
-      "cordova-universal-links-plugin": {},
-      "cordova-plugin-datepicker": {}
+      "cordova-universal-links-plugin": {}
     },
     "platforms": [
       "android"
