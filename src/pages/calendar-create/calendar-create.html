@@ -19,22 +19,24 @@
             <ion-row>
                 <ion-item style="background-color: transparent;" col-6>
                     <ion-label floating>Start Date</ion-label>
-                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>
+                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>
                 </ion-item>
                 <ion-item style="background-color: transparent;" class="line" col-6>
                     <ion-label floating>Start Time</ion-label>
-                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" [(ngModel)]="calendarEvent.startTime"></ion-datetime>
+                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"
+                        [(ngModel)]="calendarEvent.startTime"></ion-datetime>
                 </ion-item>
             </ion-row>
 
             <ion-row>
                 <ion-item style="background-color: transparent;" col-6>
                     <ion-label floating>End Date</ion-label>
-                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [min]="calendarEvent.startDate" [(ngModel)]="calendarEvent.endDate"></ion-datetime>
+                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [min]="calendarEvent.startDate" [(ngModel)]="calendarEvent.endDate"></ion-datetime>
                 </ion-item>
                 <ion-item style="background-color: transparent;" class="line" col-6>
                     <ion-label floating>End Time</ion-label>
-                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" [min]="calendarEvent.startTime" [(ngModel)]="calendarEvent.endTime"></ion-datetime>
+                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"
+                        [min]="calendarEvent.startTime" [(ngModel)]="calendarEvent.endTime"></ion-datetime>
                 </ion-item>
             </ion-row>
 
