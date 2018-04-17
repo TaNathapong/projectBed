@@ -37,6 +37,7 @@ export class MyApp {
           this.counter++;
           setTimeout(() => { this.counter = 0 }, 1500)
         } else {
+          this.counter = 0;
           this.presentConfirm();
         }
       });

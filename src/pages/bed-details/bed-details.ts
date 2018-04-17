@@ -40,6 +40,7 @@ export class BedDetailsPage {
                 {
                     name: 'blank',
                     placeholder: 'จำนวนเตียงที่ว่าง',
+                    type: 'number'
                 },
             ],
             buttons: [

@@ -25678,6 +25678,20 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+@font-face {
+  font-family: Pridi;
+  src: url("../assets/fonts/pridi.woff2");
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url("../assets/fonts/kanit.woff2");
+}
+
+* {
+  font-family: Kanit;
+}
+
 .logout {
   color: #f53d3d;
   font-size: 18px;
