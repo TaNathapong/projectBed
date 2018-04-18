@@ -532,6 +532,215 @@ var ContactPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_global_global__ = __webpack_require__(54);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+var LoginPage = (function () {
+    function LoginPage(global, toast, navCtrl, menu, navParams, alertCtrl, afDB, afAuth) {
+        this.global = global;
+        this.toast = toast;
+        this.navCtrl = navCtrl;
+        this.menu = menu;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.afDB = afDB;
+        this.afAuth = afAuth;
+        this.user = {};
+        this.authState = null;
+        this.menu.enable(false);
+    }
+    LoginPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        console.log('ionViewDidLoad LoginPage');
+        __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().onAuthStateChanged(function (user) {
+            if (user) {
+                __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult().then(function (result) {
+                    if (result.user) {
+                        _this.global.access_token = result.credential.accessToken;
+                        _this.afAuth.authState.subscribe(function (data) {
+                            if (data && data.email && data.uid) {
+                                _this.toast.create({
+                                    message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.displayName,
+                                    duration: 3000
+                                }).present();
+                            }
+                        });
+                        _this.menu.enable(true);
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+                    }
+                });
+            }
+        });
+    };
+    LoginPage.prototype.openNavResetpwdPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__["a" /* ResetpwdPage */]);
+    };
+    LoginPage.prototype.login = function (user) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var alert_1;
+            return __generator(this, function (_a) {
+                try {
+                    __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithEmailAndPassword(user.email, user.password).then(function (result) {
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+                        _this.menu.enable(true);
+                        _this.afAuth.authState.subscribe(function (data) {
+                            if (data && data.email && data.uid) {
+                                _this.toast.create({
+                                    message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.email,
+                                    duration: 3000
+                                }).present();
+                            }
+                        });
+                    }).catch(function (error) {
+                        console.error(error);
+                        var alert = _this.alertCtrl.create({
+                            title: 'Error!',
+                            subTitle: error.message,
+                            buttons: ['OK']
+                        });
+                        alert.present();
+                    });
+                }
+                catch (error) {
+                    console.error(error);
+                    alert_1 = this.alertCtrl.create({
+                        title: 'Error!',
+                        subTitle: error.message,
+                        buttons: ['OK']
+                    });
+                    alert_1.present();
+                }
+                ;
+                return [2 /*return*/];
+            });
+        });
+    };
+    LoginPage.prototype.googleLogin = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var provider;
+            return __generator(this, function (_a) {
+                provider = new __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"].GoogleAuthProvider();
+                provider.addScope('https://www.googleapis.com/auth/calendar');
+                __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithRedirect(provider).then(function () {
+                    return __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult();
+                }).then(function (result) {
+                    _this.authState = result.user;
+                    _this.updateUserData();
+                }).catch(function (error) {
+                    var alert = _this.alertCtrl.create({
+                        title: 'Error!',
+                        subTitle: error.message,
+                        buttons: ['OK']
+                    });
+                    alert.present();
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    LoginPage.prototype.updateUserData = function () {
+        // Writes user name and email to realtime db
+        // useful if your app displays information about users or for admin features
+        var path = "profiles/" + this.currentUserId; // Endpoint on firebase
+        var data = {
+            email: this.authState.email,
+            name: this.authState.displayName,
+            picture: this.authState.photoURL
+        };
+        this.afDB.object(path).update(data).catch(function (error) { return console.log(error); });
+    };
+    Object.defineProperty(LoginPage.prototype, "authenticated", {
+        get: function () {
+            return this.authState !== null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LoginPage.prototype, "currentUserId", {
+        get: function () {
+            return this.authenticated ? this.authState.uid : '';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/'<ion-content class="login-content" padding>\n\n    <ion-row class="logo-row">\n\n        <ion-col>\n\n            <img style="width:50%" src="assets/imgs/logo.png" />\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-list padding-left padding-right>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            </ion-label>\n\n            <ion-input type="email" [(ngModel)]="user.email" placeholder="Email" required></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-key" md="md-key"></ion-icon>\n\n            </ion-label>\n\n            <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" required></ion-input>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button block color="primary" (click)="login(user)">Login</button>\n\n    </ion-row>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button icon-left block color="danger" (click)="googleLogin()">\n\n            <ion-icon ios="logo-google" md="logo-google"></ion-icon> Sign In With Google\n\n        </button>\n\n    </ion-row>\n\n\n\n    <div style="text-align:right;" padding>\n\n        <u (click)="openNavResetpwdPage()" end>Forgot Password?</u>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 164:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetpwdPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
@@ -659,207 +868,6 @@ var ResetpwdPage = (function () {
 
 /***/ }),
 
-/***/ 164:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_global_global__ = __webpack_require__(54);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-
-
-
-var LoginPage = (function () {
-    function LoginPage(global, toast, navCtrl, menu, navParams, alertCtrl, afDB, afAuth) {
-        this.global = global;
-        this.toast = toast;
-        this.navCtrl = navCtrl;
-        this.menu = menu;
-        this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.afDB = afDB;
-        this.afAuth = afAuth;
-        this.user = {};
-        this.authState = null;
-        this.menu.enable(false);
-    }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        console.log('ionViewDidLoad LoginPage');
-        __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().onAuthStateChanged(function (user) {
-            if (user) {
-                __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult().then(function (result) {
-                    if (result.user) {
-                        _this.global.access_token = result.credential.accessToken;
-                        _this.afAuth.authState.subscribe(function (data) {
-                            if (data && data.email && data.uid) {
-                                _this.toast.create({
-                                    message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.displayName,
-                                    duration: 3000
-                                }).present();
-                            }
-                        });
-                        _this.menu.enable(true);
-                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
-                    }
-                });
-            }
-        });
-    };
-    LoginPage.prototype.openNavResetpwdPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__["a" /* ResetpwdPage */]);
-    };
-    LoginPage.prototype.login = function (user) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var alert_1;
-            return __generator(this, function (_a) {
-                try {
-                    __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithEmailAndPassword(user.email, user.password).then(function (result) {
-                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
-                        _this.menu.enable(true);
-                        _this.afAuth.authState.subscribe(function (data) {
-                            if (data && data.email && data.uid) {
-                                _this.toast.create({
-                                    message: "\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A " + data.email,
-                                    duration: 3000
-                                }).present();
-                            }
-                        });
-                    });
-                }
-                catch (error) {
-                    console.error(error);
-                    alert_1 = this.alertCtrl.create({
-                        title: 'Error!',
-                        subTitle: error.message,
-                        buttons: ['OK']
-                    });
-                    alert_1.present();
-                }
-                ;
-                return [2 /*return*/];
-            });
-        });
-    };
-    LoginPage.prototype.googleLogin = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var provider;
-            return __generator(this, function (_a) {
-                provider = new __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"].GoogleAuthProvider();
-                provider.addScope('https://www.googleapis.com/auth/calendar');
-                __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithRedirect(provider).then(function () {
-                    return __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult();
-                }).then(function (result) {
-                    _this.authState = result.user;
-                    _this.updateUserData();
-                }).catch(function (error) {
-                    var alert = _this.alertCtrl.create({
-                        title: 'Error!',
-                        subTitle: error.message,
-                        buttons: ['OK']
-                    });
-                    alert.present();
-                });
-                return [2 /*return*/];
-            });
-        });
-    };
-    LoginPage.prototype.updateUserData = function () {
-        // Writes user name and email to realtime db
-        // useful if your app displays information about users or for admin features
-        var path = "profiles/" + this.currentUserId; // Endpoint on firebase
-        var data = {
-            email: this.authState.email,
-            name: this.authState.displayName,
-            picture: this.authState.photoURL
-        };
-        this.afDB.object(path).update(data).catch(function (error) { return console.log(error); });
-    };
-    Object.defineProperty(LoginPage.prototype, "authenticated", {
-        get: function () {
-            return this.authState !== null;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(LoginPage.prototype, "currentUserId", {
-        get: function () {
-            return this.authenticated ? this.authState.uid : '';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/'<ion-content class="login-content" padding>\n\n    <ion-row class="logo-row">\n\n        <ion-col>\n\n            <img style="width:50%" src="assets/imgs/logo.png" />\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-list padding-left padding-right>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            </ion-label>\n\n            <ion-input type="email" [(ngModel)]="user.email" placeholder="Email" required></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>\n\n                <ion-icon ios="ios-key" md="md-key"></ion-icon>\n\n            </ion-label>\n\n            <ion-icon ios="ios-mail" md="md-mail"></ion-icon>\n\n            <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" required></ion-input>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button block color="primary" (click)="login(user)">Login</button>\n\n    </ion-row>\n\n\n\n    <ion-row padding-left padding-right>\n\n        <button ion-button icon-left block color="danger" (click)="googleLogin()">\n\n            <ion-icon ios="logo-google" md="logo-google"></ion-icon> Sign In With Google\n\n        </button>\n\n    </ion-row>\n\n\n\n    <div style="text-align:right;" padding>\n\n        <u (click)="openNavResetpwdPage()" end>Forgot Password?</u>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/login/login.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
-    ], LoginPage);
-    return LoginPage;
-}());
-
-//# sourceMappingURL=login.js.map
-
-/***/ }),
-
 /***/ 175:
 /***/ (function(module, exports) {
 
@@ -902,11 +910,11 @@ var map = {
 		2
 	],
 	"../pages/login/login.module": [
-		531,
+		530,
 		1
 	],
 	"../pages/resetpwd/resetpwd.module": [
-		530,
+		531,
 		0
 	]
 };
@@ -958,8 +966,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(519);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_resetpwd_resetpwd__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_resetpwd_resetpwd__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_contact_contact__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_calendar_calendar__ = __webpack_require__(92);
@@ -1032,8 +1040,8 @@ var AppModule = (function () {
                         { loadChildren: '../pages/calendar-create/calendar-create.module#CreateCalendarPageModule', name: 'CreateCalendarPage', segment: 'calendar-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/calendar/calendar.module#CalendarPageModule', name: 'CalendarPage', segment: 'calendar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/contact/contact.module#ContactPageModule', name: 'ContactPage', segment: 'contact', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/resetpwd/resetpwd.module#ResetpwdPageModule', name: 'ResetpwdPage', segment: 'resetpwd', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/resetpwd/resetpwd.module#ResetpwdPageModule', name: 'ResetpwdPage', segment: 'resetpwd', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__["a" /* NgCalendarModule */],
@@ -1091,7 +1099,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_contact_contact__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_calendar_calendar__ = __webpack_require__(92);

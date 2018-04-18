@@ -63,7 +63,15 @@ export class LoginPage {
                         }).present();
                     }
                 });
-            })
+            }).catch((error) => {
+                console.error(error);
+                let alert = this.alertCtrl.create({
+                    title: 'Error!',
+                    subTitle: error.message,
+                    buttons: ['OK']
+                });
+                alert.present();
+            });
         } catch (error) {
             console.error(error);
             let alert = this.alertCtrl.create({

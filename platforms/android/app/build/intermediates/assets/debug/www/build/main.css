@@ -25679,11 +25679,6 @@ ion-navbar.toolbar {
 }
 
 @font-face {
-  font-family: Pridi;
-  src: url("../assets/fonts/pridi.woff2");
-}
-
-@font-face {
   font-family: Kanit;
   src: url("../assets/fonts/kanit.woff2");
 }
