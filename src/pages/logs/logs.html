@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>ประวัติการแก้ไขวันที่ {{today | date:'dd/M/yy'}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="log-content">
+    <ion-grid>
+        <ion-row>
+            <ion-col col-3>
+                <b>เวลา</b>
+            </ion-col>
+            <ion-col col-3>
+                <b>ประเภท</b>
+            </ion-col>
+            <ion-col col-2>
+                <b>วอร์ด</b>
+            </ion-col>
+            <ion-col col-2>
+                <b>เดิม</b>
+            </ion-col>
+            <ion-col col-2>
+                <b>ใหม่</b>
+            </ion-col>
+        </ion-row>
+        <div *ngFor="let log of logs">
+            <ion-row *ngIf="(log.timestamp | date:'EEEE d MMMM') == (today | date:'EEEE d MMMM')">
+                <ion-col col-3>
+                    <div>{{log.timestamp | date:'HH:mm:ss น.'}}</div>
+                </ion-col>
+                <ion-col col-3 *ngIf=" log.type=='นำผู้ป่วยเข้า'">
+                    <div class="blue ">{{log.type}}</div>
+                </ion-col>
+                <ion-col col-3 *ngIf="log.type=='ลดผู้ป่วยออก'">
+                    <div class="red ">{{log.type}}</div>
+                </ion-col>
+                <ion-col col-3 *ngIf="log.type=='อัปเดต'">
+                    <div>{{log.type}}</div>
+                </ion-col>
+                <ion-col col-2>
+                    <div>{{log.ward}}</div>
+                </ion-col>
+                <ion-col col-2>
+                    <div>{{log.before}}</div>
+                </ion-col>
+                <ion-col col-2>
+                    <div>{{log.after}}</div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-content>

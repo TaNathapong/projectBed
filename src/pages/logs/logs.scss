@@ -1,0 +1,23 @@
+page-logs {
+    .log-content {
+        background-image: url("../assets/imgs/1-1.jpg") !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    ion-grid {
+        text-align: center;
+        font-size: 14px;
+    }
+    .col {
+        border-bottom: solid 1px lightgrey;
+    }
+    .left {
+        text-align: left;
+    }
+    .red {
+        color: #f53d3d;
+    }
+    .blue {
+        color: #488aff;
+    }
+}

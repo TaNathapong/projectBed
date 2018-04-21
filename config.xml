@@ -103,4 +103,5 @@
     </plugin>
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
     <engine name="android" spec="~7.0.0" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>

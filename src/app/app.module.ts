@@ -11,6 +11,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
 import { HomePage } from '../pages/home/home';
+import { LogsPage } from '../pages/logs/logs';
 import { ContactPage } from '../pages/contact/contact';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { CreateCalendarPage } from '../pages/calendar-create/calendar-create';
@@ -38,6 +39,7 @@ export const firebase_config = {
     LoginPage,
     ResetpwdPage,
     HomePage,
+    LogsPage,
     ContactPage,
     CalendarPage,
     CreateCalendarPage,
@@ -59,6 +61,7 @@ export const firebase_config = {
     LoginPage,
     ResetpwdPage,
     HomePage,
+    LogsPage,
     ContactPage,
     CalendarPage,
     CreateCalendarPage,

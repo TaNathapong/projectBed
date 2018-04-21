@@ -46,6 +46,7 @@ export class ContactPage {
         this.navCtrl.push(ContactDetailsPage, {
             name: contact.name,
             type: contact.type,
+            ward: contact.ward,
             phone: contact.phone,
             aptitude: contact.aptitude,
             gender: contact.gender,

@@ -1,4 +1,4 @@
-webpackJsonp([7],{
+webpackJsonp([8],{
 
 /***/ 137:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,11 +6,12 @@ webpackJsonp([7],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bed_details_bed_details__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_global_global__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logs_logs__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,6 +21,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -52,11 +54,14 @@ var HomePage = (function () {
     HomePage.prototype.openNavDetailsPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__bed_details_bed_details__["a" /* BedDetailsPage */]);
     };
+    HomePage.prototype.openAcLogsPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__logs_logs__["a" /* LogsPage */]);
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>รพ.ศรีนครินทร์</ion-title>\n\n        <!-- <ion-buttons *ngIf="profileData.role != \'Staff\'" end>\n\n            <button ion-button icon-only (click)="openNavDetailsPage()">แก้ไขเตียง </button>\n\n        </ion-buttons> -->\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="home-content">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-3>\n\n                <b>วอร์ด</b>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <b>เตียงว่าง</b>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <b>อัปเดตล่าสุด</b>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngFor="let bed of bedsData">\n\n            <ion-col col-3>\n\n                <div>{{bed.name}}</div>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <div>{{bed.blank}}</div>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <div class="time">{{bed.time | date:\'dd/M/yy - HH:mm น.\'}}</div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n\n\n    <ion-fab *ngIf="profileData.role" bottom right>\n\n        <button (click)="openNavDetailsPage()" ion-fab color="primary">\n\n            <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>รพ.ศรีนครินทร์</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="openAcLogsPage()"> ประวัติ &nbsp;</button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="home-content">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-3>\n\n                <b>วอร์ด</b>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <b>เตียงว่าง</b>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <b>อัปเดตล่าสุด</b>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngFor="let bed of bedsData">\n\n            <ion-col col-3>\n\n                <div>{{bed.name}}</div>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <div>{{bed.blank}}</div>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <div class="time">{{bed.time | date:\'dd/M/yy - HH:mm น.\'}}</div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n\n\n    <ion-fab *ngIf="profileData.role" bottom right>\n\n        <button (click)="openNavDetailsPage()" ion-fab color="primary">\n\n            <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], HomePage);
     return HomePage;
 }());
@@ -71,9 +76,9 @@ var HomePage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BedDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -137,6 +142,14 @@ var BedDetailsPage = (function () {
                     text: 'ยืนยัน',
                     handler: function (data) {
                         if (data.blank != '') {
+                            _this.afDB.list('/updateLogs/').push({
+                                type: 'อัปเดต',
+                                detail: "\u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15\u0E08\u0E32\u0E01\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name + " \u0E08\u0E32\u0E01\u0E40\u0E14\u0E34\u0E21 " + bed.blank + " \u0E40\u0E1B\u0E47\u0E19 " + data.blank,
+                                ward: bed.name,
+                                before: bed.blank,
+                                after: data.blank,
+                                timestamp: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP
+                            });
                             _this.afDB.object('/wards/' + bed.id).update({
                                 blank: data.blank,
                                 time: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP
@@ -163,12 +176,20 @@ var BedDetailsPage = (function () {
         });
         prompt.present();
     };
-    BedDetailsPage.prototype.reduceBed = function (bed) {
+    BedDetailsPage.prototype.addPatient = function (bed) {
         var _this = this;
         if (bed.blank > 0) {
+            this.afDB.list('/updateLogs/').push({
+                type: 'นำผู้ป่วยเข้า',
+                detail: "\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32\u0E2A\u0E39\u0E48\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name + " \u0E08\u0E32\u0E01\u0E40\u0E14\u0E34\u0E21 " + bed.blank + " \u0E40\u0E1B\u0E47\u0E19 " + (bed.blank - 1),
+                ward: bed.name,
+                before: bed.blank,
+                after: bed.blank - 1,
+                timestamp: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP
+            });
             var confirm_1 = this.alertCtrl.create({
-                title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E14\u0E40\u0E15\u0E35\u0E22\u0E07\u0E27\u0E48\u0E32\u0E07 ?",
-                message: "\u0E04\u0E38\u0E13\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E14\u0E40\u0E15\u0E35\u0E22\u0E07\u0E27\u0E48\u0E32\u0E07\u0E08\u0E32\u0E01\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name,
+                title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32 ?",
+                message: "\u0E04\u0E38\u0E13\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32\u0E2A\u0E39\u0E48\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name,
                 buttons: [
                     {
                         text: 'ยกเลิก',
@@ -199,17 +220,25 @@ var BedDetailsPage = (function () {
         else {
             var alert_3 = this.alertCtrl.create({
                 title: 'รายการไม่ถูกต้อง !',
-                subTitle: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E25\u0E14\u0E40\u0E15\u0E35\u0E22\u0E07\u0E27\u0E48\u0E32\u0E07\u0E08\u0E32\u0E01\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name + " \u0E44\u0E14\u0E49\u0E40\u0E19\u0E37\u0E48\u0E2D\u0E07\u0E08\u0E32\u0E01\u0E44\u0E21\u0E48\u0E21\u0E35\u0E40\u0E15\u0E35\u0E22\u0E07\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E17\u0E35\u0E48\u0E27\u0E48\u0E32\u0E07\u0E43\u0E19\u0E02\u0E13\u0E30\u0E19\u0E35\u0E49",
+                subTitle: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32\u0E2A\u0E39\u0E48\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name + " \u0E44\u0E14\u0E49\u0E40\u0E19\u0E37\u0E48\u0E2D\u0E07\u0E08\u0E32\u0E01\u0E44\u0E21\u0E48\u0E21\u0E35\u0E40\u0E15\u0E35\u0E22\u0E07\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E17\u0E35\u0E48\u0E27\u0E48\u0E32\u0E07\u0E43\u0E19\u0E02\u0E13\u0E30\u0E19\u0E35\u0E49",
                 buttons: ['OK']
             });
             alert_3.present();
         }
     };
-    BedDetailsPage.prototype.addBed = function (bed) {
+    BedDetailsPage.prototype.removePatient = function (bed) {
         var _this = this;
+        this.afDB.list('/updateLogs/').push({
+            type: 'ลดผู้ป่วยออก',
+            detail: "\u0E25\u0E14\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E2D\u0E2D\u0E01\u0E08\u0E32\u0E01\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name + " \u0E08\u0E32\u0E01\u0E40\u0E14\u0E34\u0E21 " + bed.blank + " \u0E40\u0E1B\u0E47\u0E19 " + (bed.blank + 1),
+            ward: bed.name,
+            before: bed.blank,
+            after: bed.blank + 1,
+            timestamp: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP
+        });
         var confirm = this.alertCtrl.create({
-            title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E40\u0E15\u0E35\u0E22\u0E07\u0E27\u0E48\u0E32\u0E07 ?",
-            message: "\u0E04\u0E38\u0E13\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E40\u0E15\u0E35\u0E22\u0E07\u0E27\u0E48\u0E32\u0E07\u0E40\u0E02\u0E49\u0E32\u0E2A\u0E39\u0E48\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name,
+            title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E14\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E2D\u0E2D\u0E01 ?",
+            message: "\u0E04\u0E38\u0E13\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E14\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E2D\u0E2D\u0E01\u0E08\u0E32\u0E01\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name,
             buttons: [
                 {
                     text: 'ยกเลิก',
@@ -240,7 +269,7 @@ var BedDetailsPage = (function () {
     };
     BedDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-bed-details',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/bed-details/bed-details.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <ion-title>จัดการเตียงผู้ป่วย</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="bed-details-content">\n\n    <ion-grid>\n\n        <div *ngIf="profileData.role == \'Admin\' || profileData.role == \'Admission Center\'">\n\n            <ion-row>\n\n                <ion-col col-3>\n\n                    <b>วอร์ด</b>\n\n                </ion-col>\n\n                <ion-col col-3>\n\n                    <b>เตียงว่าง</b>\n\n                </ion-col>\n\n                <ion-col col-6>\n\n                    <b>เพิ่ม/ลดเตียง</b>\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row *ngFor="let bed of bedsData">\n\n                <ion-col col-3>\n\n                    <div>{{bed.name}}</div>\n\n                </ion-col>\n\n                <ion-col col-3>\n\n                    <div>{{bed.blank}}</div>\n\n                </ion-col>\n\n                <ion-col col-6>\n\n                    <b class="reduce" (click)="reduceBed(bed)">\n\n                        <ion-icon name="remove-circle"> ลด&nbsp;</ion-icon>\n\n                    </b>\n\n                    <b class="add" (click)="addBed(bed)">\n\n                        <ion-icon name="add-circle"> เพิ่ม </ion-icon>\n\n                    </b>\n\n                </ion-col>\n\n            </ion-row>\n\n        </div>\n\n\n\n        <div *ngIf="profileData.role == \'Resident\'">\n\n            <ion-row>\n\n                <ion-col col-3>\n\n                    <b>วอร์ด</b>\n\n                </ion-col>\n\n                <ion-col col-3>\n\n                    <b>เตียงว่าง</b>\n\n                </ion-col>\n\n                <ion-col col-6>\n\n                    <b>แก้ไขจำนวน</b>\n\n                </ion-col>\n\n            </ion-row>\n\n            <div *ngFor="let bed of bedsData">\n\n                <ion-row *ngIf="bed.name == profileData.ward">\n\n                    <ion-col col-3>\n\n                        <div>{{bed.name}}</div>\n\n                    </ion-col>\n\n                    <ion-col col-3>\n\n                        <div>{{bed.blank}}</div>\n\n                    </ion-col>\n\n                    <ion-col col-6>\n\n                        <div (click)="updateBed(bed)">\n\n                            <b class="add">\n\n                                <ion-icon name="add-circle"> ปรับจำนวน</ion-icon>\n\n                            </b>\n\n                        </div>\n\n                    </ion-col>\n\n                </ion-row>\n\n            </div>\n\n        </div>\n\n    </ion-grid>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/bed-details/bed-details.html"*/,
+            selector: 'page-bed-details',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/bed-details/bed-details.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <ion-title>จัดการเตียงผู้ป่วย</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="bed-details-content">\n\n    <ion-grid>\n\n        <div *ngIf="profileData.role == \'Admin\' || profileData.role == \'Admission Center\'">\n\n            <ion-row>\n\n                <ion-col col-3>\n\n                    <b>วอร์ด</b>\n\n                </ion-col>\n\n                <ion-col col-3>\n\n                    <b>เตียงว่าง</b>\n\n                </ion-col>\n\n                <ion-col col-6>\n\n                    <b>นำผู้ป่วยเข้า/ออก</b>\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row *ngFor="let bed of bedsData">\n\n                <ion-col col-3>\n\n                    <div>{{bed.name}}</div>\n\n                </ion-col>\n\n                <ion-col col-3>\n\n                    <div>{{bed.blank}}</div>\n\n                </ion-col>\n\n                <ion-col col-6>\n\n                    <b class="add" (click)="addPatient(bed)">\n\n                        <ion-icon name="add-circle"> เข้า&nbsp;</ion-icon>\n\n                    </b>\n\n                    <b class="reduce" (click)="removePatient(bed)">\n\n                        <ion-icon name="remove-circle"> ออก </ion-icon>\n\n                    </b>\n\n                </ion-col>\n\n            </ion-row>\n\n        </div>\n\n\n\n        <div *ngIf="profileData.role == \'Resident\'">\n\n            <ion-row>\n\n                <ion-col col-3>\n\n                    <b>วอร์ด</b>\n\n                </ion-col>\n\n                <ion-col col-3>\n\n                    <b>เตียงว่าง</b>\n\n                </ion-col>\n\n                <ion-col col-6>\n\n                    <b>แก้ไขจำนวน</b>\n\n                </ion-col>\n\n            </ion-row>\n\n            <div *ngFor="let bed of bedsData">\n\n                <ion-row *ngIf="bed.name == profileData.ward">\n\n                    <ion-col col-3>\n\n                        <div>{{bed.name}}</div>\n\n                    </ion-col>\n\n                    <ion-col col-3>\n\n                        <div>{{bed.blank}}</div>\n\n                    </ion-col>\n\n                    <ion-col col-6>\n\n                        <div (click)="updateBed(bed)">\n\n                            <b class="add">\n\n                                <ion-icon name="add-circle"> ปรับจำนวน</ion-icon>\n\n                            </b>\n\n                        </div>\n\n                    </ion-col>\n\n                </ion-row>\n\n            </div>\n\n        </div>\n\n    </ion-grid>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/bed-details/bed-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], BedDetailsPage);
@@ -255,64 +284,10 @@ var BedDetailsPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactDetailsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_call_number__ = __webpack_require__(135);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ContactDetailsPage = (function () {
-    function ContactDetailsPage(navCtrl, navParams, callNumber) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.callNumber = callNumber;
-    }
-    ContactDetailsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ContactDetailsPage');
-        this.name = this.navParams.get('name');
-        this.type = this.navParams.get('type');
-        this.aptitude = this.navParams.get('aptitude');
-        this.gender = this.navParams.get('gender');
-        this.phone = this.navParams.get('phone');
-        this.email = this.navParams.get('email');
-        this.picture = this.navParams.get('picture');
-    };
-    ContactDetailsPage.prototype.call = function (phone) {
-        this.callNumber.callNumber(phone, true)
-            .then(function () { return console.log('Launched dialer'); })
-            .catch(function () { return console.log('Error launching dialer!'); });
-    };
-    ContactDetailsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contact-details',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/contact-details/contact-details.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>ข้อมูลรายชื่อ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="contact-details">\n\n\n\n  <ion-row class="logo-row">\n\n    <ion-col item-start>\n\n      <img class="avatar" style="width:40%;" src="{{picture}}" />\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-list>\n\n    <ion-item style="background-color: transparent;">\n\n      ชื่อ : {{name}}\n\n    </ion-item>\n\n    <ion-item style="background-color: transparent;">\n\n      โทรศัพท์ : {{phone}}\n\n      <ion-icon ios="ios-call" md="md-call" (click)="call(phone)" item-end></ion-icon>\n\n    </ion-item>\n\n    <ion-item style="background-color: transparent;">\n\n      E-mail : {{email}}\n\n    </ion-item>\n\n    <ion-item style="background-color: transparent;">\n\n      ความเชี่ยวชาญ : {{aptitude}}\n\n    </ion-item>\n\n    <ion-item style="background-color: transparent;">\n\n      เพศ : {{gender}}\n\n    </ion-item>\n\n    <ion-item style="background-color: transparent;">\n\n      งาน : {{type}}\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/contact-details/contact-details.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_call_number__["a" /* CallNumber */]])
-    ], ContactDetailsPage);
-    return ContactDetailsPage;
-}());
-
-//# sourceMappingURL=contact-details.js.map
-
-/***/ }),
-
-/***/ 161:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCalendarPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calendar_calendar__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -418,7 +393,7 @@ var CreateCalendarPage = (function () {
     };
     CreateCalendarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-calendar-create',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar-create/calendar-create.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>สร้างตารางนัดหมาย</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding class="calendar-create-content">\n    <ion-list>\n        <ion-item-group>\n            <ion-item style="background-color: transparent;">\n                <ion-label floating>Name</ion-label>\n                <ion-input type="text" [(ngModel)]="calendarEvent.name"></ion-input>\n            </ion-item>\n            <ion-item style="background-color: transparent;">\n                <ion-label floating>Description</ion-label>\n                <ion-input type="text" [(ngModel)]="calendarEvent.description"></ion-input>\n            </ion-item>\n\n            <ion-row>\n                <ion-item style="background-color: transparent;" col-6>\n                    <ion-label floating>Start Date</ion-label>\n                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>\n                </ion-item>\n                <ion-item style="background-color: transparent;" class="line" col-6>\n                    <ion-label floating>Start Time</ion-label>\n                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"\n                        [(ngModel)]="calendarEvent.startTime"></ion-datetime>\n                </ion-item>\n            </ion-row>\n\n            <ion-row>\n                <ion-item style="background-color: transparent;" col-6>\n                    <ion-label floating>End Date</ion-label>\n                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [min]="calendarEvent.startDate" [(ngModel)]="calendarEvent.endDate"></ion-datetime>\n                </ion-item>\n                <ion-item style="background-color: transparent;" class="line" col-6>\n                    <ion-label floating>End Time</ion-label>\n                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"\n                        [min]="calendarEvent.startTime" [(ngModel)]="calendarEvent.endTime"></ion-datetime>\n                </ion-item>\n            </ion-row>\n\n        </ion-item-group>\n    </ion-list>\n\n    <div style="text-align:right;">\n        <button ion-button primary (click)="addEvent()">สร้าง</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar-create/calendar-create.html"*/,
+            selector: 'page-calendar-create',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar-create/calendar-create.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>สร้างตารางนัดหมาย</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding class="calendar-create-content">\n    <ion-list>\n        <ion-item-group>\n            <ion-item transparent>\n                <ion-label floating>Name</ion-label>\n                <ion-input type="text" [(ngModel)]="calendarEvent.name"></ion-input>\n            </ion-item>\n            <ion-item transparent>\n                <ion-label floating>Description</ion-label>\n                <ion-input type="text" [(ngModel)]="calendarEvent.description"></ion-input>\n            </ion-item>\n\n            <ion-row>\n                <ion-item transparent col-6>\n                    <ion-label floating>Start Date</ion-label>\n                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>\n                </ion-item>\n                <ion-item transparent class="line" col-6>\n                    <ion-label floating>Start Time</ion-label>\n                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"\n                        [(ngModel)]="calendarEvent.startTime"></ion-datetime>\n                </ion-item>\n            </ion-row>\n\n            <ion-row>\n                <ion-item transparent col-6>\n                    <ion-label floating>End Date</ion-label>\n                    <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [min]="calendarEvent.startDate" [(ngModel)]="calendarEvent.endDate"></ion-datetime>\n                </ion-item>\n                <ion-item transparent class="line" col-6>\n                    <ion-label floating>End Time</ion-label>\n                    <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"\n                        [min]="calendarEvent.startTime" [(ngModel)]="calendarEvent.endTime"></ion-datetime>\n                </ion-item>\n            </ion-row>\n\n        </ion-item-group>\n    </ion-list>\n\n    <div style="text-align:right;">\n        <button ion-button primary (click)="addEvent()">สร้าง</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar-create/calendar-create.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], CreateCalendarPage);
@@ -429,18 +404,73 @@ var CreateCalendarPage = (function () {
 
 /***/ }),
 
+/***/ 161:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactDetailsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_call_number__ = __webpack_require__(135);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ContactDetailsPage = (function () {
+    function ContactDetailsPage(navCtrl, navParams, callNumber) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.callNumber = callNumber;
+    }
+    ContactDetailsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ContactDetailsPage');
+        this.name = this.navParams.get('name');
+        this.type = this.navParams.get('type');
+        this.ward = this.navParams.get('ward');
+        this.aptitude = this.navParams.get('aptitude');
+        this.gender = this.navParams.get('gender');
+        this.phone = this.navParams.get('phone');
+        this.email = this.navParams.get('email');
+        this.picture = this.navParams.get('picture');
+    };
+    ContactDetailsPage.prototype.call = function (phone) {
+        this.callNumber.callNumber(phone, true)
+            .then(function () { return console.log('Launched dialer'); })
+            .catch(function () { return console.log('Error launching dialer!'); });
+    };
+    ContactDetailsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-contact-details',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/contact-details/contact-details.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>ข้อมูลรายชื่อ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="contact-details">\n\n\n\n  <ion-row class="logo-row">\n\n    <ion-col item-start>\n\n      <img class="avatar" style="width:40%;" src="{{picture}}" />\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-list>\n\n    <ion-item transparent>\n\n      ชื่อ : {{name}}\n\n    </ion-item>\n\n    <ion-item transparent>\n\n      โทรศัพท์ : {{phone}}\n\n      <ion-icon ios="ios-call" md="md-call" (click)="call(phone)" item-end></ion-icon>\n\n    </ion-item>\n\n    <ion-item transparent>\n\n      E-mail : {{email}}\n\n    </ion-item>\n\n    <ion-item transparent>\n\n      วอร์ด : {{ward}}\n\n    </ion-item>\n\n    <ion-item transparent>\n\n      ความเชี่ยวชาญ : {{aptitude}}\n\n    </ion-item>\n\n    <ion-item transparent>\n\n      เพศ : {{gender}}\n\n    </ion-item>\n\n    <ion-item transparent>\n\n      งาน : {{type}}\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/contact-details/contact-details.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_call_number__["a" /* CallNumber */]])
+    ], ContactDetailsPage);
+    return ContactDetailsPage;
+}());
+
+//# sourceMappingURL=contact-details.js.map
+
+/***/ }),
+
 /***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__contact_details_contact_details__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__contact_details_contact_details__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -485,6 +515,7 @@ var ContactPage = (function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__contact_details_contact_details__["a" /* ContactDetailsPage */], {
             name: contact.name,
             type: contact.type,
+            ward: contact.ward,
             phone: contact.phone,
             aptitude: contact.aptitude,
             gender: contact.gender,
@@ -517,7 +548,7 @@ var ContactPage = (function () {
     };
     ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contact',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/contact/contact.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>รายชื่อ</ion-title>\n\n    </ion-navbar>\n\n    <ion-searchbar class="searchbar" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n</ion-header>\n\n\n\n<ion-content class="contact-content">\n\n    <ion-list>\n\n        <ion-item style="background-color: transparent;" *ngFor="let contact of contactList">\n\n            <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                <img src="{{contact.picture}}" />\n\n            </ion-avatar>\n\n            <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n            <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n            <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/contact/contact.html"*/,
+            selector: 'page-contact',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/contact/contact.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>รายชื่อ</ion-title>\n\n    </ion-navbar>\n\n    <ion-searchbar class="searchbar" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n</ion-header>\n\n\n\n<ion-content class="contact-content">\n\n    <ion-list>\n\n        <ion-item-group transparent>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> 4ก </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'4ก\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> 4ข </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'4ข\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> 4ค </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'4ค\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> AE3 </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'AE3\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> สว9A </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'สว9A\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> สว9B </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'สว9B\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> MICU1 </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'MICU1\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> MICU2 </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'MICU2\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label> CCU </ion-label>\n\n            </ion-item-divider>\n\n            <ion-item-group *ngFor="let contact of contactList">\n\n                <ion-item *ngIf="contact.ward == \'CCU\'">\n\n                    <ion-avatar (click)="openNavSubContact(contact)" item-start>\n\n                        <img src="{{contact.picture}}" />\n\n                    </ion-avatar>\n\n                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>\n\n                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>\n\n                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>\n\n                </ion-item>\n\n            </ion-item-group>\n\n\n\n        </ion-item-group>\n\n    </ion-list>\n\n\n\n    <!-- <ion-list #scheduleList [hidden]="shownSessions === 0">\n\n\n\n        <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">\n\n\n\n            <ion-item-divider sticky>\n\n                <ion-label>\n\n                    {{group.time}}\n\n                </ion-label>\n\n            </ion-item-divider>\n\n\n\n            <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">\n\n\n\n                <button ion-item (click)="goToSessionDetail(session)">\n\n                    <h3>{{session.name}}</h3>\n\n                    <p>\n\n                        {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}\n\n                    </p>\n\n                </button>\n\n\n\n                <ion-item-options>\n\n                    <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === \'all\'">\n\n                        Favorite\n\n                    </button>\n\n                    <button ion-button color="danger" (click)="removeFavorite(slidingItem, session, \'Remove Favorite\')" *ngIf="segment === \'favorites\'">\n\n                        Remove\n\n                    </button>\n\n                </ion-item-options>\n\n\n\n            </ion-item-sliding>\n\n\n\n        </ion-item-group>\n\n\n\n    </ion-list> -->\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/contact/contact.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__["a" /* CallNumber */]])
     ], ContactPage);
@@ -534,13 +565,13 @@ var ContactPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -741,10 +772,58 @@ var LoginPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(39);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var LogsPage = (function () {
+    function LogsPage(navCtrl, navParams, afDB) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.afDB = afDB;
+        this.today = new Date();
+        this.logs = [];
+        this.afDB.list("/updateLogs/").valueChanges().subscribe(function (_data) {
+            _this.logs = _data;
+        });
+    }
+    LogsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LogsPage');
+    };
+    LogsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-logs',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/logs/logs.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>ประวัติการแก้ไขวันที่ {{today | date:\'dd/M/yy\'}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="log-content">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-3>\n                <b>เวลา</b>\n            </ion-col>\n            <ion-col col-3>\n                <b>ประเภท</b>\n            </ion-col>\n            <ion-col col-2>\n                <b>วอร์ด</b>\n            </ion-col>\n            <ion-col col-2>\n                <b>เดิม</b>\n            </ion-col>\n            <ion-col col-2>\n                <b>ใหม่</b>\n            </ion-col>\n        </ion-row>\n        <div *ngFor="let log of logs">\n            <ion-row *ngIf="(log.timestamp | date:\'EEEE d MMMM\') == (today | date:\'EEEE d MMMM\')">\n                <ion-col col-3>\n                    <div>{{log.timestamp | date:\'HH:mm:ss น.\'}}</div>\n                </ion-col>\n                <ion-col col-3 *ngIf=" log.type==\'นำผู้ป่วยเข้า\'">\n                    <div class="blue ">{{log.type}}</div>\n                </ion-col>\n                <ion-col col-3 *ngIf="log.type==\'ลดผู้ป่วยออก\'">\n                    <div class="red ">{{log.type}}</div>\n                </ion-col>\n                <ion-col col-3 *ngIf="log.type==\'อัปเดต\'">\n                    <div>{{log.type}}</div>\n                </ion-col>\n                <ion-col col-2>\n                    <div>{{log.ward}}</div>\n                </ion-col>\n                <ion-col col-2>\n                    <div>{{log.before}}</div>\n                </ion-col>\n                <ion-col col-2>\n                    <div>{{log.after}}</div>\n                </ion-col>\n            </ion-row>\n        </div>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/logs/logs.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
+    ], LogsPage);
+    return LogsPage;
+}());
+
+//# sourceMappingURL=logs.js.map
+
+/***/ }),
+
+/***/ 165:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetpwdPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -868,7 +947,7 @@ var ResetpwdPage = (function () {
 
 /***/ }),
 
-/***/ 175:
+/***/ 176:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -881,40 +960,44 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 175;
+webpackEmptyAsyncContext.id = 176;
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/bed-details/bed-details.module": [
-		525,
-		6
+		526,
+		7
 	],
 	"../pages/calendar-create/calendar-create.module": [
 		527,
-		5
+		6
 	],
 	"../pages/calendar/calendar.module": [
 		528,
-		4
+		5
 	],
 	"../pages/contact-details/contact-details.module": [
-		526,
-		3
+		529,
+		4
 	],
 	"../pages/contact/contact.module": [
-		529,
-		2
+		530,
+		3
 	],
 	"../pages/login/login.module": [
-		530,
+		531,
+		2
+	],
+	"../pages/logs/logs.module": [
+		532,
 		1
 	],
 	"../pages/resetpwd/resetpwd.module": [
-		531,
+		533,
 		0
 	]
 };
@@ -929,19 +1012,19 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 269;
+webpackAsyncContext.id = 270;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 322:
+/***/ 323:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_take__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_take__ = __webpack_require__(522);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_take__);
 
 
@@ -951,40 +1034,42 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 341:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export firebase_config */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(519);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(520);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_resetpwd_resetpwd__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_resetpwd_resetpwd__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_contact_contact__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_calendar_calendar__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_calendar_create_calendar_create__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_bed_details_bed_details__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_contact_details_contact_details__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_call_number__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_in_app_browser__ = __webpack_require__(520);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_global_global__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_logs_logs__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_contact_contact__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_calendar_calendar__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_calendar_create_calendar_create__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_bed_details_bed_details__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_contact_details_contact_details__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_call_number__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_in_app_browser__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1025,22 +1110,24 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_resetpwd_resetpwd__["a" /* ResetpwdPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_contact_contact__["a" /* ContactPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_calendar_calendar__["a" /* CalendarPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_calendar_create_calendar_create__["a" /* CreateCalendarPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_bed_details_bed_details__["a" /* BedDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_contact_details_contact_details__["a" /* ContactDetailsPage */]
+                __WEBPACK_IMPORTED_MODULE_12__pages_logs_logs__["a" /* LogsPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_contact_contact__["a" /* ContactPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_calendar_calendar__["a" /* CalendarPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_calendar_create_calendar_create__["a" /* CreateCalendarPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_bed_details_bed_details__["a" /* BedDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_contact_details_contact_details__["a" /* ContactDetailsPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], { scrollAssist: false, autoFocusAssist: false }, {
                     links: [
                         { loadChildren: '../pages/bed-details/bed-details.module#BedDetailsPageModule', name: 'BedDetailsPage', segment: 'bed-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/contact-details/contact-details.module#ContactDetailsPageModule', name: 'ContactDetailsPage', segment: 'contact-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/calendar-create/calendar-create.module#CreateCalendarPageModule', name: 'CreateCalendarPage', segment: 'calendar-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/calendar/calendar.module#CalendarPageModule', name: 'CalendarPage', segment: 'calendar', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/contact-details/contact-details.module#ContactDetailsPageModule', name: 'ContactDetailsPage', segment: 'contact-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/contact/contact.module#ContactPageModule', name: 'ContactPage', segment: 'contact', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/logs/logs.module#LogsPageModule', name: 'LogsPage', segment: 'logs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/resetpwd/resetpwd.module#ResetpwdPageModule', name: 'ResetpwdPage', segment: 'resetpwd', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -1056,19 +1143,20 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_resetpwd_resetpwd__["a" /* ResetpwdPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_contact_contact__["a" /* ContactPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_calendar_calendar__["a" /* CalendarPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_calendar_create_calendar_create__["a" /* CreateCalendarPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_bed_details_bed_details__["a" /* BedDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_contact_details_contact_details__["a" /* ContactDetailsPage */]
+                __WEBPACK_IMPORTED_MODULE_12__pages_logs_logs__["a" /* LogsPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_contact_contact__["a" /* ContactPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_calendar_calendar__["a" /* CalendarPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_calendar_create_calendar_create__["a" /* CreateCalendarPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_bed_details_bed_details__["a" /* BedDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_contact_details_contact_details__["a" /* ContactDetailsPage */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_19__ionic_native_call_number__["a" /* CallNumber */],
-                __WEBPACK_IMPORTED_MODULE_20__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+                __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_20__ionic_native_call_number__["a" /* CallNumber */],
+                __WEBPACK_IMPORTED_MODULE_21__ionic_native_in_app_browser__["a" /* InAppBrowser */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_21__providers_global_global__["a" /* GlobalProvider */],
+                __WEBPACK_IMPORTED_MODULE_22__providers_global_global__["a" /* GlobalProvider */],
             ]
         })
     ], AppModule);
@@ -1079,24 +1167,24 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 512:
+/***/ 513:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 519:
+/***/ 520:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(163);
@@ -1224,7 +1312,7 @@ var MyApp = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1257,10 +1345,10 @@ var GlobalProvider = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calendar_create_calendar_create__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calendar_create_calendar_create__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_global__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1526,5 +1614,5 @@ var CalendarPage = (function () {
 
 /***/ })
 
-},[322]);
+},[323]);
 //# sourceMappingURL=main.js.map

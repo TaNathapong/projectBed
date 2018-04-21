@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { BedDetailsPage } from '../bed-details/bed-details';
+import { LogsPage } from '../logs/logs';
 import { GlobalProvider } from "../../providers/global/global";
 
 @Component({
@@ -34,5 +35,9 @@ export class HomePage {
 
     openNavDetailsPage() {
         this.navCtrl.push(BedDetailsPage);
+    }
+
+    openAcLogsPage() {
+        this.navCtrl.push(LogsPage);
     }
 }

@@ -10,9 +10,10 @@ import { CallNumber } from '@ionic-native/call-number';
 export class ContactDetailsPage {
   name: string;
   type: string;
-  phone: string;
+  ward: string;
   aptitude: string;
   gender: string;
+  phone: string;
   email: string;
   picture: string;
 
@@ -23,6 +24,7 @@ export class ContactDetailsPage {
     console.log('ionViewDidLoad ContactDetailsPage');
     this.name = this.navParams.get('name');
     this.type = this.navParams.get('type');
+    this.ward = this.navParams.get('ward');
     this.aptitude = this.navParams.get('aptitude');
     this.gender = this.navParams.get('gender');
     this.phone = this.navParams.get('phone');

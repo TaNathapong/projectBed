@@ -10,14 +10,169 @@
 
 <ion-content class="contact-content">
     <ion-list>
-        <ion-item style="background-color: transparent;" *ngFor="let contact of contactList">
-            <ion-avatar (click)="openNavSubContact(contact)" item-start>
-                <img src="{{contact.picture}}" />
-            </ion-avatar>
-            <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
-            <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
-            <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
-        </ion-item>
+        <ion-item-group transparent>
+
+            <ion-item-divider sticky>
+                <ion-label> 4ก </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == '4ก'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> 4ข </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == '4ข'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> 4ค </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == '4ค'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> AE3 </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == 'AE3'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> สว9A </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == 'สว9A'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> สว9B </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == 'สว9B'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> MICU1 </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == 'MICU1'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> MICU2 </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == 'MICU2'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+            <ion-item-divider sticky>
+                <ion-label> CCU </ion-label>
+            </ion-item-divider>
+            <ion-item-group *ngFor="let contact of contactList">
+                <ion-item *ngIf="contact.ward == 'CCU'">
+                    <ion-avatar (click)="openNavSubContact(contact)" item-start>
+                        <img src="{{contact.picture}}" />
+                    </ion-avatar>
+                    <h2 (click)="openNavSubContact(contact)">{{contact.name}}</h2>
+                    <p (click)="openNavSubContact(contact)">{{contact.type}} {{contact.aptitude}}</p>
+                    <ion-icon name="call" (click)="call(contact.phone)" item-end></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+        </ion-item-group>
     </ion-list>
+
+    <!-- <ion-list #scheduleList [hidden]="shownSessions === 0">
+
+        <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
+
+            <ion-item-divider sticky>
+                <ion-label>
+                    {{group.time}}
+                </ion-label>
+            </ion-item-divider>
+
+            <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
+
+                <button ion-item (click)="goToSessionDetail(session)">
+                    <h3>{{session.name}}</h3>
+                    <p>
+                        {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
+                    </p>
+                </button>
+
+                <ion-item-options>
+                    <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
+                        Favorite
+                    </button>
+                    <button ion-button color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
+                        Remove
+                    </button>
+                </ion-item-options>
+
+            </ion-item-sliding>
+
+        </ion-item-group>
+
+    </ion-list> -->
 
 </ion-content>
