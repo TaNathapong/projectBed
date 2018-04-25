@@ -20,17 +20,17 @@ export class ContactPage {
     items = [];
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private callNumber: CallNumber) {
-        this.contactRef = firebase.database().ref('/contacts');
+        this.contactRef = firebase.database().ref('/contacts');         // Reference database location
 
-        this.contactRef.on('value', countryList => {
-            let countries = [];
-            countryList.forEach(country => {
-                countries.push(country.val());
+        this.contactRef.on('value', contactList => {
+            let contacts = [];
+            contactList.forEach(contact => {
+                contacts.push(contact.val());
                 return false;
             });
 
-            this.contactList = countries;
-            this.loadedContactList = countries;
+            this.contactList = contacts;
+            this.loadedContactList = contacts;
         });
     }
 
@@ -42,6 +42,7 @@ export class ContactPage {
         this.contactList = this.loadedContactList;
     }
 
+    // Go and send data to ContactDetailsPage
     openNavSubContact(contact) {
         this.navCtrl.push(ContactDetailsPage, {
             name: contact.name,
@@ -56,6 +57,7 @@ export class ContactPage {
     }
 
     initializeContacts() {
+        // Get contact from firebase
         this.afDB.list("/contacts/").valueChanges().subscribe(_data => {
             this.contactList = _data;
         });
@@ -76,6 +78,7 @@ export class ContactPage {
         }
     }
 
+    // Call by use mobile system
     call(phone) {
         this.callNumber.callNumber(phone, true)
             .then(() => console.log('Launched dialer'))

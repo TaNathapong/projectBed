@@ -11,6 +11,7 @@ import { GlobalProvider } from "../../providers/global/global";
     templateUrl: 'calendar.html',
 })
 export class CalendarPage {
+    // Header of httpclient use to permission calendar
     httpOptions = {
         headers: new HttpHeaders({
             'Accept': 'application/json',
@@ -18,10 +19,10 @@ export class CalendarPage {
         })
     };
 
-    API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
-    CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-    dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');
-    deleteUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events';
+    API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';    // Google calendar API
+    CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';   // Calendar group
+    dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');  // Url use to get evnet 
+    deleteUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events'; // Url use to delete evnet
 
     eventSource;
     viewTitle;
@@ -39,6 +40,7 @@ export class CalendarPage {
         this.getEvent();
     }
 
+    // go to CreateCalendarPage
     openNavCreateCalendarPage() {
         if (this.global.access_token) {
             this.navCtrl.push(CreateCalendarPage);
@@ -52,16 +54,17 @@ export class CalendarPage {
         }
     }
 
+    // Get google calendar event
     getEvent() {
         var data: any;
         return this.http.get(this.dataUrl).subscribe(_data => {
             data = _data['items'];
             var events = [];
             for (let i = 0; i < data.length; i++) {
-                var startTime = data[i].start.dateTime;
-                var endTime = data[i].end.dateTime;
-                var startDate = data[i].end.date;
-                var endDate = data[i].end.date;
+                var startTime = data[i].start.dateTime;     // Start Time of event
+                var endTime = data[i].end.dateTime;         // End Time of event
+                var startDate = data[i].end.date;           // Start date of event
+                var endDate = data[i].end.date;             // End date of event
 
                 if (startDate != undefined) {       // All day event is true
                     if (endDate === startDate) {
@@ -91,12 +94,13 @@ export class CalendarPage {
                     });
                 }
             }
-            this.eventSource = events;
+            this.eventSource = events;                  // Store event to eventSource
         });
     }
 
+    // Delete google calendar event
     deleteEvent(eventId) {
-        if (this.global.access_token) {
+        if (this.global.access_token) {                 // If have access_token
             this.http.delete(this.deleteUrl + "/" + eventId, this.httpOptions).subscribe(res => {
                 let alert = this.alertCtrl.create({
                     title: 'รายการสำเร็จ!',
@@ -104,7 +108,7 @@ export class CalendarPage {
                     buttons: ['OK']
                 });
                 alert.present();
-                this.navCtrl.setRoot(CalendarPage);
+                this.navCtrl.setRoot(CalendarPage);     // Go to CalendarPage
             },
                 (error) => {
                     let alert = this.alertCtrl.create({
@@ -116,7 +120,7 @@ export class CalendarPage {
                 }
             );
         } else {
-            let alert = this.alertCtrl.create({
+            let alert = this.alertCtrl.create({         // Alert if doesn't have access_token
                 title: 'รายการล้มเหลว!',
                 subTitle: 'สิทธิของท่านไม่สามารถลบปฏิทินได้',
                 buttons: ['OK']
@@ -125,14 +129,17 @@ export class CalendarPage {
         }
     }
 
+    // Change title auto when click date in calendar
     onViewTitleChanged(title) {
         this.viewTitle = title;
     }
 
+    // Change mode (day, week, month)
     changeMode(mode) {
         this.mode = mode;
     }
 
+    // Return to today
     today() {
         this.calendar.currentDate = new Date();
     }
@@ -144,6 +151,7 @@ export class CalendarPage {
         this.isToday = today.getTime() === event.getTime();
     }
 
+    // Change time format
     checkTime(i) {
         if (i < 10) {
             i = "0" + i;
@@ -151,6 +159,7 @@ export class CalendarPage {
         return i;
     }
 
+    // Detect when click event to show detail
     onEventSelected = (event) => {
         var startHour = event.startTime.getHours();
         var startMinute = event.startTime.getMinutes();
@@ -250,6 +259,7 @@ export class CalendarPage {
         }
     }
 
+    // Log when click date
     onTimeSelected = (ev: { selectedTime: Date, events: any[] }) => {
         console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' + (ev.events !== undefined && ev.events.length !== 0));
     }

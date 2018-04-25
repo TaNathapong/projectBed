@@ -12,18 +12,20 @@ import { GlobalProvider } from "../../providers/global/global";
     templateUrl: 'home.html'
 })
 export class HomePage {
-
     bedsData = []
     profileData = {};
 
     constructor(public global: GlobalProvider, public navCtrl: NavController, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
         this.afAuth.authState.subscribe(data => {
             if (data && data.email && data.uid) {
-                this.afDB.list("/wards/").valueChanges().subscribe(_data => {
-                    this.bedsData = _data;
-                });
+                // Get user's details from firebase
                 this.afDB.object(`profiles/${data.uid}`).valueChanges().subscribe(_data => {
                     this.profileData = _data;
+                });
+
+                // Get data of wards from firebase
+                this.afDB.list("/wards/").valueChanges().subscribe(_data => {
+                    this.bedsData = _data;
                 });
             }
         });
@@ -33,11 +35,13 @@ export class HomePage {
         console.log('ionViewDidLoad HomePage');
     }
 
+    // Go to BedDetailsPage
     openNavDetailsPage() {
         this.navCtrl.push(BedDetailsPage);
     }
 
-    openAcLogsPage() {
+    // Go to LogsPage
+    openLogsPage() {
         this.navCtrl.push(LogsPage);
     }
 }

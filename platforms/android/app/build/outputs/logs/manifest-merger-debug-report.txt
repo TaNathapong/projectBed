@@ -11,19 +11,19 @@ INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/A
 INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-34:12
 INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:1-34:12
 	package
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:98-126
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:102-130
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 	android:versionName
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:70-97
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 	android:hardwareAccelerated
 		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:127-185
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:131-189
 	android:versionCode
-		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:46-69
+		ADDED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/nathapong/ionic/projectBed/platforms/android/app/src/main/AndroidManifest.xml
 supports-screens

@@ -12,6 +12,7 @@ export class LogsPage {
   logs = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase) {
+    // Get logs from firebase
     this.afDB.list("/updateLogs/").valueChanges().subscribe(_data => {
       this.logs = _data;
     });

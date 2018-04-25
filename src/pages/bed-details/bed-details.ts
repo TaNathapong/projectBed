@@ -17,11 +17,14 @@ export class BedDetailsPage {
     constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
         this.afAuth.authState.subscribe(data => {
             if (data && data.email && data.uid) {
-                this.afDB.list("/wards/").valueChanges().subscribe(_data => {
-                    this.bedsData = _data;
-                });
+                // Get user's details from firebase                
                 this.afDB.object(`profiles/${data.uid}`).valueChanges().subscribe(_data => {
                     this.profileData = _data;
+                });
+
+                // Get data of wards from firebase                
+                this.afDB.list("/wards/").valueChanges().subscribe(_data => {
+                    this.bedsData = _data;
                 });
             }
         });
@@ -31,8 +34,9 @@ export class BedDetailsPage {
         console.log('ionViewDidLoad BedDetailsPage');
     }
 
+    // Update bed by resident in ward
     updateBed(bed) {
-        let prompt = this.alertCtrl.create({
+        let prompt = this.alertCtrl.create({            // PromptAlert to add input use to update bed
             title: `วอร์ดที่ ${bed.id}`,
             message: "กรอกจำนวนเตียงที่ว่าง",
             inputs: [
@@ -53,7 +57,7 @@ export class BedDetailsPage {
                     text: 'ยืนยัน',
                     handler: data => {
                         if (data.blank != '') {
-                            this.afDB.list('/updateLogs/').push({
+                            this.afDB.list('/updateLogs/').push({               // Send log to firebase
                                 type: 'อัปเดต',
                                 detail: `อัปเดตจากวอร์ด ${bed.name} จากเดิม ${bed.blank} เป็น ${data.blank}`,
                                 ward: bed.name,
@@ -61,11 +65,11 @@ export class BedDetailsPage {
                                 after: data.blank,
                                 timestamp: firebase.database.ServerValue.TIMESTAMP
                             });
-                            this.afDB.object('/wards/' + bed.id).update({
-                                blank: data.blank,
-                                time: firebase.database.ServerValue.TIMESTAMP
+                            this.afDB.object('/wards/' + bed.id).update({       // Update bed empty to firebase
+                                blank: data.blank,                              // Quantity of bed
+                                time: firebase.database.ServerValue.TIMESTAMP   // Time use firebase timestamp
                             });
-                            let alert = this.alertCtrl.create({
+                            let alert = this.alertCtrl.create({                 // Alert success
                                 title: 'บันทึกข้อมูลสำเร็จ',
                                 subTitle: 'อัพเดทจำนวนเตียงว่างเสร็จสิ้น',
                                 buttons: ['OK']
@@ -73,7 +77,7 @@ export class BedDetailsPage {
                             alert.present();
                             console.log('Save complete');
                         } else {
-                            let alert = this.alertCtrl.create({
+                            let alert = this.alertCtrl.create({                 // alert error if user doesn't input data
                                 title: 'รายการไม่ถูกต้อง!',
                                 subTitle: 'กรุณากรอกจำนวนเตียง',
                                 buttons: ['OK']
@@ -87,9 +91,10 @@ export class BedDetailsPage {
         prompt.present();
     }
 
+    // Add Patient to ward
     addPatient(bed) {
         if (bed.blank > 0) {
-            this.afDB.list('/updateLogs/').push({
+            this.afDB.list('/updateLogs/').push({               // Send log to firebase
                 type: 'นำผู้ป่วยเข้า',
                 detail: `เพิ่มผู้ป่วยเข้าสู่วอร์ด ${bed.name} จากเดิม ${bed.blank} เป็น ${bed.blank - 1}`,
                 ward: bed.name,
@@ -98,8 +103,8 @@ export class BedDetailsPage {
                 timestamp: firebase.database.ServerValue.TIMESTAMP
             });
 
-            let confirm = this.alertCtrl.create({
-                title: `ยืนยันการเพิ่มผู้ป่วยเข้า ?`,
+            let confirm = this.alertCtrl.create({               // Confirm add patient
+                title: `ยืนยันการเพิ่มผู้ป่วยเข้า?`,
                 message: `คุณต้องการยืนยันการเพิ่มผู้ป่วยเข้าสู่วอร์ด ${bed.name}`,
                 buttons: [
                     {
@@ -113,7 +118,7 @@ export class BedDetailsPage {
 
                         handler: () => {
                             this.afDB.object('/wards/' + bed.id).update({
-                                blank: bed.blank - 1,
+                                blank: bed.blank - 1,                           // Reduce bed in ward
                                 time: firebase.database.ServerValue.TIMESTAMP
                             });
                             let alert = this.alertCtrl.create({
@@ -130,8 +135,8 @@ export class BedDetailsPage {
             confirm.present();
         }
         else {
-            let alert = this.alertCtrl.create({
-                title: 'รายการไม่ถูกต้อง !',
+            let alert = this.alertCtrl.create({             // Alert if without bed empty
+                title: 'รายการไม่ถูกต้อง!',
                 subTitle: `ไม่สามารถเพิ่มผู้ป่วยเข้าสู่วอร์ด ${bed.name} ได้เนื่องจากไม่มีเตียงผู้ป่วยที่ว่างในขณะนี้`,
                 buttons: ['OK']
             });
@@ -140,7 +145,7 @@ export class BedDetailsPage {
     }
 
     removePatient(bed) {
-        this.afDB.list('/updateLogs/').push({
+        this.afDB.list('/updateLogs/').push({                   // Send log to firebase
             type: 'ลดผู้ป่วยออก',
             detail: `ลดผู้ป่วยออกจากวอร์ด ${bed.name} จากเดิม ${bed.blank} เป็น ${bed.blank + 1}`,
             ward: bed.name,
@@ -149,8 +154,8 @@ export class BedDetailsPage {
             timestamp: firebase.database.ServerValue.TIMESTAMP
         });
 
-        let confirm = this.alertCtrl.create({
-            title: `ยืนยันการลดผู้ป่วยออก ?`,
+        let confirm = this.alertCtrl.create({                   // Confirm remove patient
+            title: `ยืนยันการลดผู้ป่วยออก?`,
             message: `คุณต้องการยืนยันการลดผู้ป่วยออกจากวอร์ด ${bed.name}`,
             buttons: [
                 {
@@ -165,7 +170,7 @@ export class BedDetailsPage {
                     handler: () => {
                         this.afDB.object('/wards/' + bed.id)
                             .update({
-                                blank: bed.blank + 1,
+                                blank: bed.blank + 1,                           // Increase bed in ward
                                 time: firebase.database.ServerValue.TIMESTAMP
                             });
                         let alert = this.alertCtrl.create({

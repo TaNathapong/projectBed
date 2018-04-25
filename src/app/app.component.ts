@@ -31,6 +31,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
+      // Detect push back Button for exit app
       platform.registerBackButtonAction(() => {
         if (this.counter == 0) {
           this.nav.pop();
@@ -41,14 +42,17 @@ export class MyApp {
           this.presentConfirm();
         }
       });
+
     });
 
+    // Page in side menu
     this.pages = [
       { title: 'หน้าแรก', component: HomePage },
       { title: 'รายชื่อบุคลากร', component: ContactPage },
       { title: 'ปฏิทินตารางนัดหมาย', component: CalendarPage }
     ];
 
+    // Get user's details from firebase
     this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
         this.profileData = this.afDB.object<Profile>(`profiles/${data.uid}`).valueChanges();
@@ -56,6 +60,7 @@ export class MyApp {
     });
   }
 
+  // Exit app alert
   presentConfirm() {
     let alert = this.alertCtrl.create({
       title: 'ออกจากแอพ',
@@ -73,7 +78,7 @@ export class MyApp {
           text: 'ตกลง',
           handler: () => {
             console.log('Yes clicked');
-            this.logOut();
+            this.signOut();
             this.platform.exitApp();
           }
         }
@@ -84,16 +89,16 @@ export class MyApp {
     });
   }
 
+  // Open page in side menu
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
 
-  logOut() {
+  // Sign out from firebase
+  signOut() {
     firebase.auth().signOut();
-    this.profileData = null;
-    this.global.access_token = null;
-    window.location.reload();
+    this.profileData = null;            // remove profileData
+    this.global.access_token = null;    // remove access_token
+    window.location.reload();           // reload app
   }
 }

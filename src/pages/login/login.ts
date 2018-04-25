@@ -19,17 +19,19 @@ export class LoginPage {
     authState: any = null;
 
     constructor(public global: GlobalProvider, public toast: ToastController, public navCtrl: NavController, public menu: MenuController, public navParams: NavParams, public alertCtrl: AlertController, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
+        // Hide side menu
         this.menu.enable(false);
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad LoginPage');
 
+        // Check user sign in with Google. If true will go to homepage
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                firebase.auth().getRedirectResult().then((result) => {
+                firebase.auth().getRedirectResult().then((result) => {              // Get user detail from google sing in
                     if (result.user) {
-                        this.global.access_token = result.credential.accessToken;
+                        this.global.access_token = result.credential.accessToken;   // Get access_token use to manage google calendar
                         this.afAuth.authState.subscribe(data => {
                             if (data && data.email && data.uid) {
                                 this.toast.create({
@@ -38,23 +40,25 @@ export class LoginPage {
                                 }).present();
                             }
                         });
-                        this.menu.enable(true);
-                        this.navCtrl.setRoot(HomePage);
+                        this.menu.enable(true);                                     // Enable side menu
+                        this.navCtrl.setRoot(HomePage);                             // Go to Home page
                     }
                 });
             }
         });
     }
 
+    // Go to Resetpwd page
     openNavResetpwdPage() {
         this.navCtrl.push(ResetpwdPage);
     }
 
+    // Sign in firebase with Email
     async login(user: User): Promise<any> {
         try {
             firebase.auth().signInWithEmailAndPassword(user.email, user.password).then((result) => {
-                this.navCtrl.setRoot(HomePage);
-                this.menu.enable(true);
+                this.navCtrl.setRoot(HomePage);                     // Go to Home page
+                this.menu.enable(true);                             // Enable side menu
                 this.afAuth.authState.subscribe(data => {
                     if (data && data.email && data.uid) {
                         this.toast.create({
@@ -63,8 +67,7 @@ export class LoginPage {
                         }).present();
                     }
                 });
-            }).catch((error) => {
-                console.error(error);
+            }).catch((error) => {                                   // Catch error to report in app
                 let alert = this.alertCtrl.create({
                     title: 'Error!',
                     subTitle: error.message,
@@ -72,8 +75,7 @@ export class LoginPage {
                 });
                 alert.present();
             });
-        } catch (error) {
-            console.error(error);
+        } catch (error) {                                           // Catch error to report in app
             let alert = this.alertCtrl.create({
                 title: 'Error!',
                 subTitle: error.message,
@@ -83,9 +85,10 @@ export class LoginPage {
         };
     }
 
+    // Sign in firebase with Google
     async googleLogin(): Promise<any> {
         var provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope('https://www.googleapis.com/auth/calendar');
+        provider.addScope('https://www.googleapis.com/auth/calendar');  // Add scope to get permission to manage google calendar
 
         firebase.auth().signInWithRedirect(provider).then(function () {
             return firebase.auth().getRedirectResult();
@@ -102,6 +105,7 @@ export class LoginPage {
         });
     }
 
+    // Get user detail from google to store in firebase
     private updateUserData(): void {
         // Writes user name and email to realtime db
         // useful if your app displays information about users or for admin features

@@ -24,6 +24,7 @@
 </ion-header>
 
 <ion-content class="calendar-content">
+    <!-- Calendar frame -->
     <calendar [eventSource]="eventSource" [calendarMode]="mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"
         (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"
         (onTimeSelected)="onTimeSelected($event)" step="30">

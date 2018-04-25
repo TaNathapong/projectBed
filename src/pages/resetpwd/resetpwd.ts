@@ -18,10 +18,11 @@ export class ResetpwdPage {
         console.log('ionViewDidLoad ResetpwdPage');
     }
 
+    // Reset firebase password by send Email to confirm new password
     async resetPwd(email) {
-        let confirm = this.alertCtrl.create({
+        let confirm = this.alertCtrl.create({                           // Confirm send email
             title: "Reset Password",
-            message: "ท่านต้องการยืนยันการส่งอีเมลการรีเซ็ตรหัสผ่านหรือไม่ ?",
+            message: "ท่านต้องการยืนยันการส่งอีเมลการรีเซ็ตรหัสผ่านหรือไม่?",
             buttons: [
                 {
                     text: 'ปฏิเสธ',
@@ -34,11 +35,17 @@ export class ResetpwdPage {
                     handler: async () => {
                         console.log('Agree clicked');
                         try {
-                            const result = await this.afAuth.auth.sendPasswordResetEmail(email);
-                            if (result) {
-                                console.log("Email sent");
-                            }
-                        } catch (e) {
+                            this.afAuth.auth.sendPasswordResetEmail(email)  // Send Email
+                                .then(res => {
+                                    console.log("Email sent");
+                                    let alert = this.alertCtrl.create({     // Alert email sent
+                                        title: 'Email sent!',
+                                        subTitle: 'Email sent compete',
+                                        buttons: ['OK']
+                                    });
+                                    alert.present();
+                                });
+                        } catch (e) {                                       // Alert Error
                             console.error(e);
                             let alert = this.alertCtrl.create({
                                 title: 'Error!',

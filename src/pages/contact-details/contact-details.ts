@@ -20,6 +20,7 @@ export class ContactDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private callNumber: CallNumber) {
   }
 
+  // Get data from contact page
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactDetailsPage');
     this.name = this.navParams.get('name');
@@ -32,6 +33,7 @@ export class ContactDetailsPage {
     this.picture = this.navParams.get('picture');
   }
 
+  // Call by use mobile system
   call(phone) {
     this.callNumber.callNumber(phone, true)
       .then(() => console.log('Launched dialer'))

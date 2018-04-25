@@ -24,7 +24,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GlobalProvider } from '../providers/global/global';
 
-export const firebase_config = {
+export const firebase_config = {                              // Firebase detail
   apiKey: "AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ",
   authDomain: "hospital-bed-kku.firebaseapp.com",
   databaseURL: "https://hospital-bed-kku.firebaseio.com",

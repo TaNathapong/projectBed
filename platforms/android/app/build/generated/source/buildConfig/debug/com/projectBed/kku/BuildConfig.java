@@ -8,8 +8,8 @@ public final class BuildConfig {
   public static final String APPLICATION_ID = "com.projectBed.kku";
   public static final String BUILD_TYPE = "debug";
   public static final String FLAVOR = "";
-  public static final int VERSION_CODE = 1;
-  public static final String VERSION_NAME = "0.0.1";
+  public static final int VERSION_CODE = 10000;
+  public static final String VERSION_NAME = "1.0.0";
   // Fields from default config.
-  public static final long _BUILDINFO_TIMESTAMP = 1524279703614L;
+  public static final long _BUILDINFO_TIMESTAMP = 1524632950033L;
 }

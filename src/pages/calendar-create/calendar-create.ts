@@ -13,7 +13,7 @@ import { GlobalProvider } from "../../providers/global/global";
 export class CreateCalendarPage {
     calendarEvent: any = {};
     validation: any = {};
-    httpOptions = {
+    httpOptions = {                             // Header of httpclient use to permission calendar
         headers: new HttpHeaders({
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -21,8 +21,8 @@ export class CreateCalendarPage {
         })
     };
 
-    CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-    dataUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events';
+    CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';                           // Calendar group
+    dataUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events';   // Url use to create evnet 
 
     constructor(public global: GlobalProvider, public navCtrl: NavController, private http: HttpClient, private alertCtrl: AlertController, public navParams: NavParams) {
     }
@@ -32,28 +32,27 @@ export class CreateCalendarPage {
     }
 
     addEvent() {
-        if (!this.validate()) {
+        if (!this.validate()) {                     // Check if not validate data to use
             let alert = this.alertCtrl.create({
                 title: 'รายการไม่ถูกต้อง!',
                 subTitle: 'กรุณากรอกข้อมูล',
                 buttons: ['OK']
             });
             alert.present();
-        } else {
+        } else {                                    // If validate
             var startDateTimeISO = this.buildISODate(this.calendarEvent.startDate, this.calendarEvent.startTime);
             var enddateTimeISO = this.buildISODate(this.calendarEvent.endDate, this.calendarEvent.endTime);
-            console.log(enddateTimeISO);
 
-            var body = {
+            var body = {                                            // Data is use to create event
                 "summary": this.calendarEvent.name,
                 "description": this.calendarEvent.description,
                 "start": {
                     "dateTime": startDateTimeISO,
-                    "timeZone": "Asia/Bangkok" // TODO : Parameterize this
+                    "timeZone": "Asia/Bangkok"
                 },
                 "end": {
                     "dateTime": enddateTimeISO,
-                    "timeZone": "Asia/Bangkok" // TODO : Parameterize this
+                    "timeZone": "Asia/Bangkok"
                 }
             }
 
@@ -64,7 +63,7 @@ export class CreateCalendarPage {
                     buttons: ['OK']
                 });
                 alert.present();
-                this.navCtrl.setRoot(CalendarPage);
+                this.navCtrl.setRoot(CalendarPage);                 // Go to CalendarPage
             },
                 error => {
                     console.log(error);
@@ -79,7 +78,8 @@ export class CreateCalendarPage {
         }
     }
 
-    buildISODate(date, time) {                      // ISO 8601
+    // Build date to ISO 8601 format
+    buildISODate(date, time) {
         var dateArray = date && date.split('-');
         var timeArray = time && time.split(':');
         var normalDate = new Date(parseInt(dateArray[0]), parseInt(dateArray[1]) - 1, parseInt(dateArray[2]), parseInt(timeArray[0]), parseInt(timeArray[1]), 0, 0);
@@ -87,6 +87,7 @@ export class CreateCalendarPage {
         return normalDate.toISOString();
     }
 
+    // Validate input
     validate() {
         return this.isStringValid(this.calendarEvent.name) &&
             this.isStringValid(this.calendarEvent.startDate) &&
@@ -95,6 +96,7 @@ export class CreateCalendarPage {
             this.isStringValid(this.calendarEvent.endTime)
     }
 
+    // Check if input have value
     isStringValid(str) {
         if (typeof str != 'undefined' && str) {
             return true;

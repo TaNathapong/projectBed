@@ -39,11 +39,13 @@ var HomePage = (function () {
         this.profileData = {};
         this.afAuth.authState.subscribe(function (data) {
             if (data && data.email && data.uid) {
-                _this.afDB.list("/wards/").valueChanges().subscribe(function (_data) {
-                    _this.bedsData = _data;
-                });
+                // Get user's details from firebase
                 _this.afDB.object("profiles/" + data.uid).valueChanges().subscribe(function (_data) {
                     _this.profileData = _data;
+                });
+                // Get data of wards from firebase
+                _this.afDB.list("/wards/").valueChanges().subscribe(function (_data) {
+                    _this.bedsData = _data;
                 });
             }
         });
@@ -51,15 +53,17 @@ var HomePage = (function () {
     HomePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad HomePage');
     };
+    // Go to BedDetailsPage
     HomePage.prototype.openNavDetailsPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__bed_details_bed_details__["a" /* BedDetailsPage */]);
     };
-    HomePage.prototype.openAcLogsPage = function () {
+    // Go to LogsPage
+    HomePage.prototype.openLogsPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__logs_logs__["a" /* LogsPage */]);
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>รพ.ศรีนครินทร์</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="openAcLogsPage()"> ประวัติ &nbsp;</button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="home-content">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-3>\n\n                <b>วอร์ด</b>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <b>เตียงว่าง</b>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <b>อัปเดตล่าสุด</b>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngFor="let bed of bedsData">\n\n            <ion-col col-3>\n\n                <div>{{bed.name}}</div>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <div>{{bed.blank}}</div>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <div class="time">{{bed.time | date:\'dd/M/yy - HH:mm น.\'}}</div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n\n\n    <ion-fab *ngIf="profileData.role" bottom right>\n\n        <button (click)="openNavDetailsPage()" ion-fab color="primary">\n\n            <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>รพ.ศรีนครินทร์</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button (click)="openLogsPage()"> ประวัติ &nbsp;</button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="home-content">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-3>\n\n                <b>วอร์ด</b>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <b>เตียงว่าง</b>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <b>อัปเดตล่าสุด</b>\n\n            </ion-col>\n\n        </ion-row>\n\n\n\n        <!-- Loop -->\n\n        <ion-row *ngFor="let bed of bedsData">\n\n            <ion-col col-3>\n\n                <div>{{bed.name}}</div>\n\n            </ion-col>\n\n            <ion-col col-3>\n\n                <div>{{bed.blank}}</div>\n\n            </ion-col>\n\n            <ion-col col-6>\n\n                <div class="time">{{bed.time | date:\'dd/M/yy - HH:mm น.\'}}</div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n\n\n    <!-- If -->\n\n    <ion-fab *ngIf="profileData.role" bottom right>\n\n        <button (click)="openNavDetailsPage()" ion-fab color="primary">\n\n            <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], HomePage);
@@ -107,11 +111,13 @@ var BedDetailsPage = (function () {
         this.profileData = {};
         this.afAuth.authState.subscribe(function (data) {
             if (data && data.email && data.uid) {
-                _this.afDB.list("/wards/").valueChanges().subscribe(function (_data) {
-                    _this.bedsData = _data;
-                });
+                // Get user's details from firebase                
                 _this.afDB.object("profiles/" + data.uid).valueChanges().subscribe(function (_data) {
                     _this.profileData = _data;
+                });
+                // Get data of wards from firebase                
+                _this.afDB.list("/wards/").valueChanges().subscribe(function (_data) {
+                    _this.bedsData = _data;
                 });
             }
         });
@@ -119,6 +125,7 @@ var BedDetailsPage = (function () {
     BedDetailsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad BedDetailsPage');
     };
+    // Update bed by resident in ward
     BedDetailsPage.prototype.updateBed = function (bed) {
         var _this = this;
         var prompt = this.alertCtrl.create({
@@ -152,7 +159,7 @@ var BedDetailsPage = (function () {
                             });
                             _this.afDB.object('/wards/' + bed.id).update({
                                 blank: data.blank,
-                                time: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP
+                                time: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP // Time use firebase timestamp
                             });
                             var alert_1 = _this.alertCtrl.create({
                                 title: 'บันทึกข้อมูลสำเร็จ',
@@ -176,6 +183,7 @@ var BedDetailsPage = (function () {
         });
         prompt.present();
     };
+    // Add Patient to ward
     BedDetailsPage.prototype.addPatient = function (bed) {
         var _this = this;
         if (bed.blank > 0) {
@@ -188,7 +196,7 @@ var BedDetailsPage = (function () {
                 timestamp: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP
             });
             var confirm_1 = this.alertCtrl.create({
-                title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32 ?",
+                title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32?",
                 message: "\u0E04\u0E38\u0E13\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32\u0E2A\u0E39\u0E48\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name,
                 buttons: [
                     {
@@ -219,7 +227,7 @@ var BedDetailsPage = (function () {
         }
         else {
             var alert_3 = this.alertCtrl.create({
-                title: 'รายการไม่ถูกต้อง !',
+                title: 'รายการไม่ถูกต้อง!',
                 subTitle: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E40\u0E02\u0E49\u0E32\u0E2A\u0E39\u0E48\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name + " \u0E44\u0E14\u0E49\u0E40\u0E19\u0E37\u0E48\u0E2D\u0E07\u0E08\u0E32\u0E01\u0E44\u0E21\u0E48\u0E21\u0E35\u0E40\u0E15\u0E35\u0E22\u0E07\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E17\u0E35\u0E48\u0E27\u0E48\u0E32\u0E07\u0E43\u0E19\u0E02\u0E13\u0E30\u0E19\u0E35\u0E49",
                 buttons: ['OK']
             });
@@ -237,7 +245,7 @@ var BedDetailsPage = (function () {
             timestamp: __WEBPACK_IMPORTED_MODULE_4_firebase__["database"].ServerValue.TIMESTAMP
         });
         var confirm = this.alertCtrl.create({
-            title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E14\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E2D\u0E2D\u0E01 ?",
+            title: "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E14\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E2D\u0E2D\u0E01?",
             message: "\u0E04\u0E38\u0E13\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E25\u0E14\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22\u0E2D\u0E2D\u0E01\u0E08\u0E32\u0E01\u0E27\u0E2D\u0E23\u0E4C\u0E14 " + bed.name,
             buttons: [
                 {
@@ -320,8 +328,8 @@ var CreateCalendarPage = (function () {
                 'Authorization': 'Bearer ' + this.global.access_token
             })
         };
-        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-        this.dataUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events';
+        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com'; // Calendar group
+        this.dataUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events'; // Url use to create evnet 
     }
     CreateCalendarPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad CreateCalendarPage');
@@ -339,17 +347,16 @@ var CreateCalendarPage = (function () {
         else {
             var startDateTimeISO = this.buildISODate(this.calendarEvent.startDate, this.calendarEvent.startTime);
             var enddateTimeISO = this.buildISODate(this.calendarEvent.endDate, this.calendarEvent.endTime);
-            console.log(enddateTimeISO);
             var body = {
                 "summary": this.calendarEvent.name,
                 "description": this.calendarEvent.description,
                 "start": {
                     "dateTime": startDateTimeISO,
-                    "timeZone": "Asia/Bangkok" // TODO : Parameterize this
+                    "timeZone": "Asia/Bangkok"
                 },
                 "end": {
                     "dateTime": enddateTimeISO,
-                    "timeZone": "Asia/Bangkok" // TODO : Parameterize this
+                    "timeZone": "Asia/Bangkok"
                 }
             };
             this.http.post(this.dataUrl, body, this.httpOptions).subscribe(function (res) {
@@ -359,7 +366,7 @@ var CreateCalendarPage = (function () {
                     buttons: ['OK']
                 });
                 alert.present();
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__calendar_calendar__["a" /* CalendarPage */]);
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__calendar_calendar__["a" /* CalendarPage */]); // Go to CalendarPage
             }, function (error) {
                 console.log(error);
                 var alert = _this.alertCtrl.create({
@@ -371,12 +378,14 @@ var CreateCalendarPage = (function () {
             });
         }
     };
+    // Build date to ISO 8601 format
     CreateCalendarPage.prototype.buildISODate = function (date, time) {
         var dateArray = date && date.split('-');
         var timeArray = time && time.split(':');
         var normalDate = new Date(parseInt(dateArray[0]), parseInt(dateArray[1]) - 1, parseInt(dateArray[2]), parseInt(timeArray[0]), parseInt(timeArray[1]), 0, 0);
         return normalDate.toISOString();
     };
+    // Validate input
     CreateCalendarPage.prototype.validate = function () {
         return this.isStringValid(this.calendarEvent.name) &&
             this.isStringValid(this.calendarEvent.startDate) &&
@@ -384,6 +393,7 @@ var CreateCalendarPage = (function () {
             this.isStringValid(this.calendarEvent.endDate) &&
             this.isStringValid(this.calendarEvent.endTime);
     };
+    // Check if input have value
     CreateCalendarPage.prototype.isStringValid = function (str) {
         if (typeof str != 'undefined' && str) {
             return true;
@@ -430,6 +440,7 @@ var ContactDetailsPage = (function () {
         this.navParams = navParams;
         this.callNumber = callNumber;
     }
+    // Get data from contact page
     ContactDetailsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ContactDetailsPage');
         this.name = this.navParams.get('name');
@@ -441,6 +452,7 @@ var ContactDetailsPage = (function () {
         this.email = this.navParams.get('email');
         this.picture = this.navParams.get('picture');
     };
+    // Call by use mobile system
     ContactDetailsPage.prototype.call = function (phone) {
         this.callNumber.callNumber(phone, true)
             .then(function () { return console.log('Launched dialer'); })
@@ -494,15 +506,15 @@ var ContactPage = (function () {
         this.afDB = afDB;
         this.callNumber = callNumber;
         this.items = [];
-        this.contactRef = __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref('/contacts');
-        this.contactRef.on('value', function (countryList) {
-            var countries = [];
-            countryList.forEach(function (country) {
-                countries.push(country.val());
+        this.contactRef = __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref('/contacts'); // Reference database location
+        this.contactRef.on('value', function (contactList) {
+            var contacts = [];
+            contactList.forEach(function (contact) {
+                contacts.push(contact.val());
                 return false;
             });
-            _this.contactList = countries;
-            _this.loadedContactList = countries;
+            _this.contactList = contacts;
+            _this.loadedContactList = contacts;
         });
     }
     ContactPage.prototype.ionViewDidLoad = function () {
@@ -511,6 +523,7 @@ var ContactPage = (function () {
     ContactPage.prototype.initializeItems = function () {
         this.contactList = this.loadedContactList;
     };
+    // Go and send data to ContactDetailsPage
     ContactPage.prototype.openNavSubContact = function (contact) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__contact_details_contact_details__["a" /* ContactDetailsPage */], {
             name: contact.name,
@@ -525,6 +538,7 @@ var ContactPage = (function () {
     };
     ContactPage.prototype.initializeContacts = function () {
         var _this = this;
+        // Get contact from firebase
         this.afDB.list("/contacts/").valueChanges().subscribe(function (_data) {
             _this.contactList = _data;
         });
@@ -541,6 +555,7 @@ var ContactPage = (function () {
             });
         }
     };
+    // Call by use mobile system
     ContactPage.prototype.call = function (phone) {
         this.callNumber.callNumber(phone, true)
             .then(function () { return console.log('Launched dialer'); })
@@ -637,16 +652,18 @@ var LoginPage = (function () {
         this.afAuth = afAuth;
         this.user = {};
         this.authState = null;
+        // Hide side menu
         this.menu.enable(false);
     }
     LoginPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         console.log('ionViewDidLoad LoginPage');
+        // Check user sign in with Google. If true will go to homepage
         __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().onAuthStateChanged(function (user) {
             if (user) {
                 __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult().then(function (result) {
                     if (result.user) {
-                        _this.global.access_token = result.credential.accessToken;
+                        _this.global.access_token = result.credential.accessToken; // Get access_token use to manage google calendar
                         _this.afAuth.authState.subscribe(function (data) {
                             if (data && data.email && data.uid) {
                                 _this.toast.create({
@@ -655,16 +672,18 @@ var LoginPage = (function () {
                                 }).present();
                             }
                         });
-                        _this.menu.enable(true);
-                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+                        _this.menu.enable(true); // Enable side menu
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]); // Go to Home page
                     }
                 });
             }
         });
     };
+    // Go to Resetpwd page
     LoginPage.prototype.openNavResetpwdPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__resetpwd_resetpwd__["a" /* ResetpwdPage */]);
     };
+    // Sign in firebase with Email
     LoginPage.prototype.login = function (user) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
@@ -672,8 +691,8 @@ var LoginPage = (function () {
             return __generator(this, function (_a) {
                 try {
                     __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithEmailAndPassword(user.email, user.password).then(function (result) {
-                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
-                        _this.menu.enable(true);
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]); // Go to Home page
+                        _this.menu.enable(true); // Enable side menu
                         _this.afAuth.authState.subscribe(function (data) {
                             if (data && data.email && data.uid) {
                                 _this.toast.create({
@@ -683,7 +702,6 @@ var LoginPage = (function () {
                             }
                         });
                     }).catch(function (error) {
-                        console.error(error);
                         var alert = _this.alertCtrl.create({
                             title: 'Error!',
                             subTitle: error.message,
@@ -693,7 +711,6 @@ var LoginPage = (function () {
                     });
                 }
                 catch (error) {
-                    console.error(error);
                     alert_1 = this.alertCtrl.create({
                         title: 'Error!',
                         subTitle: error.message,
@@ -706,13 +723,14 @@ var LoginPage = (function () {
             });
         });
     };
+    // Sign in firebase with Google
     LoginPage.prototype.googleLogin = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             var provider;
             return __generator(this, function (_a) {
                 provider = new __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"].GoogleAuthProvider();
-                provider.addScope('https://www.googleapis.com/auth/calendar');
+                provider.addScope('https://www.googleapis.com/auth/calendar'); // Add scope to get permission to manage google calendar
                 __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().signInWithRedirect(provider).then(function () {
                     return __WEBPACK_IMPORTED_MODULE_4_firebase__["auth"]().getRedirectResult();
                 }).then(function (result) {
@@ -730,6 +748,7 @@ var LoginPage = (function () {
             });
         });
     };
+    // Get user detail from google to store in firebase
     LoginPage.prototype.updateUserData = function () {
         // Writes user name and email to realtime db
         // useful if your app displays information about users or for admin features
@@ -796,6 +815,7 @@ var LogsPage = (function () {
         this.afDB = afDB;
         this.today = new Date();
         this.logs = [];
+        // Get logs from firebase
         this.afDB.list("/updateLogs/").valueChanges().subscribe(function (_data) {
             _this.logs = _data;
         });
@@ -879,6 +899,7 @@ var ResetpwdPage = (function () {
     ResetpwdPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ResetpwdPage');
     };
+    // Reset firebase password by send Email to confirm new password
     ResetpwdPage.prototype.resetPwd = function (email) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
@@ -886,7 +907,7 @@ var ResetpwdPage = (function () {
             return __generator(this, function (_a) {
                 confirm = this.alertCtrl.create({
                     title: "Reset Password",
-                    message: "ท่านต้องการยืนยันการส่งอีเมลการรีเซ็ตรหัสผ่านหรือไม่ ?",
+                    message: "ท่านต้องการยืนยันการส่งอีเมลการรีเซ็ตรหัสผ่านหรือไม่?",
                     buttons: [
                         {
                             text: 'ปฏิเสธ',
@@ -897,33 +918,32 @@ var ResetpwdPage = (function () {
                         {
                             text: 'ยืนยัน',
                             handler: function () { return __awaiter(_this, void 0, void 0, function () {
-                                var result, e_1, alert_1;
+                                var _this = this;
+                                var alert_1;
                                 return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0:
-                                            console.log('Agree clicked');
-                                            _a.label = 1;
-                                        case 1:
-                                            _a.trys.push([1, 3, , 4]);
-                                            return [4 /*yield*/, this.afAuth.auth.sendPasswordResetEmail(email)];
-                                        case 2:
-                                            result = _a.sent();
-                                            if (result) {
-                                                console.log("Email sent");
-                                            }
-                                            return [3 /*break*/, 4];
-                                        case 3:
-                                            e_1 = _a.sent();
-                                            console.error(e_1);
-                                            alert_1 = this.alertCtrl.create({
-                                                title: 'Error!',
-                                                subTitle: e_1.message,
+                                    console.log('Agree clicked');
+                                    try {
+                                        this.afAuth.auth.sendPasswordResetEmail(email) // Send Email
+                                            .then(function (res) {
+                                            console.log("Email sent");
+                                            var alert = _this.alertCtrl.create({
+                                                title: 'Email sent!',
+                                                subTitle: 'Email sent compete',
                                                 buttons: ['OK']
                                             });
-                                            alert_1.present();
-                                            return [3 /*break*/, 4];
-                                        case 4: return [2 /*return*/];
+                                            alert.present();
+                                        });
                                     }
+                                    catch (e) {
+                                        console.error(e);
+                                        alert_1 = this.alertCtrl.create({
+                                            title: 'Error!',
+                                            subTitle: e.message,
+                                            buttons: ['OK']
+                                        });
+                                        alert_1.present();
+                                    }
+                                    return [2 /*return*/];
                                 });
                             }); }
                         }
@@ -1229,6 +1249,7 @@ var MyApp = (function () {
         platform.ready().then(function () {
             statusBar.styleDefault();
             splashScreen.hide();
+            // Detect push back Button for exit app
             platform.registerBackButtonAction(function () {
                 if (_this.counter == 0) {
                     _this.nav.pop();
@@ -1241,17 +1262,20 @@ var MyApp = (function () {
                 }
             });
         });
+        // Page in side menu
         this.pages = [
             { title: 'หน้าแรก', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
             { title: 'รายชื่อบุคลากร', component: __WEBPACK_IMPORTED_MODULE_9__pages_contact_contact__["a" /* ContactPage */] },
             { title: 'ปฏิทินตารางนัดหมาย', component: __WEBPACK_IMPORTED_MODULE_10__pages_calendar_calendar__["a" /* CalendarPage */] }
         ];
+        // Get user's details from firebase
         this.afAuth.authState.subscribe(function (data) {
             if (data && data.email && data.uid) {
                 _this.profileData = _this.afDB.object("profiles/" + data.uid).valueChanges();
             }
         });
     }
+    // Exit app alert
     MyApp.prototype.presentConfirm = function () {
         var _this = this;
         var alert = this.alertCtrl.create({
@@ -1270,7 +1294,7 @@ var MyApp = (function () {
                     text: 'ตกลง',
                     handler: function () {
                         console.log('Yes clicked');
-                        _this.logOut();
+                        _this.signOut();
                         _this.platform.exitApp();
                     }
                 }
@@ -1280,23 +1304,23 @@ var MyApp = (function () {
             _this.alertShown = true;
         });
     };
+    // Open page in side menu
     MyApp.prototype.openPage = function (page) {
-        // Reset the content nav to have just this page
-        // we wouldn't want the back button to show in this scenario
         this.nav.setRoot(page.component);
     };
-    MyApp.prototype.logOut = function () {
+    // Sign out from firebase
+    MyApp.prototype.signOut = function () {
         __WEBPACK_IMPORTED_MODULE_6_firebase__["auth"]().signOut();
-        this.profileData = null;
-        this.global.access_token = null;
-        window.location.reload();
+        this.profileData = null; // remove profileData
+        this.global.access_token = null; // remove access_token
+        window.location.reload(); // reload app
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/app/app.html"*/'<ion-menu menuClose [content]="content">\n    <ion-content>\n        <ion-item *ngIf="profileData | async; let profileData; else loading">\n            <ion-avatar style="width:25%" item-start>\n                <img style="width:100%; height:100%" src="{{profileData.picture}}">\n            </ion-avatar>\n            <h2>{{profileData.name}}</h2>\n            <p *ngIf="profileData.role">หน้าที่ : {{profileData.role}}</p>\n            <p *ngIf="!profileData.role">หน้าที่ : Staff</p>\n            <p *ngIf="profileData.ward">วอร์ดที่ : {{profileData.ward}}</p>\n        </ion-item>\n\n        <ion-list>\n            <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">\n                {{page.title}}\n            </button>\n        </ion-list>\n\n        <ion-footer>\n            <button class="logout" (click)="logOut()" menuClose ion-item>\n                Sign Out\n            </button>\n        </ion-footer>\n    </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/app/app.html"*/'<!-- Side Menu -->\n<ion-menu menuClose [content]="content">\n    <ion-content>\n        <!-- User detail -->\n        <ion-item *ngIf="profileData | async; let profileData; else loading">\n            <ion-avatar style="width:25%" item-start>\n                <img style="width:100%; height:100%" src="{{profileData.picture}}">\n            </ion-avatar>\n            <h2>{{profileData.name}}</h2>\n            <p *ngIf="profileData.role">หน้าที่ : {{profileData.role}}</p>\n            <p *ngIf="!profileData.role">หน้าที่ : Staff</p>\n            <p *ngIf="profileData.ward">วอร์ดที่ : {{profileData.ward}}</p>\n        </ion-item>\n\n        <!-- Show Page -->\n        <ion-list>\n            <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">\n                {{page.title}}\n            </button>\n        </ion-list>\n\n        <!-- Sign Out in footer -->\n        <ion-footer>\n            <button class="signOut" (click)="signOut()" menuClose ion-item>\n                Sign Out\n            </button>\n        </ion-footer>\n    </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_11__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], MyApp);
@@ -1371,20 +1395,22 @@ var CalendarPage = (function () {
         this.navCtrl = navCtrl;
         this.http = http;
         this.alertCtrl = alertCtrl;
+        // Header of httpclient use to permission calendar
         this.httpOptions = {
             headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + this.global.access_token
             })
         };
-        this.API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ';
-        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com';
-        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join('');
-        this.deleteUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events';
+        this.API_KEY = 'AIzaSyB58v5A6gq5JLqQxkGjbtkZG9mMTH1GPpQ'; // Google calendar API
+        this.CALENDAR_ID = 'ck6s9si7a6use63smh6qib2ips@group.calendar.google.com'; // Calendar group
+        this.dataUrl = ['https://www.googleapis.com/calendar/v3/calendars/', this.CALENDAR_ID, '/events?&key=', this.API_KEY].join(''); // Url use to get evnet 
+        this.deleteUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + this.CALENDAR_ID + '/events'; // Url use to delete evnet
         this.mode = 'month';
         this.calendar = {
             currentDate: new Date()
         };
+        // Detect when click event to show detail
         this.onEventSelected = function (event) {
             var startHour = event.startTime.getHours();
             var startMinute = event.startTime.getMinutes();
@@ -1481,6 +1507,7 @@ var CalendarPage = (function () {
                 confirmAlert.present();
             }
         };
+        // Log when click date
         this.onTimeSelected = function (ev) {
             console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' + (ev.events !== undefined && ev.events.length !== 0));
         };
@@ -1495,6 +1522,7 @@ var CalendarPage = (function () {
         console.log('ionViewDidLoad CalendarPage');
         this.getEvent();
     };
+    // go to CreateCalendarPage
     CalendarPage.prototype.openNavCreateCalendarPage = function () {
         if (this.global.access_token) {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__calendar_create_calendar_create__["a" /* CreateCalendarPage */]);
@@ -1508,6 +1536,7 @@ var CalendarPage = (function () {
             alert_1.present();
         }
     };
+    // Get google calendar event
     CalendarPage.prototype.getEvent = function () {
         var _this = this;
         var data;
@@ -1515,10 +1544,10 @@ var CalendarPage = (function () {
             data = _data['items'];
             var events = [];
             for (var i = 0; i < data.length; i++) {
-                var startTime = data[i].start.dateTime;
-                var endTime = data[i].end.dateTime;
-                var startDate = data[i].end.date;
-                var endDate = data[i].end.date;
+                var startTime = data[i].start.dateTime; // Start Time of event
+                var endTime = data[i].end.dateTime; // End Time of event
+                var startDate = data[i].end.date; // Start date of event
+                var endDate = data[i].end.date; // End date of event
                 if (startDate != undefined) {
                     if (endDate === startDate) {
                         var day = new Date(endDate);
@@ -1547,9 +1576,10 @@ var CalendarPage = (function () {
                     });
                 }
             }
-            _this.eventSource = events;
+            _this.eventSource = events; // Store event to eventSource
         });
     };
+    // Delete google calendar event
     CalendarPage.prototype.deleteEvent = function (eventId) {
         var _this = this;
         if (this.global.access_token) {
@@ -1560,7 +1590,7 @@ var CalendarPage = (function () {
                     buttons: ['OK']
                 });
                 alert.present();
-                _this.navCtrl.setRoot(CalendarPage_1);
+                _this.navCtrl.setRoot(CalendarPage_1); // Go to CalendarPage
             }, function (error) {
                 var alert = _this.alertCtrl.create({
                     title: error.name,
@@ -1579,12 +1609,15 @@ var CalendarPage = (function () {
             alert_2.present();
         }
     };
+    // Change title auto when click date in calendar
     CalendarPage.prototype.onViewTitleChanged = function (title) {
         this.viewTitle = title;
     };
+    // Change mode (day, week, month)
     CalendarPage.prototype.changeMode = function (mode) {
         this.mode = mode;
     };
+    // Return to today
     CalendarPage.prototype.today = function () {
         this.calendar.currentDate = new Date();
     };
@@ -1594,6 +1627,7 @@ var CalendarPage = (function () {
         event.setHours(0, 0, 0, 0);
         this.isToday = today.getTime() === event.getTime();
     };
+    // Change time format
     CalendarPage.prototype.checkTime = function (i) {
         if (i < 10) {
             i = "0" + i;
@@ -1602,7 +1636,7 @@ var CalendarPage = (function () {
     };
     CalendarPage = CalendarPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary" no-border-bottom>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title class="title">{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class="calendar-content">\n    <calendar [eventSource]="eventSource" [calendarMode]="mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"\n        (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"\n        (onTimeSelected)="onTimeSelected($event)" step="30">\n    </calendar>\n\n    <ion-fab *ngIf="global.access_token" bottom right>\n        <button (click)="openNavCreateCalendarPage()" ion-fab color="primary">\n            <ion-icon name="add"></ion-icon>\n        </button>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
+            selector: 'page-calendar',template:/*ion-inline-start:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/'<ion-header>\n    <ion-navbar color="primary" no-border-bottom>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title class="title">{{viewTitle}}</ion-title>\n        <ion-buttons end>\n            <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n        </ion-buttons>\n    </ion-navbar>\n    <ion-toolbar color="primary" no-border-top>\n        <ion-segment color="light" [(ngModel)]="mode">\n            <ion-segment-button value="month" (click)="changeMode(\'month\')">\n                Month\n            </ion-segment-button>\n            <ion-segment-button value="week" (click)="changeMode(\'week\')">\n                Week\n            </ion-segment-button>\n            <ion-segment-button value="day" (click)="changeMode(\'day\')">\n                Day\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class="calendar-content">\n    <!-- Calendar frame -->\n    <calendar [eventSource]="eventSource" [calendarMode]="mode" [currentDate]="calendar.currentDate" startHour="7" endHour="19"\n        (onCurrentDateChanged)="onCurrentDateChanged($event)" (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="onEventSelected($event)"\n        (onTimeSelected)="onTimeSelected($event)" step="30">\n    </calendar>\n\n    <ion-fab *ngIf="global.access_token" bottom right>\n        <button (click)="openNavCreateCalendarPage()" ion-fab color="primary">\n            <ion-icon name="add"></ion-icon>\n        </button>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"/Users/nathapong/ionic/projectBed/src/pages/calendar/calendar.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */]])
     ], CalendarPage);

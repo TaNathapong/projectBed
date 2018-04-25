@@ -1,5 +1,7 @@
+<!-- Side Menu -->
 <ion-menu menuClose [content]="content">
     <ion-content>
+        <!-- User detail -->
         <ion-item *ngIf="profileData | async; let profileData; else loading">
             <ion-avatar style="width:25%" item-start>
                 <img style="width:100%; height:100%" src="{{profileData.picture}}">
@@ -10,14 +12,16 @@
             <p *ngIf="profileData.ward">วอร์ดที่ : {{profileData.ward}}</p>
         </ion-item>
 
+        <!-- Show Page -->
         <ion-list>
             <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">
                 {{page.title}}
             </button>
         </ion-list>
 
+        <!-- Sign Out in footer -->
         <ion-footer>
-            <button class="logout" (click)="logOut()" menuClose ion-item>
+            <button class="signOut" (click)="signOut()" menuClose ion-item>
                 Sign Out
             </button>
         </ion-footer>
