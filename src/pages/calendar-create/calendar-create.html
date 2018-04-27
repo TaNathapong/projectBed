@@ -7,21 +7,21 @@
 <ion-content padding class="calendar-create-content">
     <ion-list>
         <ion-item-group>
-            <ion-item transparent>
+            <ion-item style="background: transparent;">
                 <ion-label floating>Name</ion-label>
                 <ion-input type="text" [(ngModel)]="calendarEvent.name"></ion-input>
             </ion-item>
-            <ion-item transparent>
+            <ion-item style="background: transparent;">
                 <ion-label floating>Description</ion-label>
                 <ion-input type="text" [(ngModel)]="calendarEvent.description"></ion-input>
             </ion-item>
 
             <ion-row>
-                <ion-item transparent col-6>
+                <ion-item style="background: transparent;" col-6>
                     <ion-label floating>Start Date</ion-label>
                     <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>
                 </ion-item>
-                <ion-item transparent class="line" col-6>
+                <ion-item style="background: transparent;" class="line" col-6>
                     <ion-label floating>Start Time</ion-label>
                     <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"
                         [(ngModel)]="calendarEvent.startTime"></ion-datetime>
@@ -29,11 +29,11 @@
             </ion-row>
 
             <ion-row>
-                <ion-item transparent col-6>
+                <ion-item style="background: transparent;" col-6>
                     <ion-label floating>End Date</ion-label>
                     <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMMM YYYY" [min]="calendarEvent.startDate" [(ngModel)]="calendarEvent.endDate"></ion-datetime>
                 </ion-item>
-                <ion-item transparent class="line" col-6>
+                <ion-item style="background: transparent;" class="line" col-6>
                     <ion-label floating>End Time</ion-label>
                     <ion-datetime displayFormat="HH:mm น." pickerFormat="HH:mm" min="07:00" max="20:00" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"
                         [min]="calendarEvent.startTime" [(ngModel)]="calendarEvent.endTime"></ion-datetime>
